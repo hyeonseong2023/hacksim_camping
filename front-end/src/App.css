@@ -1,0 +1,158 @@
+/* 모두의 캠핑 */
+@font-face {
+	font-family: 'Pretendard-Regular';
+	src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+*{
+	font-family: 'Pretendard-Regular';
+}
+
+
+
+#logo{
+position: relative;
+height: 30px;
+left: 20px;
+top: 30px;
+
+font-family: 'Pretendard Variable';
+font-style: normal;
+font-weight: 900;
+font-size: 30px;
+line-height: 36px;
+/* identical to box height */
+
+
+color: #000000;
+}
+
+
+/* 커뮤니티 */
+
+#comunity{
+position: relative;
+
+height: 30px;
+left: 235px;
+top: 30px;
+
+font-family: 'Pretendard Variable';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+
+color: #005F20;
+}
+
+
+/* 쇼핑 */
+
+#shop{
+position: relative;
+
+height: 30px;
+left: 355px;
+top: 30px;
+
+font-family: 'Pretendard Variable';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+
+color: #000000;
+}
+
+
+/* 회원가입 */
+#register{
+position: relative;
+
+height: 30px;
+left: 1127px;
+top: 30px;
+
+font-family: 'Pretendard Variable';
+font-style: normal;
+font-weight: 500;
+font-size: 19px;
+line-height: 23px;
+/* identical to box height */
+
+
+color: #000000;
+}
+
+
+/* 고객센터 */
+
+#gogak{
+position: relative;
+
+height: 30px;
+left: 1215px;
+top: 30px;
+
+font-family: 'Pretendard Variable';
+font-style: normal;
+font-weight: 500;
+font-size: 19px;
+line-height: 23px;
+/* identical to box height */
+
+
+color: #000000;
+}
+
+
+/* Group 32 */
+
+#search{
+position: relative;
+
+height: 30px;
+left: 565px;
+top: 30px;
+}
+
+
+/* Rectangle 10 */
+
+#write{
+position: relative;
+
+height: 30px;
+left: 1304px;
+top: 30px;
+
+background: #368350;
+border-radius: 4px;
+}
+
+/* 글쓰기 */
+
+#write{
+position: relative;
+
+height: 30px;
+left: 1337px;
+top: 30px;
+
+font-family: 'Pretendard Variable';
+font-style: normal;
+font-weight: 500;
+font-size: 19px;
+line-height: 23px;
+/* identical to box height */
+
+text-align: center;
+
+color: #FFFFFF;
+}
