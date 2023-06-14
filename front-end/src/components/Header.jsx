@@ -1,53 +1,43 @@
-import React from "react";
+import React from 'react'
+import { Link } from "react-router-dom";
 
-const Main = () => {
+const Header = () => {
+  const toMiddle = {
+    verticalAlign:"middle",
+  }
+
   return (
-    <div>
-      {/* <div className="container">
-   <div className="item">모두의 캠핑</div>
-   <div className="item">커뮤니티</div>
-</div>
+    <div className='header' id='header'>
+      <div className='siteName'>
+        <p><strong><Link to="/">모두의 캠핑</Link></strong></p>
+      </div>
 
----------------------------
-.container {
-   display:flex;
-   justify-content:space-between
-   align-items: center;
-} */}
+      <div style={{fontSize:"18px", margin:"48px 0 48px 0"}}>
+        전체 게시판
+      </div>
 
-      <header
-        style={{
-          margin: "0 auto",
-          width: "1440px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          height: "100px",
-          backgroundColor: "whitesmoke",
-        }}
-      >
-        <div className="left">
-          <div id="logo">모두의 캠핑</div>
-
-          <div id="comunity">커뮤니티</div>
-
-          <div id="shop">쇼핑</div>
+      <div className='header-menu'>
+        <div className='item btn' >
+          <p>인기글</p>
         </div>
 
-        <div id="search">
-          <input type="text" placeholder="검색하세요" />
+        <div className='item btn'>
+          최신글
         </div>
 
-        <div className="right">
-          <div id="register">회원가입</div>
-
-          <div id="gogak">고객센터</div>
-
-          <div id="write">글쓰기</div>
+        <div className='item btn'>
+          좋아요 Best
         </div>
-      </header>
+        
+        <div className='item btn'>
+          유용해요 Best
+
+      </div>
+
+      </div>
+
     </div>
-  );
-};
+  )
+}
 
-export default Main;
+export default Header
