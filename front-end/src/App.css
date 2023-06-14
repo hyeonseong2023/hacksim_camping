@@ -1,236 +1,115 @@
+/* 모두의 캠핑 */
+
 @font-face {
-  font-family: 'Pretendard-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
   font-weight: 400;
   font-style: normal;
 }
-
 * {
-  /* font-family: 'Pretendard-Regular'; */
-  font-family: 'Plus Jakarta Sans';
+  font-family: "Pretendard-Regular";
 }
-
-
-/*-------------------------------- header --------------------------------*/
-.App {
-  text-align: center;
-  margin: 0 15% 0;
-}
-
-.txtCenter {
-  text-align: center;
-}
-
-
-.btn {
-  
-}
-
-
-.siteName > p{
-  font-size: 48px;
-  
-}
-
-.header-menu {
-  border-bottom: 1px solid black;
-  /* margin: 0 16% 50px; */
+/* 왼쪽 부모님 */
+header .left {
+  flex-basis: 25%;
+  display: flex;
   justify-content: space-around;
-  display: flex;
-  flex-direction: row;
-  height: 100px;
-  align-items: center;
-  /* background-color: lightblue; */
 }
-
-.header-menu > .item {
+/* 오른쪽 부모님 */
+header .right {
   flex-basis: 25%;
-  width: 100px;
-  height: 80%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+}
+header .left #logo {
+  flex-basis: 50%;
+  height: 30px;
+
+  font-family: "Pretendard Variable";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 36px;
+  /* identical to box height */
+
+  color: #000000;
 }
 
-.header-menu > .item:hover {
-  flex-basis: 25%;
-  cursor:default;
-  border-bottom: 4px solid black;
-  /* background-color: whitesmoke; */
-  /* border: 1px solid black; */
-  height: 100%;
-  width: 260px;
+/* 커뮤니티 */
 
+#comunity {
+  font-family: "Pretendard Variable";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  color: #005f20;
 }
 
-/*-------------------------------- container --------------------------------*/
-.container {
-  flex-direction: row;
-  align-items: flex-end;
-  background-color: white;
-  margin: 0 15% 0;
-  display:flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  background-color: yellow;
-  
+/* 쇼핑 */
+
+#shop {
+  font-family: "Pretendard Variable";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  color: #000000;
 }
 
+/* 회원가입 */
+#register {
+  font-family: "Pretendard Variable";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 23px;
+  /* identical to box height */
 
-
-
-/* .container > .item:hover{
-  transform: scale(1); */
-  /* position: fixed; */
-  /* left: 480px;
-  top: 10px; */
-  /* background-color: pink; */
-  /* opacity:0.5;
-} */
-
-
-.container>.item:hover body{
-  background-color: pink;
+  color: #000000;
 }
 
+/* 고객센터 */
 
+#gogak {
+  font-family: "Pretendard Variable";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 23px;
+  /* identical to box height */
 
-
-/* 0~599 */
-@media only screen and (min-width: 0px) and (max-width: 599px) {
-  .container > .item {
-    background-color: white;
-    /* border: 1px solid black; */
-    flex-basis: 80%;
-    margin: 0 1px 30px; /*위-오른쪽/왼쪽-아래*/
-    /* border: 1px solid black; */
-    font-size: 1rem;
-  }
+  color: #000000;
 }
 
-/* 600~899 */
-@media only screen and (min-width: 600px) and (max-width: 899px) {
-  .container > .item {
-    background-color: white;
-    /* border: 1px solid black; */
-    flex-basis: 45%;
-    margin: 0 1px 30px; /*위-오른쪽/왼쪽-아래*/
-    /* border: 1px solid black; */
-    border-radius: 20px;
-  }
+/* Group 32 */
+
+#search {
+  flex-basis: 10%;
+  height: 30px;
 }
 
-/* 900~ */
-@media only screen and (min-width: 900px) and (max-width: 1920px) {
-.container > .item {
-    background-color: white;
-    /* border: 1px solid black; */
-    flex-basis: 20%;
-    margin: 0 1.5% 5%; /*위-오른쪽/왼쪽-아래*/
-    /* border: 1px solid black; */
-    
+/* Rectangle 10 */
+
+#write {
+  background: #368350;
+  border-radius: 4px;
 }
 
-.container > .item img{
-	border-radius: 10px;
-	height: 120px;
-}
+/* 글쓰기 */
 
+#write {
+  font-family: "Pretendard Variable";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 23px;
+  /* identical to box height */
 
-
-}
-
-/*-------------------------------- writer --------------------------------*/
-
-
-.write {
-	background-color: rgb(238, 238, 238);
-	padding-left: 1%;
-	padding-right: 1%;
-	border-radius: 20px;
-	position: relative;
-	height: 60vh;
-}
-.story-header {
-	
-	display:flex;
-	flex-wrap:wrap;
-}
-.story-header>p {
-	text-align: left;
-	flex-basis:100%
-}
-.story-header>input {
-	text-align: left;
-	flex-basis: 100%;
-	
-}
-.story_content {
-	padding-left: 1%;
-	display:flex;
-	position: relative;	
-	margin-bottom: 10px;
-}
-.story_content> .content-left{
-	flex-basis: 49%;
-	height: 20vh;
-}
-.story_content> .content-right{
-	flex-basis: 50%;
-	display: flex;
-	justify-content: center;
-}
-
-/* 0~799 */
-@media only screen and (min-width: 0px) and (max-width: 799px) {
-	.story_content {
-		flex-wrap:wrap;
-		height: 30vh;
-	}
-	.story_content> .content-left{
-		flex-basis: 100%;
-		height: 20vh;
-		margin-bottom: 10px;
-	}
-	.story_content> .content-right{
-		flex-basis: 100%;
-		height: 20vh;
-		margin-bottom: 10px;
-	}
-
-	
-}
-
-
-
-
-.content-right > textarea {
-	flex-basis: 95%;
-}
-
-input[type=file]::file-selector-button {
-	width: 150px;
-	height: 30px;
-	background: #fff;
-	border: 1px solid rgb(77,77,77);
-	border-radius: 10px;
-	cursor: pointer;
-	&:hover {
-		background-color: rgb(77,77,77);
-		color: #fff;
-	}
-  }
-
-input:focus, textarea:focus {
-	outline: none;
-	/* outline: 2px solid #f00; */
-}
-
-
-
-
-.content-upload {
-	display: flex;
-	flex-direction: row-reverse;
-	padding-right: 2%;
+  color: #ffffff;
 }
