@@ -22,7 +22,7 @@ public class UserController {
 	@RequestMapping(value="/user/login", method=RequestMethod.POST)
 	public String login(@RequestParam("email") String email, @RequestParam("pw") String pw, HttpSession session) {
 		User us = new User(email,pw);
-		User loginUser = Mapper.login(us);
+		User loginUser = Mapper.login (us);
 		service.login(email, pw);
 		
 		return "";
