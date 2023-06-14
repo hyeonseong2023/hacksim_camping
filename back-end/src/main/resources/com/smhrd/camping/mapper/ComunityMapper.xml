@@ -5,8 +5,8 @@
 
   <mapper namespace="com.smhrd.camping.mapper.ComunityMapper">
   	<insert id="write" parameterType="com.smhrd.camping.domain.Comunity">
-  		insert into TB_STORY(STORY_TITLE,STORY_CONTENT,STORY_IMG,USER_EMAIL)
-  		values(#{STORY_TITLE},#{STORY_CONTENT},#{STORY_IMG},#{USER_EMAIL})
+  		insert into TB_STORY(STORY_CATEGORY,STORY_TITLE,STORY_CONTENT,STORY_IMG,USER_EMAIL)
+  		values(#{story_category},#{story_title},#{story_content},#{story_img},#{user_email})
   	</insert>
   
   </mapper>
