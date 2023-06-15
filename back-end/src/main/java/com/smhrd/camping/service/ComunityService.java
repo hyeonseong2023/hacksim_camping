@@ -14,14 +14,14 @@ import org.springframework.stereotype.Service;
 import com.smhrd.camping.converter.ImageConverter;
 import com.smhrd.camping.converter.ImageToBase64;
 import com.smhrd.camping.domain.Comunity;
-import com.smhrd.camping.mapper.ComunityMapper;
+import com.smhrd.camping.mapper.CampingMapper;
 
 
 @Service
 public class ComunityService {
 	
 	@Autowired
-	private ComunityMapper mapper;
+	private CampingMapper mapper;
 	
 	@Autowired
 	private ResourceLoader resourceLoader;
@@ -86,6 +86,8 @@ public class ComunityService {
 	public int write(Comunity c) {
 		return mapper.write(c);
 	}
+	
+	
 	
 	
 

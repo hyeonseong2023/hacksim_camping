@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.smhrd.camping.domain.Comunity;
 
 @Mapper
-public interface ComunityMapper {
+public interface CampingMapper {
 
 	//comunity 전체 정보 불러오기
 	public List<Comunity> ComunityList();
