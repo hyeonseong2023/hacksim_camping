@@ -11,6 +11,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
+import com.google.gson.Gson;
 import com.smhrd.camping.converter.ImageConverter;
 import com.smhrd.camping.converter.ImageToBase64;
 import com.smhrd.camping.domain.Category;
@@ -27,18 +28,26 @@ public class ComunityService {
 	@Autowired
 	private ResourceLoader resourceLoader;
 	
-	public JSONArray CategoryStep() {
+	public String CategoryStep() {
 		List<Category> clist = mapper.CategoryStep();
-		JSONArray jsonArray = new JSONArray();
-		JSONObject obj = new JSONObject();
-		System.out.println(clist.size());
-		for(int i =0; i<clist.size();i++) {
-			System.out.println(clist.get(i).getCategory_name());
-			obj.put("sdaf", clist.get(i));
-			jsonArray.add(obj);
-		}
+		
+		Gson gson = new Gson();
+		
+		String jsonArr = gson.toJson(clist);
+		
+		System.out.println(jsonArr);
+		
+//		JSONArray jsonArray = new JSONArray();
+//		JSONObject obj = new JSONObject();
+//		System.out.println(clist.size());
+//		for(int i =0; i<clist.size();i++) {
+//			System.out.println(clist.get(i).getCategory_name());
+//			obj.put("sdaf", clist.get(i).getCategory_name());
+//			jsonArray.add(obj);
+//			System.out.println(jsonArray);
+//		}
 			
-		return jsonArray;
+		return jsonArr;
 	}
 	
 	public JSONArray ComunityList() {
