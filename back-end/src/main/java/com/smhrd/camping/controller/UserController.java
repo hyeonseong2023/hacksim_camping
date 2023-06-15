@@ -26,8 +26,8 @@ import jakarta.servlet.http.HttpSession;
 public class UserController {
 
 	// 의존성 주입(DI) : mapper 객체(구현체)를 외부에서 생성하고 주입시켜서 사용
-//	@Autowired
-//	private UserService service;
+	@Autowired
+	private UserService service;
 
 	@Autowired
 	private UserMapper mapper;
@@ -51,8 +51,10 @@ public class UserController {
 	public User Join(@RequestBody User user) {
 		String inputEmail = user.getInputEmail();
 		String inputPw =user.getInputPw();
+		String inputNick =user.getInputNick();
 		System.out.println("가입이메일 : "+inputEmail);
 		System.out.println("가입비밀번호 : "+inputPw);
+		System.out.println("가입닉네임 : "+inputNick);
 		
 		return user;
 	}

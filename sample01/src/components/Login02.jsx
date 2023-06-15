@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import '../login2.css';
 import axios from 'axios'
-const Login02 = ({inputEmail,setInputEmail,inputPw,setInputPw}) => {
+const Login02 = ({inputEmail,setInputEmail,inputPw,setInputPw,inputNick, setInputNick}) => {
 
     
     const handleUseremailChange = (e)=>{
         setInputEmail(e.target.value);
         console.log(e.target.value);
+        setInputNick(e.target.value);
     }
 
 
@@ -15,13 +16,15 @@ const Login02 = ({inputEmail,setInputEmail,inputPw,setInputPw}) => {
         setInputPw(e.target.value);
     }
     
+    
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
         
         const requestData = {
             inputEmail: inputEmail,
-            inputPw: inputPw
+            inputPw: inputPw,
+            inputNick : inputNick
           };
         
         
