@@ -34,6 +34,222 @@
   background-color: lightgray;
   height: 10%;
   justify-content: center;
-  text-align: center;
-  padding: 10px;
+  align-items: center;
 }
+
+.header-menu > .item:hover {
+  flex-basis: 25%;
+  cursor:default;
+  border-bottom: 4px solid black;
+  /* background-color: whitesmoke; */
+  /* border: 1px solid black; */
+  height: 100%;
+  width: 260px;
+
+}
+
+/*-------------------------------- container --------------------------------*/
+.container {
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: white;
+  margin: 0 15% 0;
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: yellow;
+  
+}
+
+
+
+
+/* .container > .item:hover{
+  transform: scale(1); */
+  /* position: fixed; */
+  /* left: 480px;
+  top: 10px; */
+  /* background-color: pink; */
+  /* opacity:0.5;
+} */
+
+
+.container>.item:hover body{
+  background-color: pink;
+}
+
+
+
+
+/* 0~599 */
+@media only screen and (min-width: 0px) and (max-width: 599px) {
+  .container > .item {
+    background-color: white;
+    /* border: 1px solid black; */
+    flex-basis: 80%;
+    margin: 0 1px 30px; /*위-오른쪽/왼쪽-아래*/
+    /* border: 1px solid black; */
+    font-size: 1rem;
+  }
+}
+
+/* 600~899 */
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+  .container > .item {
+    background-color: white;
+    /* border: 1px solid black; */
+    flex-basis: 45%;
+    margin: 0 1px 30px; /*위-오른쪽/왼쪽-아래*/
+    /* border: 1px solid black; */
+    border-radius: 20px;
+  }
+}
+
+/* 900~ */
+@media only screen and (min-width: 900px) and (max-width: 1920px) {
+.container > .item {
+    background-color: white;
+    /* border: 1px solid black; */
+    flex-basis: 20%;
+    margin: 0 1.5% 5%; /*위-오른쪽/왼쪽-아래*/
+    /* border: 1px solid black; */
+    
+}
+
+.container > .item img{
+	border-radius: 10px;
+	height: 120px;
+}
+
+
+
+}
+
+/*-------------------------------- writer --------------------------------*/
+.basis-to-100 {
+  flex-basis:100%
+}
+
+.flex {
+  display:flex;
+}
+
+
+.write {
+	background-color: rgb(238, 238, 238);
+	padding-left: 1%;
+	padding-right: 1%;
+	border-radius: 20px;
+	position: relative;
+	height: 60vh;
+}
+.story-header {
+	
+	display:flex;
+	flex-wrap:wrap;
+}
+.story-header>p {
+	text-align: left;
+	flex-basis:100%
+}
+.story-header>input {
+	text-align: left;
+	flex-basis: 100%;
+	
+}
+.story_content {
+	padding-left: 1%;
+	display:flex;
+	position: relative;	
+	margin-bottom: 10px;
+  flex-wrap: nowrap;
+}
+.story_content> .content-left{
+	flex-basis: 49%;
+	min-height: 250px;
+}
+
+.doWrap {
+  flex-wrap: wrap;
+}
+
+.doWrap> .magnifyImg {
+  flex-basis: 100%;
+}
+
+
+
+.story_content> .content-right{
+	flex-basis: 50%;
+	display: flex;
+	justify-content: center;
+}
+
+div[class=magnifyImg] {
+  background-size: cover;
+}
+div[className=magnifyImg] {
+  background-size: cover;
+}
+
+/* 0~799 */
+@media only screen and (min-width: 0px) and (max-width: 799px) {
+	.story_content {
+		flex-wrap:wrap;
+		height: 30vh;
+	}
+	.story_content> .content-left{
+		flex-basis: 100%;
+		height: 20vh;
+		margin-bottom: 10px;
+	}
+	.story_content> .content-right{
+		flex-basis: 100%;
+		height: 20vh;
+		margin-bottom: 10px;
+	}
+
+	
+}
+
+
+
+
+.content-right > textarea {
+	flex-basis: 95%;
+}
+
+input[type=file]::file-selector-button {
+	width: 150px;
+	height: 30px;
+	background: #fff;
+	border: 1px solid rgb(77,77,77);
+	border-radius: 10px;
+	cursor: pointer;
+	&:hover {
+		background-color: rgb(77,77,77);
+		color: #fff;
+	}
+  }
+
+input:focus, textarea:focus {
+	outline: none;
+	/* outline: 2px solid #f00; */
+}
+
+
+
+
+.content-upload {
+	display: flex;
+	flex-direction: row-reverse;
+	padding-right: 2%;
+}
+
+
+
+.story_content>.basis-to-100 {
+  flex-basis:100%
+}
+
+
