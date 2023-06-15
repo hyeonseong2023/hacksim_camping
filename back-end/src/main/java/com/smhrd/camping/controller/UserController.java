@@ -49,10 +49,11 @@ public class UserController {
 
 	@PostMapping("/join")
 	public User Join(@RequestBody User user) {
-		String getEmail = user.getInputEmail();
-		String getPw =user.getInputPw();
-		System.out.println("가입이메일 : "+getEmail);
-		System.out.println("가입비밀번호 : "+getPw);
+		String inputEmail = user.getInputEmail();
+		String inputPw =user.getInputPw();
+		System.out.println("가입이메일 : "+inputEmail);
+		System.out.println("가입비밀번호 : "+inputPw);
+		
 		return user;
 	}
 }

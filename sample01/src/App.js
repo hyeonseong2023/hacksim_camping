@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Main />}></Route>
         <Route path='/join' element={<Login02 />}></Route>
-        <Route path='/login' element={<Login02 inputEmail={inputEmail} setInputEmail={setInputEmail} inputPW={inputPw} setInputPw={setInputPw} />}></Route>
+        <Route path='/login' element={<Login02 inputEmail={inputEmail} setInputEmail={setInputEmail} inputPw={inputPw} setInputPw={setInputPw} />}></Route>
       </Routes>
       <Footer />
     </div>

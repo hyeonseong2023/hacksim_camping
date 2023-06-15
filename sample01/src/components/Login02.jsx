@@ -18,14 +18,19 @@ const Login02 = ({inputEmail,setInputEmail,inputPw,setInputPw}) => {
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-    
+        
+        const requestData = {
+            inputEmail: inputEmail,
+            inputPw: inputPw
+          };
+        
         
         //회원가입 데이터를 서버로 전송
-        axios.post("/gocamping/join", {inputEmail},{inputPw})
+        axios.post("/gocamping/join", requestData)
         .then((res) => {
         console.log(res);
-        console.log("이메일 = ", inputEmail);
-        console.log("PW =  ", inputPw);
+        console.log("이메일 = ", requestData.inputEmail);
+        console.log("PW =  ", requestData.inputPw);
 
         alert('데이터 전송 성공')
         })
