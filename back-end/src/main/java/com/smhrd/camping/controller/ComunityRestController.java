@@ -35,34 +35,19 @@ public class ComunityRestController {
 	}
 	
 	
-//	@PostMapping("/comunity/write")
-//	public String write(Comunity c, @RequestPart("photo") MultipartFile file) {
-//		String newFileName = UUID.randomUUID().toString() + file.getOriginalFilename();
-//		// 이미지 file -> 저장(지정된 경로에)
-//		try {
-//			file.transferTo(new File(newFileName));
-//		}catch(IllegalStateException e) {
-//			e.printStackTrace();
-//		}catch(IOException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		c.setStory_photo(newFileName);
-//		//c(Comunity) -> title, ~~~~ photo(filename)
-//		//comunity table(DB) -> 랜덤숫자+파일 이름만 저장
-//		int cnt = service.write(c);
-//		
-//		if(cnt>0) {
-//			return "redirect:/comunity";
-//		}
-//		else {
-//			return "redirect:/comunity";
-//		}
-//		
-//	}
 	@PostMapping("/comunity/write")
-	public String write(Comunity c) {
+	public String write(Comunity c, @RequestPart("story_img") MultipartFile file) {
+		String newFileName = UUID.randomUUID().toString() + file.getOriginalFilename();
+		// 이미지 file -> 저장(지정된 경로에)
+		try {
+			file.transferTo(new File(newFileName));
+		}catch(IllegalStateException e) {
+			e.printStackTrace();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
 		
+		c.setStory_img(newFileName);
 		//c(Comunity) -> title, ~~~~ photo(filename)
 		//comunity table(DB) -> 랜덤숫자+파일 이름만 저장
 		int cnt = service.write(c);
@@ -71,10 +56,11 @@ public class ComunityRestController {
 			return "redirect:/comunity";
 		}
 		else {
-			return "redirect:/comunity";
+			return "redirect:/write";
 		}
 		
 	}
+
 	
 	
 }
