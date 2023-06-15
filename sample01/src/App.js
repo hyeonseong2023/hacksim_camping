@@ -9,13 +9,14 @@ import { useState } from 'react';
 function App() {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPw, setInputPw] = useState("");
+  const [inputNick, setInputNick]= useState("");
   return (
     <div>
       <Header />
       <Routes>
         <Route path='/' element={<Main />}></Route>
         <Route path='/join' element={<Login02 />}></Route>
-        <Route path='/login' element={<Login02 inputEmail={inputEmail} setInputEmail={setInputEmail} inputPw={inputPw} setInputPw={setInputPw} />}></Route>
+        <Route path='/login' element={<Login02 inputNick={inputNick} setInputNick={setInputNick} inputEmail={inputEmail} setInputEmail={setInputEmail} inputPw={inputPw} setInputPw={setInputPw} />}></Route>
       </Routes>
       <Footer />
     </div>
