@@ -1,53 +1,26 @@
-import React from "react";
-
-const Main = () => {
+import React from 'react'
+import '../Header.css'
+const Header = () => {
   return (
-    <div>
-      {/* <div className="container">
-   <div className="item">모두의 캠핑</div>
-   <div className="item">커뮤니티</div>
-</div>
 
----------------------------
-.container {
-   display:flex;
-   justify-content:space-between
-   align-items: center;
-} */}
+    <div className='header_container'>
 
-      <header
-        style={{
-          margin: "0 auto",
-          width: "1440px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          height: "100px",
-          backgroundColor: "whitesmoke",
-        }}
-      >
-        <div className="left">
-          <div id="logo">모두의 캠핑</div>
 
-          <div id="comunity">커뮤니티</div>
+      <div id='logo'>모두의캠핑</div>
 
-          <div id="shop">쇼핑</div>
-        </div>
-
+      <div id='search_container'>
         <div id="search">
-          <input type="text" placeholder="검색하세요" />
+          <input type="text" placeholder="검색어 입력" />
+          <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png" />
         </div>
+      </div>
+      <div id='content'>게시판</div>
 
-        <div className="right">
-          <div id="register">회원가입</div>
+      <div id='login'>로그인 및 회원가입</div>
 
-          <div id="gogak">고객센터</div>
-
-          <div id="write">글쓰기</div>
-        </div>
-      </header>
     </div>
-  );
-};
 
-export default Main;
+  )
+}
+
+export default Header
