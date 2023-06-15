@@ -26,6 +26,7 @@ public class ComunityRestController {
 	@GetMapping("/comunity")
 	public JSONArray ComunityList() {
 		JSONArray array = service.ComunityList();
+		
 		return array;
 	}
 	
@@ -41,6 +42,8 @@ public class ComunityRestController {
 		// 이미지 file -> 저장(지정된 경로에)
 		try {
 			file.transferTo(new File(newFileName));
+			
+			
 		}catch(IllegalStateException e) {
 			e.printStackTrace();
 		}catch(IOException e) {
@@ -58,6 +61,13 @@ public class ComunityRestController {
 		else {
 			return "redirect:/write";
 		}
+		
+	}
+	
+	@GetMapping("/comunity/a")
+	public JSONArray category() { //carray : 카테고리 스텝 array
+		JSONArray carray = service.CategoryStep();
+		return carray;
 		
 	}
 

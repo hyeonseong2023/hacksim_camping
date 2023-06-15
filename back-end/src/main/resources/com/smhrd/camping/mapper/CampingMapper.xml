@@ -8,5 +8,16 @@
   		insert into TB_STORY(STORY_CATEGORY,STORY_TITLE,STORY_CONTENT,STORY_IMG,USER_EMAIL)
   		values(#{story_category},#{story_title},#{story_content},#{story_img},#{user_email})
   	</insert>
-  
+  	
+  	<select id="CategoryStep" resultType="com.smhrd.camping.domain.Category">
+  		select * from TB_CATEGORY
+  	</select>
+  <!-- ComunityList, ComunityOne -->	
+  	<select id="ComunityList" resultType="com.smhrd.camping.domain.Comunity">
+  		select STORY_CONTENT, STORY_TITLE from TB_Story
+  	</select>
+  	
+  	<select id="ComunityOne" resultType="com.smhrd.camping.domain.Category">
+  		select * from TB_Story where idx=#{idx}
+  	</select>
   </mapper>
