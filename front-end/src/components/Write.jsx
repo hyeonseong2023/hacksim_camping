@@ -87,6 +87,7 @@ const Write = () => {
 						<div id='photo-content' className='content-left magnifyImg' 
 						style={{
 							background: isImageLoaded ? `no-repeat url(${imageUrl})` : 'none',
+							
 							// backgroundPositionX: "center",
 							// backgroundSize:"contain"
 							// backgroundSize:"contain"
