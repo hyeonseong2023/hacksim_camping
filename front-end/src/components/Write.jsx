@@ -38,8 +38,9 @@ const Write = () => {
 					console.log('사진 추가됨')
 					//photoVal.innerHTML="<img src={imageUrl} style={{width:`100%`}}></img>"
 
-					document.getElementById('photo-content').classList.add('magnifyImg');
-					document.getElementById('story_content').classList.add('doWrap');
+					document.getElementById('story-content-container').classList.add('doWrap'); // 줄이 바뀌고
+					document.getElementById('photo-content').classList.add('magnifyImg');       // 이미지가 커진다 
+					document.getElementById('story-content').classList.add('basis-to-100');     // flex-basis를 100%로 설정
 					// alert(document.getElementById('photo-content').className);
 					console.log("dd")
 				} 
@@ -66,7 +67,7 @@ const Write = () => {
 			{/* <img src={imageUrl} style={{width:"100%"}}></img> */}
 
 
-			<form action='' method='get'>
+			<form action='/write' method='get'>
 				<div className="story-header">
 					<p>제목</p>
 					<input type='text' name="story_title"></input>
@@ -74,33 +75,32 @@ const Write = () => {
 					<input type='text' name="story_writer"></input>
 				</div>
 				<p />
-				<div className='story_content' id="story_content">
+				<div className='story_content' id="story-content-container">
 					{!selectedFile ? (
-						<div id='photo-content' className='content-left' style={{backgroundColor:"lightgray"}}>
+						<div id='photo-content' className='content-left' style={{backgroundColor:"lightgray"}} >
 							<p>사진을 업로드 해주세요!</p>
 							<input type="file" name="file" id="file" onChange={(e)=>{ setSelectedFile(true); handleFileSelect(e) }}/>
 						</div>
 					)
 					:
 					(	
-						// 사진이 업로드 되면 
+						// 사진이 업로드 되면 .
 						<div id='photo-content' className='content-left magnifyImg' 
-						style={{
-							background: isImageLoaded ? `no-repeat url(${imageUrl})` : 'none',
-							
-							// backgroundPositionX: "center",
-							// backgroundSize:"contain"
-							// backgroundSize:"contain"
-							}}>
+						onClick={
+							e=>{console.log("X는", e.nativeEvent.offsetX,", y는", e.nativeEvent.offsetY)}
+						}
+						style={{ background: isImageLoaded ? `no-repeat url(${imageUrl})` : 'none', backgroundColor:"yellow", border:"1px solid green"}}>   
+						
+
 						</div>
+
 					)}
 					<img src={imageUrl} onLoad={handleImageLoad} style={{ display: 'none' }} />
 
 						
 					
-					<div className="content-right">
-						<textarea style={{resize:"none"}} name="story_content" cols="30" rows="10"
-						placeholder='내용을 입력해주세요!'></textarea>
+					<div className="content-right" id="story-content">
+						<textarea style={{resize:"none"}} name="story_content" cols="30" rows="10" placeholder='내용을 입력해주세요!' />
 					</div>
 				</div>
 				<div  className='content-upload'>
@@ -111,8 +111,9 @@ const Write = () => {
 							// 사진 취소 기능
 							event.preventDefault(); // 기본 동작인 새로고침을 막습니다.(form태그의 새로고침을 막기 위해서)
 							// document.getElementById("photo-content").innerHTML=originPhotoZone;
+							document.getElementById('story-content-container').classList.remove('doWrap');
 							document.getElementById('photo-content').classList.remove('magnifyImg');
-							document.getElementById('story_content').classList.remove('doWrap');
+							document.getElementById('story-content').classList.remove('basis-to-100');
 							setSelectedFile(false);
 						}}	
 					>사진 취소하기</button>}

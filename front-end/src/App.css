@@ -141,6 +141,13 @@
 }
 
 /*-------------------------------- writer --------------------------------*/
+.basis-to-100 {
+  flex-basis:100%
+}
+
+.flex {
+  display:flex;
+}
 
 
 .write {
@@ -253,3 +260,10 @@ input:focus, textarea:focus {
 	flex-direction: row-reverse;
 	padding-right: 2%;
 }
+
+
+
+.story_content>.basis-to-100 {
+  flex-basis:100%
+}
+
