@@ -12,8 +12,12 @@ public class UserService {
 	@Autowired
 	private UserMapper mapper;
 	
-	public JSONObject userData(String email) {
-		
-	}
+//	public JSONObject userData(String email) {
+//		
+//	}
+	
+//	public JSONObject login(String email, String pw) {
+//		mapper.login(email, pw);
+//	}
 	
 }
