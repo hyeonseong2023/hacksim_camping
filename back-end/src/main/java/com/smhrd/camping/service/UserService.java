@@ -4,6 +4,7 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.smhrd.camping.domain.User;
 import com.smhrd.camping.mapper.UserMapper;
 
 @Service
@@ -19,5 +20,9 @@ public class UserService {
 //	public JSONObject login(String email, String pw) {
 //		mapper.login(email, pw);
 //	}
+
 	
+	public User Join(User user) {
+		return mapper.Join(user);
+	}
 }
