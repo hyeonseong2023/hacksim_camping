@@ -11,8 +11,8 @@ import lombok.Setter;
 @Setter
 
 public class User {
-	private String user_email;  	//회원 이메일
-	private String user_pw; 	//회원 비밀번호
+	private String inputEmail;  	//회원 이메일
+	private String inputPw; 	//회원 비밀번호
 	
 }
 

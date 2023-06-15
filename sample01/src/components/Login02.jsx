@@ -3,34 +3,38 @@ import '../login2.css';
 import axios from 'axios'
 const Login02 = ({inputEmail,setInputEmail,inputPw,setInputPw}) => {
 
-
-  
-      const handleUseremailChange = (e)=>{
-      setInputEmail(e.target.value);
-      console.log(e.target.value);
-      }
-      const handleUserPwChange = (e)=>{
-        setInputPw(e.target.value);
-        }
-
-      const handleFormSubmit = (event) => {
-        event.preventDefault();
-   
-        //회원가입 데이터를 서버로 전송
-      
-        axios.post("/gocamping/join", {inputEmail})
-        .then((res) => {
-            console.log(res);
-            console.log("res.data = ", res.data.inputEmail);
-            console.log('userData = ',inputEmail);
-            alert('데이터 전송 성공')
-          })
-          .catch(error => {
-            console.error(error); // 오류 발생 시 에러 로그를 출력
-           alert('데이터 전송 실패')
-          });
     
-      };
+    const handleUseremailChange = (e)=>{
+        setInputEmail(e.target.value);
+        console.log(e.target.value);
+    }
+
+
+    const handleUserPwChange = (e)=>{
+        console.log(e.target.value);
+        setInputPw(e.target.value);
+    }
+    
+
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+    
+        
+        //회원가입 데이터를 서버로 전송
+        axios.post("/gocamping/join", {inputEmail},{inputPw})
+        .then((res) => {
+        console.log(res);
+        console.log("이메일 = ", inputEmail);
+        console.log("PW =  ", inputPw);
+
+        alert('데이터 전송 성공')
+        })
+        .catch(error => {
+        console.error(error); // 오류 발생 시 에러 로그를 출력
+        alert('데이터 전송 실패')
+        });
+
+    };
       
 
 
@@ -54,9 +58,9 @@ const Login02 = ({inputEmail,setInputEmail,inputPw,setInputPw}) => {
 
                 {/* 회원가입 폼 */}
                 <form id="login-form" onSubmit={ handleFormSubmit}>
-                    <input type="text" value={inputEmail} onChange={handleUseremailChange} name="useremail" id="useremail-field" class="login-form-field" placeholder="E-mail" />
-                        <input type="password" value={inputPw} onChange={handleUserPwChange} name="password" id="password-field" class="login-form-field"  placeholder="Password"/>
-                            <button type="submit"  id="login-form-submit"/>
+                    <input type="text" value={inputEmail} onChange={handleUseremailChange} name="useremail" id="useremail-field" className="login-form-field" placeholder="E-mail" />
+                        <input type="text" value={inputPw} onChange={handleUserPwChange} name="userpassword" id="password-field" className="login-form-field"  placeholder="Password"/>
+                            <button type="submit" id="login-form-submit"/>
                             </form>
 
                         </div>
