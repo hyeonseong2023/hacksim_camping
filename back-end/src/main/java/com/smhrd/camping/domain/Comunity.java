@@ -20,11 +20,4 @@ public class Comunity {
 	private String user_email; 		//회원 이메일
 	
 }
-//public class Comunity {
-//private String story_idx;		//게시판 고유번호,글순번
-//private String story_title;  	//게시판 제목
-//private String sroty_content;	//게시판 내용
-//private String story_img;		//게시판 이미지
-//private String story_writer; 	//게시판 작성자
-//
-//}
+

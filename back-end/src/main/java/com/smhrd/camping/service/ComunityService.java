@@ -11,8 +11,10 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
+import com.google.gson.Gson;
 import com.smhrd.camping.converter.ImageConverter;
 import com.smhrd.camping.converter.ImageToBase64;
+import com.smhrd.camping.domain.Category;
 import com.smhrd.camping.domain.Comunity;
 import com.smhrd.camping.mapper.CampingMapper;
 
@@ -25,6 +27,28 @@ public class ComunityService {
 	
 	@Autowired
 	private ResourceLoader resourceLoader;
+	
+	public String CategoryStep() {
+		List<Category> clist = mapper.CategoryStep();
+		
+		Gson gson = new Gson();
+		
+		String jsonArr = gson.toJson(clist);
+		
+		System.out.println(jsonArr);
+		
+//		JSONArray jsonArray = new JSONArray();
+//		JSONObject obj = new JSONObject();
+//		System.out.println(clist.size());
+//		for(int i =0; i<clist.size();i++) {
+//			System.out.println(clist.get(i).getCategory_name());
+//			obj.put("sdaf", clist.get(i).getCategory_name());
+//			jsonArray.add(obj);
+//			System.out.println(jsonArray);
+//		}
+			
+		return jsonArr;
+	}
 	
 	public JSONArray ComunityList() {
 		List<Comunity> list = mapper.ComunityList();
@@ -41,23 +65,24 @@ public class ComunityService {
 		ImageConverter<File, String> converter = new ImageToBase64();
 		//Comunity -> JsonObject
 		for(Comunity c: list) {
+			System.out.println(c.getStory_content()+ c.getStory_title());
 			//1. img 필드값 수정( 파일이름 -> 이미지 바이트 문자열 형태)
 			//-1. 변환할 파일 실제 경로 정의
-			String filepath = "classpath:/static/img"+c.getStory_img();
-			Resource resource = resourceLoader.getResource(filepath);
-			String fileStringValue = null;
-			try {
-			fileStringValue= converter.convert(resource.getFile());
-			}catch(IOException e) {
-				e.printStackTrace();
-			}
+//			String filepath = "classpath:/static/img"+c.getStory_img();
+//			Resource resource = resourceLoader.getResource(filepath);
+//			String fileStringValue = null;
+//			try {
+//			fileStringValue= converter.convert(resource.getFile());
+//			}catch(IOException e) {
+//				e.printStackTrace();
+//			}
 			
-			c.setStory_img(fileStringValue);
+//			c.setStory_img(fileStringValue);
 			//2. Comunity -> JsonObject(key:value) 변환
 			JSONObject obj = new JSONObject(); //비어있는 json object 생성
 			obj.put("comunity", c); //비어있는 object에 값을 추가한 것 
 			
-			jsonArray.add(c); 
+			jsonArray.add(obj); 
 		}
 		return jsonArray;
 	}

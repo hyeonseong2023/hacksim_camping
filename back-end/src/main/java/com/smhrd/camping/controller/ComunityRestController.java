@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ import com.smhrd.camping.domain.Comunity;
 import com.smhrd.camping.service.ComunityService;
 
 @RestController
+@CrossOrigin("http://localhost:3001")
 public class ComunityRestController {
 
 	@Autowired
@@ -26,6 +28,7 @@ public class ComunityRestController {
 	@GetMapping("/comunity")
 	public JSONArray ComunityList() {
 		JSONArray array = service.ComunityList();
+		
 		return array;
 	}
 	
@@ -41,6 +44,8 @@ public class ComunityRestController {
 		// 이미지 file -> 저장(지정된 경로에)
 		try {
 			file.transferTo(new File(newFileName));
+			
+			
 		}catch(IllegalStateException e) {
 			e.printStackTrace();
 		}catch(IOException e) {
@@ -58,6 +63,13 @@ public class ComunityRestController {
 		else {
 			return "redirect:/write";
 		}
+		
+	}
+	
+	@GetMapping("/comunity/a")
+	public String category() { //carray : 카테고리 스텝 array
+		String carray = service.CategoryStep();
+		return carray;
 		
 	}
 
