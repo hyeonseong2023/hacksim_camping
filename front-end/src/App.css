@@ -170,15 +170,34 @@
 	display:flex;
 	position: relative;	
 	margin-bottom: 10px;
+  flex-wrap: nowrap;
 }
 .story_content> .content-left{
 	flex-basis: 49%;
-	height: 20vh;
+	min-height: 250px;
 }
+
+.doWrap {
+  flex-wrap: wrap;
+}
+
+.doWrap> .magnifyImg {
+  flex-basis: 100%;
+}
+
+
+
 .story_content> .content-right{
 	flex-basis: 50%;
 	display: flex;
 	justify-content: center;
+}
+
+div[class=magnifyImg] {
+  background-size: cover;
+}
+div[className=magnifyImg] {
+  background-size: cover;
 }
 
 /* 0~799 */
