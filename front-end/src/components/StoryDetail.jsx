@@ -8,7 +8,7 @@ const StoryDetail = () => {
     let {num} = useParams()
     console.log('num',num);
 
-    // 화면에 띄우려면 State >> 한개 정보가져오기 >> 초기값을 비어있는 객체로 넣어줄것 [] 
+// 화면에 띄우려면 State >> 한개 정보가져오기 >> 초기값을 비어있는 객체로 넣어줄것 [] 
     const [oneList , setOneList] = useState([])
 
     

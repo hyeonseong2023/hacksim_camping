@@ -7,9 +7,6 @@ const StoryList = ({list}) => {
      
     //type filter 작업을 거치고 사용할 list
 
-  /*만약 , '원피스'페이지를 클릭하면 type이 dress 인것만
-    '전체' 페이지를 클릭하면 전체 */
-
    const[typeParams, setTypeParams] = useSearchParams()
    let type = typeParams.get('type')
  
