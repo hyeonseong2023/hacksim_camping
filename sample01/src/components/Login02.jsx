@@ -34,6 +34,7 @@ const Login02 = ({inputEmail,setInputEmail,inputPw,setInputPw,inputNick, setInpu
         console.log(res);
         console.log("이메일 = ", requestData.inputEmail);
         console.log("PW =  ", requestData.inputPw);
+        console.log("nick =  ", requestData.inputNick);
 
         alert('데이터 전송 성공')
         })
