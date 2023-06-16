@@ -55,7 +55,7 @@ public class UserController {
 		System.out.println("가입이메일 : "+inputEmail);
 		System.out.println("가입비밀번호 : "+inputPw);
 		System.out.println("가입닉네임 : "+inputNick);
-		
+        service.Join(user);
 		return user;
 	}
 }

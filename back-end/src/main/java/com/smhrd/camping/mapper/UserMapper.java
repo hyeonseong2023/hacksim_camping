@@ -9,7 +9,7 @@ import com.smhrd.camping.domain.User;
 public interface UserMapper {
 
 	// 회원가입
-	@Insert("INSERT INTO TB_USER (USER_EMAIL, USER_PW, USER_NICK) VALUES(#{inputEmail},#{inputPw},#{inputNick})")
+	@Insert("insert into tb_user(user_email, user_pw, user_nick) values(#{inputEmail},#{inputPw},#{inputNick})")
 	public User Join(User user);
 	
 	// 로그인
