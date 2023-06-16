@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -39,8 +39,8 @@ public class ComunityRestController {
 	}
 	
 	
-	@GetMapping("/comunity/write")
-	public String write(Comunity c, @RequestParam("imageUrl") MultipartFile file) {
+	@PostMapping("/comunity/write")
+	public String write(Comunity c, @RequestPart("imageUrl") MultipartFile file) {
 		String newFileName = UUID.randomUUID().toString() + file.getOriginalFilename();
 		// 이미지 file -> 저장(지정된 경로에)
 		try {
