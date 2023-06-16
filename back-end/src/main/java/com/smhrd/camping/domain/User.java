@@ -13,7 +13,12 @@ import lombok.Setter;
 public class User {
 	private String inputEmail;  	//회원 이메일
 	private String inputPw; 
-	private String inputNick; //회원 닉네임 
+	private String inputNick; //회원 닉네임
+//	
+//	public User(String inputEmail, String inputPw) {
+//		this.inputEmail = inputEmail;
+//		this.inputPw = inputPw;
+//	}
 	
 }
 

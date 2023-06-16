@@ -4,9 +4,9 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
   <mapper namespace="com.smhrd.camping.mapper.UserMapper">
-  	<insert id="join" parameterType="com.smhrd.camping.domain.User">
-  		insert into TB_USER(USER_EMAIL,USER_PW)
-  		values(#{user_email},#{user_pw})
+   <!-- 
+   	<insert id="join" parameterType="com.smhrd.camping.domain.User">
+  		INSERT INTO TB_USER (USER_EMAIL, USER_PW, USER_NICK) VALUES(#{inputEmail},#{inputPw},#{inputNick})
   	</insert>
-  
+   -->
   </mapper>

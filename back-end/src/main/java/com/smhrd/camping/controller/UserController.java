@@ -18,6 +18,7 @@ import com.smhrd.camping.mapper.UserMapper;
 import com.smhrd.camping.service.UserService;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.websocket.Session;
 
 @RestController
 //"http://localhost:3000" 에서 오는 요청 받겠다는 의미
@@ -58,4 +59,12 @@ public class UserController {
 		
 		return user;
 	}
+	
+//	@PostMapping("/login")
+//	public User Login(@RequestBody User user, HttpSession session) {
+//		String inputEmail = user.getInputEmail();
+//		String inputPw =user.getInputPw();
+//		session.setAttribute("inputEmail",inputEmail);
+//		return user;
+//	}
 }
