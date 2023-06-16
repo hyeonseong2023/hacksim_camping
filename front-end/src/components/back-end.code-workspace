@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../../back-end"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "front-end",
+		"java.compile.nullAnalysis.mode": "automatic"
+	}
+}
