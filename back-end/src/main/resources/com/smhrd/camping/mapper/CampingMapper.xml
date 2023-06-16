@@ -20,4 +20,9 @@
   	<select id="ComunityOne" resultType="com.smhrd.camping.domain.Category">
   		select * from TB_Story where idx=#{idx}
   	</select>
+  	
+  	<insert id="comment" parameterType="com.smhrd.camping.domain.Comment">
+  		insert into 
+  	</insert>
+  	
   </mapper>

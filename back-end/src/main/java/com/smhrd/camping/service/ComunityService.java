@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 import com.smhrd.camping.converter.ImageConverter;
 import com.smhrd.camping.converter.ImageToBase64;
 import com.smhrd.camping.domain.Category;
+import com.smhrd.camping.domain.Comment;
 import com.smhrd.camping.domain.Comunity;
 import com.smhrd.camping.mapper.CampingMapper;
 
@@ -110,6 +111,11 @@ public class ComunityService {
 	
 	public int write(Comunity c) {
 		return mapper.write(c);
+	}
+
+	public int comment(Comment m) {
+		// TODO Auto-generated method stub
+		return mapper.comment(m);
 	}
 	
 	

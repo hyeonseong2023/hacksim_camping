@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.smhrd.camping.domain.Comment;
 import com.smhrd.camping.domain.Comunity;
 import com.smhrd.camping.service.ComunityService;
 
@@ -71,6 +72,11 @@ public class ComunityRestController {
 		String carray = service.CategoryStep();
 		return carray;
 		
+	}
+	@PostMapping("/comunity/comment")
+	public int comment(Comment m) {
+		int cmt = service.comment(m);
+		return cmt;
 	}
 
 	
