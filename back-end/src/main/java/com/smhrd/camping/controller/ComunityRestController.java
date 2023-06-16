@@ -19,7 +19,7 @@ import com.smhrd.camping.domain.Comunity;
 import com.smhrd.camping.service.ComunityService;
 
 @RestController
-@CrossOrigin("http://localhost:3001")
+@CrossOrigin("http://localhost:3000")
 public class ComunityRestController {
 
 	@Autowired
