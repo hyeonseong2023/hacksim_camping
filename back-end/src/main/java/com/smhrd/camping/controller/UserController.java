@@ -58,4 +58,17 @@ public class UserController {
         service.Join(user);
 		return user;
 	}
+	
+	@PostMapping("/login")
+	public User Login(@RequestBody User user, @RequestParam("inputEmail") String inputEmail, @RequestParam("inputPw") String inputPw, HttpSession session) {
+//		String inputEmail = user.getInputEmail();
+//		String inputPw =user.getInputPw();
+		System.out.println("로그인이메일 : "+inputEmail);
+		System.out.println("로그인비밀번호 : "+inputPw);
+		User u = new User(inputEmail, inputPw);
+		service.Login(u);
+		return u;
+	}
+	
+	
 }

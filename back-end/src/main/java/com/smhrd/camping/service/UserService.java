@@ -25,4 +25,10 @@ public class UserService {
 	public User Join(User user) {
 		return mapper.Join(user);
 	}
+	
+	public User Login(User user) {
+		return mapper.Login(user);
+	}
+	
+	
 }

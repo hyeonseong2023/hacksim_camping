@@ -15,6 +15,11 @@ public class User {
 	private String inputPw; 
 	private String inputNick; //회원 닉네임 
 	
+	public User(String inputEmail, String inputPw) {
+		this.inputEmail=inputEmail;
+		this.inputPw=inputPw;
+	}
+	
 }
 
 

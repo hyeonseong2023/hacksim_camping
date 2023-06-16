@@ -6,7 +6,7 @@ import Join from './components/Join';
 import { Route, Routes } from "react-router-dom";
 import { useState } from 'react';
 import Login from './components/Login';
-
+import Main from './components/Main';
 
 function App() {
 
@@ -18,9 +18,9 @@ function App() {
     <div>
       <Header />
       <Routes>
-      <Route path='/' element={<Figure/>} />
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/join' element={<Join inputNick={inputNick} setInputNick={setInputNick} inputEmail={inputEmail} setInputEmail={setInputEmail} inputPw={inputPw} setInputPw={setInputPw} />} />
+        <Route path='/' element={<Main />}></Route>
+        <Route path='/login' element={<Login inputEmail={inputEmail} setInputEmail={setInputEmail} inputPw={inputPw} setInputPw={setInputPw} />}></Route>
+        <Route path='/join' element={<Join inputNick={inputNick} setInputNick={setInputNick} inputEmail={inputEmail} setInputEmail={setInputEmail} inputPw={inputPw} setInputPw={setInputPw} />}></Route>
       </Routes>
       <Footer />
 
