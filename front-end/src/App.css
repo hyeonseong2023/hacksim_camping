@@ -34,6 +34,158 @@
   background-color: lightgray;
   height: 10%;
   justify-content: center;
-  text-align: center;
-  padding: 10px;
+  align-items: center;
+}
+
+.header-menu > .item:hover {
+  flex-basis: 25%;
+  cursor:default;
+  border-bottom: 4px solid black;
+  /* background-color: whitesmoke; */
+  /* border: 1px solid black; */
+  height: 100%;
+  width: 260px;
+
+}
+
+/*-------------------------------- container --------------------------------*/
+.container {
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: white;
+  margin: 0 15% 0;
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: yellow;
+  
+}
+
+
+
+
+/* .container > .item:hover{
+  transform: scale(1); */
+  /* position: fixed; */
+  /* left: 480px;
+  top: 10px; */
+  /* background-color: pink; */
+  /* opacity:0.5;
+} */
+
+
+.container>.item:hover body{
+  background-color: pink;
+}
+
+
+
+
+/* 0~599 */
+@media only screen and (min-width: 0px) and (max-width: 599px) {
+  .container > .item {
+    background-color: white;
+    /* border: 1px solid black; */
+    flex-basis: 80%;
+    margin: 0 1px 30px; /*위-오른쪽/왼쪽-아래*/
+    /* border: 1px solid black; */
+    font-size: 1rem;
+  }
+}
+
+/* 600~899 */
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+  .container > .item {
+    background-color: white;
+    /* border: 1px solid black; */
+    flex-basis: 45%;
+    margin: 0 1px 30px; /*위-오른쪽/왼쪽-아래*/
+    /* border: 1px solid black; */
+    border-radius: 20px;
+  }
+}
+
+/* 900~ */
+@media only screen and (min-width: 900px) and (max-width: 1920px) {
+.container > .item {
+    background-color: white;
+    /* border: 1px solid black; */
+    flex-basis: 20%;
+    margin: 0 1.5% 5%; /*위-오른쪽/왼쪽-아래*/
+    /* border: 1px solid black; */
+    
+}
+
+.container > .item img{
+	border-radius: 10px;
+	height: 120px;
+}
+
+
+
+}
+
+/*-------------------------------- writer.jsx --------------------------------*/
+.write {
+  background-color: rgb(238, 238, 238);
+  padding-left: 1%;
+  padding-right: 1%;
+  border-radius: 20px;
+  position: relative;
+  height: auto;
+}
+
+.story-header {
+  display: flex;
+  flex-flow: row wrap;
+}
+.story-header *{
+    flex-basis: 100%;
+}
+
+/* ------------------------- */
+.story-body {
+  display: flex;
+}
+
+.story-body * {
+  flex-basis: 50%;
+  /* border: 1px solid black; */
+}
+
+.content-left {
+  border:1px solid black;
+  border-radius: 20px;
+}
+.content-right textarea{
+  display: block;
+  width: 100%;
+  height: 97%;
+  border-radius: 20px;
+}
+.doWrap {
+  flex-wrap: wrap;
+}
+.basis100 {
+  flex-basis:100%
+}
+.story-body>.basis100 {
+  text-align:center;
+}
+
+.content-left>img{
+  object-fit: contain;
+  max-height: 350px;
+  max-width: 100%;
+}
+/* ------------------------- */
+.story-footer {
+  margin-top: 1%;
+  text-align: right;
+}
+.story-footer button{
+  border: none;
+  outline: none;
+  background-color: inherit ;
+  cursor: pointer;
 }
