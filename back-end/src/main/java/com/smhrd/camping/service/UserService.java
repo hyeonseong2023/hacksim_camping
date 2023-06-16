@@ -22,7 +22,7 @@ public class UserService {
 //	}
 
 	
-	public User Join(User user) {
-		return mapper.Join(user);
+	public User join(User user) {
+		return mapper.join(user);
 	}
 }

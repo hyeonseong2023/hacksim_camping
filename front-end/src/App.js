@@ -18,7 +18,14 @@ function App() {
   
 
   useEffect(()=>{
-  axios.get("http://172.30.1.21:8088/gocamping/comunity/a")
+  axios.get("http://172.30.1.43:8088/gocamping/comunity/write",
+  // {
+  
+  // },
+  // { 
+  //   headers:{"Content-Type" : "multipart/form-data"}
+  // }
+)
   .then((res)=>{
     console.log('결과',res.data);
     })

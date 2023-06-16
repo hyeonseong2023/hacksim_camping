@@ -84,7 +84,7 @@ const Write = () => {
     return (
     	<div className='write'> 
 			
-			<form action='/write' method='get'>
+			<form action='/write' encType="multipart/form-data" method='get'>
 				<div className="story-header">
 					<p>제목</p>
 					<input type='text' name="story_title"></input>

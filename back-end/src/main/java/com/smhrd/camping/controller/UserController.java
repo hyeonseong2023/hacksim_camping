@@ -48,7 +48,7 @@ public class UserController {
 	}
 
 	@PostMapping("/join")
-	public User Join(@RequestBody User user) {
+	public User join(@RequestBody User user) {
 		String inputEmail = user.getInputEmail();
 		String inputPw =user.getInputPw();
 		String inputNick =user.getInputNick();
