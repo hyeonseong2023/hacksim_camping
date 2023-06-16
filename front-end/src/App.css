@@ -1,115 +1,39 @@
-/* 모두의 캠핑 */
-
-@font-face {
-  font-family: "Pretendard-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-    format("woff");
-  font-weight: 400;
-  font-style: normal;
+#columns{
+  column-count: 3;
+  column-gap: 15px;
+  padding: 10px;
+  
 }
-* {
-  font-family: "Pretendard-Regular";
+#columns figure {
+  display: inline-block;
+  border: 1px solid rgba(0,0,0,0.2);
+  margin: 0;
+  margin-bottom: 15px;
+  padding: 10px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
-/* 왼쪽 부모님 */
-header .left {
-  flex-basis: 25%;
-  display: flex;
-  justify-content: space-around;
-}
-/* 오른쪽 부모님 */
-header .right {
-  flex-basis: 25%;
-  display: flex;
-  justify-content: space-around;
-}
-header .left #logo {
-  flex-basis: 50%;
-  height: 30px;
-
-  font-family: "Pretendard Variable";
-  font-style: normal;
-  font-weight: 900;
-  font-size: 30px;
-  line-height: 36px;
-  /* identical to box height */
-
-  color: #000000;
+#columns figure img{
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 5px;
 }
 
-/* 커뮤니티 */
-
-#comunity {
-  font-family: "Pretendard Variable";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
-  /* identical to box height */
-
-  color: #005f20;
+#columns figure figcaption{
+  border-top: 1px solid rgba(0,0,0,0.2);
+  padding: 10px;
+  margin-top: 11px;
+  color: #444;
+  line-height: 1.5;
 }
 
-/* 쇼핑 */
+/* Footer */
 
-#shop {
-  font-family: "Pretendard Variable";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
-  /* identical to box height */
-
-  color: #000000;
-}
-
-/* 회원가입 */
-#register {
-  font-family: "Pretendard Variable";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 19px;
-  line-height: 23px;
-  /* identical to box height */
-
-  color: #000000;
-}
-
-/* 고객센터 */
-
-#gogak {
-  font-family: "Pretendard Variable";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 19px;
-  line-height: 23px;
-  /* identical to box height */
-
-  color: #000000;
-}
-
-/* Group 32 */
-
-#search {
-  flex-basis: 10%;
-  height: 30px;
-}
-
-/* Rectangle 10 */
-
-#write {
-  background: #368350;
-  border-radius: 4px;
-}
-
-/* 글쓰기 */
-
-#write {
-  font-family: "Pretendard Variable";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 19px;
-  line-height: 23px;
-  /* identical to box height */
-
-  color: #ffffff;
+.footer-container{
+  background-color: lightgray;
+  height: 10%;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
 }
