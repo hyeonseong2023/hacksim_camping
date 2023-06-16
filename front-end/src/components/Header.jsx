@@ -1,12 +1,15 @@
 import React from 'react'
 import '../Header.css'
+import { Link } from 'react-router-dom'
+
 const Header = () => {
   return (
 
     <div className='header_container'>
 
-
-      <div id='logo'>모두의캠핑</div>
+        <Link to='/' style={{ textDecoration: "none", color: "black" }}>
+          <div id='logo'>모두의캠핑</div>
+        </Link>
 
       <div id='search_container'>
         <div id="search">
@@ -15,9 +18,12 @@ const Header = () => {
         </div>
       </div>
       <div id='content'>게시판</div>
-
-      <div id='login'>로그인 및 회원가입</div>
-
+      <Link to='/login' style={{ textDecoration: "none", color: "black" }}>
+      <div id='login'>로그인</div>
+      </Link>
+      <Link to='/join' style={{ textDecoration: "none", color: "black" }}>
+        <div id='join'>회원가입</div>
+      </Link>
     </div>
 
   )
