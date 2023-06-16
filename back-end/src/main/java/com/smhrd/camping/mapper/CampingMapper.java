@@ -22,4 +22,6 @@ public interface CampingMapper {
 	
 	public int comment(Comment m);
 	
+	public  List<Comment> CommentList();
+	
 }

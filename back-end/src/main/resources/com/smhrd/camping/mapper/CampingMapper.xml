@@ -22,7 +22,11 @@
   	</select>
   	
   	<insert id="comment" parameterType="com.smhrd.camping.domain.Comment">
-  		insert into 
+  		insert into TB_COMMENT (CMT_CONTENT) values(#{cmt_content})
   	</insert>
+  	
+  	<select id="CommentList" resultType="com.smhrd.camping.domain.Comment">
+  		select user_email, cmt_content from tb_comment a
+  	</select>
   	
   </mapper>

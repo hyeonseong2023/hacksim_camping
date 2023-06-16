@@ -20,7 +20,7 @@ import com.smhrd.camping.domain.Comunity;
 import com.smhrd.camping.service.ComunityService;
 
 @RestController
-@CrossOrigin("http://localhost:3001")
+@CrossOrigin("http://localhost:3000")
 public class ComunityRestController {
 
 	@Autowired
@@ -77,6 +77,13 @@ public class ComunityRestController {
 	public int comment(Comment m) {
 		int cmt = service.comment(m);
 		return cmt;
+	}
+	
+	@GetMapping("/comunity")
+	public String CommentList() {
+		String comment_array = service.CommentList();
+		return comment_array;
+		
 	}
 
 	

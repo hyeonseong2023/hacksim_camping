@@ -51,6 +51,16 @@ public class ComunityService {
 		return jsonArr;
 	}
 	
+	public String CommentList() {
+		List<Comment> comment_list = mapper.CommentList();
+		
+		Gson gson = new Gson();
+		
+		String comment_json = gson.toJson(comment_list);
+		
+		return comment_json;
+	}
+	
 	public JSONArray ComunityList() {
 		List<Comunity> list = mapper.ComunityList();
 		
@@ -106,6 +116,7 @@ public class ComunityService {
 		obj.put("comunity", comunity);
 		
 		return obj;
+		
 		
 	}
 	
