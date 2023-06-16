@@ -1,8 +1,8 @@
 
 // import './App.css';
-import Figure from './components/Figure';
-import Header from './components/Header';
-import Footer from './components/Footer';
+// import Figure from './components/Figure';
+// import Header from './components/Header';
+// import Footer from './components/Footer';
 // import { BrowserRouter, Route , Switch } from 'react-router-dom'
 
 
