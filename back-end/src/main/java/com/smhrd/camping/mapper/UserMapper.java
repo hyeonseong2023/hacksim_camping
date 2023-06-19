@@ -2,6 +2,7 @@ package com.smhrd.camping.mapper;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import com.smhrd.camping.domain.User;
@@ -16,5 +17,9 @@ public interface UserMapper {
 	// 로그인
 	@Select("select * from tb_user where user_email=#{user_email} and user_pw=#{user_pw}")
 	public User Login(User user);
+	
+	// 이메일 중복체크
+		@Select("select count(*) from tb_user where user_email=#{inputEmail}")
+		public int emailCheck(@Param("inputEmail")String inputEmail);
 	
 }	

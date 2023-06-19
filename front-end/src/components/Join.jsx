@@ -1,8 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../Login.css'
 import axios from 'axios'
 const Join = ({user_email, setUser_Email, user_pw,setUser_PW,user_nick, setUser_Nick }) => {
 
+
+    const [result, setResult] = useState('');
+
+    const handleCheckEmail = (e) => {
+        e.preventDefault(); // 기본 동작 방지
+        axios
+            .get("http://localhost:8082/gocamping/emailcheck", {
+                params: {
+                    input: user_email,
+                },
+            })
+            .then((response) => {
+                const res = response.data;
+                setResult(res === 'success' ? '존재하는 이메일입니다.' : '존재하지 않는 이메일입니다.');
+            })
+            .catch((error) => {
+                console.error(error);
+                setResult('통신 실패!');
+            });
+    };
 
     const handleUseremailChange = (e) => {
         setUser_Email(e.target.value);
@@ -53,7 +73,12 @@ const Join = ({user_email, setUser_Email, user_pw,setUser_PW,user_nick, setUser_
                     <div id="login_container">
                         {/* <div id='emailcontainer'> */}
                         <input type="text" value={user_email} onChange={handleUseremailChange}  placeholder="Email" id="id" class="account"></input>
-                        <a class="underline-btn" href="#">중복확인</a>
+                        
+
+                        {/* 중복 이메일 체크 */}
+                        <button type="button" onClick={handleCheckEmail}>중복 확인</button>
+                            <div>{result}</div>
+
                         {/* </div> */}
                         <input type="password" value={user_pw} onChange={handleUserPwChange} placeholder="Password" id="password" class="account" />
                         <button onClick={handleFormSubmit} id="login" class="account">회원가입</button>
