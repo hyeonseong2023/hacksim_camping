@@ -9,15 +9,15 @@ import com.smhrd.camping.mapper.UserMapper;
 
 @Service
 public class UserService {
-	
+
 	@Autowired
 	private UserMapper mapper;
-	
+
 
 	public int Join(User user) {
 		return mapper.Join(user);
 	}
-	
+
 	
 
 	public User Login(User user) {
@@ -29,4 +29,6 @@ public class UserService {
 	public int emailCheck(String user_email) {
 		return mapper.emailCheck(user_email);
 	}	
+
+
 }

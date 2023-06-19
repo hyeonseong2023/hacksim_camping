@@ -24,6 +24,9 @@ const Header = () => {
       <Link to='/join' style={{ textDecoration: "none", color: "black" }}>
         <div id='join'>회원가입</div>
       </Link>
+      <Link to='/mypage' style={{ textDecoration: "none", color: "black" }}>
+        <div id='mypage'>마이페이지</div>
+      </Link>
     </div>
 
   )

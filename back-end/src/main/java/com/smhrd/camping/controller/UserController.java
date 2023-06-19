@@ -34,9 +34,6 @@ public class UserController {
 
 	@Autowired
 	private UserMapper mapper;
-
-
-	
 	
 	@PostMapping("/join")
 	public int Join(@RequestBody User user) {
@@ -49,8 +46,6 @@ public class UserController {
         int cnt =service.Join(user);
 		return   cnt;
 	}
-	
-	
 	
 
 	
@@ -83,6 +78,7 @@ public class UserController {
 		System.out.println(user_email);
 		
 		int result = mapper.emailCheck(user_email);
+
 		
 		System.out.println(result);
 		
