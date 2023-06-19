@@ -6,9 +6,8 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="package com.smhrd.camping.webconfig;"/>
 		<list key="findhistory">
-			<item value="emailCheck"/>
 			<item value="package com.smhrd.camping.webconfig;"/>
 		</list>
 		<list key="replacehistory">

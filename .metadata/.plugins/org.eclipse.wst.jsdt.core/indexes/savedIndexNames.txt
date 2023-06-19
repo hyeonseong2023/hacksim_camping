@@ -1,5 +1,0 @@
-INDEX VERSION 1.4+C:\Users\SMHRD\Desktop\hacksim_camping\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-309416886.index
-3906614388.index
-142976866.index
-224277034.index
