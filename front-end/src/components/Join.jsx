@@ -32,6 +32,7 @@ const Join = ({ inputEmail, setInputEmail, inputPw, setInputPw, inputNick, setIn
     //         });
     // };
 
+    // 중복 이메일 체크
     const handleCheckEmail = (e) => {
         e.preventDefault(); // 기본 동작 방지
         axios
@@ -42,7 +43,7 @@ const Join = ({ inputEmail, setInputEmail, inputPw, setInputPw, inputNick, setIn
             })
             .then((response) => {
                 const res = response.data;
-                setResult(res === 'success' ? '이 이메일은 등록할 수 있는 이메일입니다.' : '이 이메일은 등록할 수 없는 이메일입니다.');
+                setResult(res === 'success' ? '존재하는 이메일입니다.' : '존재하지 않는 이메일입니다.');
             })
             .catch((error) => {
                 console.error(error);
@@ -103,18 +104,9 @@ const Join = ({ inputEmail, setInputEmail, inputPw, setInputPw, inputNick, setIn
 
                         <form id="login-form" onSubmit={handleFormSubmit}>
                             <input type="text" value={inputEmail} onChange={handleUseremailChange} name="useremail" id="useremail-field" className="login-form-field" placeholder="E-mail" />
-                            {/* <button type='button' onClick={handleEmailCheck} id='email-check-button'>
-                                중복이메일 체크
-                            </button>
-                            {isEmailDuplicate === null ? (
-                                <span className="initial-message"></span>
-                            ) : isEmailDuplicate ? (
-                                <span className="duplicate-email">This email is already registered. Please choose a different one.</span>
-                            ) : (
-                                <span className="valid-email">You can use the email you entered.</span>
-                            )} */}
-                            <button type="button" onClick={handleCheckEmail}>이메일 확인</button>
 
+                            {/* 중복 이메일 체크 */}
+                            <button type="button" onClick={handleCheckEmail}>중복 확인</button>
                             <div>{result}</div>
 
                             <input type="text" value={inputPw} onChange={handleUserPwChange} name="userpassword" id="password-field" className="login-form-field" placeholder="Password" />
