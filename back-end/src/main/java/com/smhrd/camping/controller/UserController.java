@@ -34,47 +34,51 @@ public class UserController {
 
 	@Autowired
 	private UserMapper mapper;
-
+	
 	@PostMapping("/join")
 	public int Join(@RequestBody User user) {
 		String inputEmail = user.getUser_email();
-		String inputPw = user.getUser_pw();
-		String inputNick = user.getUser_nick();
-		System.out.println("가입이메일 : " + inputEmail);
-		System.out.println("가입비밀번호 : " + inputPw);
-		System.out.println("가입닉네임 : " + inputNick);
-		int cnt = service.Join(user);
-		return cnt;
-	}
-
-	@PostMapping("/login")
-	public ResponseEntity<User> Login(@RequestBody User user, HttpSession session) {
-		String inputEmail = user.getUser_email();
-		String inputPw = user.getUser_pw();
-		System.out.println("로그인이메일 : " + inputEmail);
-		System.out.println("로그인비밀번호 : " + inputPw);
-
-		User loginUser = mapper.Login(user);
-		if (loginUser != null) {
-
-			System.out.println("로그인성공");
-			System.out.println("가입일 : " + loginUser.getUser_joindate());
-			System.out.println("닉네임 : " + loginUser.getUser_nick());
-			System.out.println("회원구분 : " + loginUser.getUser_role());
-			session.setAttribute("loginMember", loginUser);
-			return ResponseEntity.ok(loginUser);
-
-		} else {
-			System.out.println("로그인실패");
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
-		}
+		String inputPw =user.getUser_pw();
+		String inputNick =user.getUser_nick();
+		System.out.println("가입이메일 : "+inputEmail);
+		System.out.println("가입비밀번호 : "+inputPw);
+		System.out.println("가입닉네임 : "+inputNick);
+        int cnt =service.Join(user);
+		return   cnt;
 	}
 	
+
+	
+	@PostMapping("/login")
+	public ResponseEntity<User> Login(@RequestBody User user) {
+		String inputEmail = user.getUser_email();
+		String inputPw =user.getUser_pw();
+		System.out.println("로그인이메일 : "+inputEmail);
+		System.out.println("로그인비밀번호 : "+inputPw);
+
+		User loginUser = mapper.Login(user);
+        if(loginUser!=null) {
+        
+        	System.out.println("로그인성공");
+        	System.out.println("가입일 : "+loginUser.getUser_joindate());
+        	System.out.println("닉네임 : "+loginUser.getUser_nick());
+        	System.out.println("회원구분 : "+loginUser.getUser_role());
+        	return ResponseEntity.ok(loginUser);
+        	
+        }else {
+        	System.out.println("로그인실패");
+		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+        }
+        }
+	
+	
+	//회원가입 이메일 중복 체크
 	@GetMapping(value="/emailcheck")
-	public String emailcheck(@RequestParam("input") String inputEmail) {
-		System.out.println(inputEmail);
+	public String emailcheck(@RequestParam("input") String user_email) {
+		System.out.println(user_email);
 		
-		int result = mapper.emailCheck(inputEmail);
+		int result = mapper.emailCheck(user_email);
+
 		
 		System.out.println(result);
 		
@@ -85,4 +89,7 @@ public class UserController {
 		}
 		
 	}
+	
+	
+	
 }

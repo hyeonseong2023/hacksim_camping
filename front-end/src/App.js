@@ -6,7 +6,9 @@ import Join from './components/Join';
 import { Route, Routes } from "react-router-dom";
 import { useState } from 'react';
 import Login from './components/Login';
+
 import MyPage_U from './components/MyPage_U';
+
 
 
 function App() {
