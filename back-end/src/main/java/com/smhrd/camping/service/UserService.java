@@ -23,4 +23,10 @@ public class UserService {
 	public User Login(User user) {
 		return mapper.Login(user);
 }
+	
+	
+	// 이메일 중복 체크
+	public int emailCheck(String user_email) {
+		return mapper.emailCheck(user_email);
+	}	
 }

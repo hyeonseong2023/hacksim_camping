@@ -75,4 +75,25 @@ public class UserController {
 		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         }
         }
+	
+	
+	//회원가입 이메일 중복 체크
+	@GetMapping(value="/emailcheck")
+	public String emailcheck(@RequestParam("input") String user_email) {
+		System.out.println(user_email);
+		
+		int result = mapper.emailCheck(user_email);
+		
+		System.out.println(result);
+		
+		if(result==1) { // 값 ㅇ -> 사용불가능한 이메일
+			return "fail"; // 일반 문자열 (view)
+		}else{ // 0이 나온다면? -> 사용가능한 이메일
+			return "success";
+		}
+		
+	}
+	
+	
+	
 }
