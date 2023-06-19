@@ -16,57 +16,52 @@ const Join = ({ user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUs
         window.location.href = kakaoLink;
 
     }
- // 응답코드 받기
-    // const code = new URL(window.location.href).searchParams.get("code");
-
-   
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //       try {
-    //         const response = await fetch(`http://172.20.10.3:3000/user/signin?code=${code}`, {
-    //           method: "POST",
-    //           headers: {
-    //             "Content-Type": "application/x-www-form-urlencoded;",
-    //           },
-    //         });
-
-    //         // Handle the response here (e.g., parse JSON, update state, etc.)
-    //       } catch (error) {
-    //         console.error("Error occurred during fetch:", error);
-    //       }
-    //     };
-
-    //     fetchData();
-    //   }, [code]);
-
-    //   console.log(code); 
+ // 응답코드 && 토큰
+ 
 
      
     //토큰 받기
-        useEffect(() => {
-            const params = new URL(document.location.toString()).searchParams;
-            const code =params.get("code");
-            const grant_type = "authorization_code";
-            const client_id = "0ae55e825a9fa3a77d17cdcb413fcb71";
-            const REDIRECT_URI = 'http://localhost:3000/join';
-          
-            axios
-              .post(
-                `https://kauth.kakao.com/oauth/token?grant_type=${grant_type}&client_id=${client_id}&redirect_uri=${REDIRECT_URI}&code=${code}`,
-                {},
-                {
-                  headers: {
-                    "Content-Type": "application/json;charset=UTF-8",
-                  },
-                }
-              )
-              .then((res) => {
-                console.log(res);
-              })
-              .catch((error) => {
-                console.error("Error occurred during axios request:", error);
-              });
-          }, []);
+    useEffect(() => {
+        const params = new URL(document.location.toString()).searchParams;
+        const code =params.get("code");
+        const grant_type = "authorization_code";
+        const client_id = "0ae55e825a9fa3a77d17cdcb413fcb71";
+        const REDIRECT_URI = 'http://localhost:3000/join';
+      
+        axios
+          .post(
+            `https://kauth.kakao.com/oauth/token?grant_type=${grant_type}&client_id=${client_id}&redirect_uri=${REDIRECT_URI}&code=${code}`,
+            {},
+            {
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+              },
+            }
+          )
+          .then((res) => {
+            console.log(res);
+        //     const{data} = res;
+        //     const {access_token} = data;
+        //     if(access_token){
+        //         console.log(`Bearer ${access_token}`);
+        //         axios
+        //         .post("https://kapi.kakao.com/v2/user/me",
+        //         {},
+        //         {
+        //             header:{
+        //                 Authorization : `Bearer ${access_token}`,
+        //                 "Content-Type": "application/x-www-form-urlencoded",
+        //             },
+
+        //         }
+        //         )
+        //     }
+        //   }).then((res)=>{
+        //     console.log('데이터성공 ㅠㅠㅠ');
+        //     console.log(res);
+        //   })
+          });
+      }, []);
     // 카카오 끝
 
 
