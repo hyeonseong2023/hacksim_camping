@@ -21,7 +21,9 @@ public class User {
 	private String user_email;  	//회원 이메일
 	private String user_pw; 
 	private String user_nick; //회원 닉네임 
-	private String user_role;
-	private String user_joindate;
-	private String user_type;
+	
+	public User(String user_email, String user_pw) {
+		this.user_email = user_email;
+		this.user_pw = user_pw;
+	}
 }

@@ -60,9 +60,9 @@ public class UserController {
         if(loginUser!=null) {
         
         	System.out.println("로그인성공");
-        	System.out.println("가입일 : "+loginUser.getUser_joindate());
+//        	System.out.println("가입일 : "+loginUser.getUser_joindate());
         	System.out.println("닉네임 : "+loginUser.getUser_nick());
-        	System.out.println("회원구분 : "+loginUser.getUser_role());
+//        	System.out.println("회원구분 : "+loginUser.getUser_role());
         	return ResponseEntity.ok(loginUser);
         	
         }else {

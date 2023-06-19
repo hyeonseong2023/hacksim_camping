@@ -12,7 +12,7 @@ const Join = ({ user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUs
 
     // const JS_KEY = 'dd382d172dfaf2c763c94fe963356a69'
     const REDIRECT_URI = "http://localhost:3000/join";
-    const REST_API_KEY = "c7cdf149cf26d90f317204cd9e5a046f";
+    const REST_API_KEY = "  ";
     const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`  
 
     //카카오 로그인 페이지로 이동

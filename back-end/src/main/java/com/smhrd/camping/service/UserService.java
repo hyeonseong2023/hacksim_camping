@@ -28,7 +28,7 @@ public class UserService {
 	// 이메일 중복 체크
 	public int emailCheck(String user_email) {
 		return mapper.emailCheck(user_email);
-	}	
+	}
 
 
 }
