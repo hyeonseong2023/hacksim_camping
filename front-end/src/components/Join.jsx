@@ -1,74 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import '../Login.css'
 import axios from 'axios'
-export const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+
 
 const Join = ({ user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUser_Nick }) => {
 
-    //     //SNS 로그인 - KAKAO 연동
-
-    const JS_KEY = 'dd382d172dfaf2c763c94fe963356a69'
-    const REDIRECT_URL = 'http://localhost:3000/join'
-    const kakaoLink = 'https://kauth.kakao.com/oauth/authorize?client_id=0ae55e825a9fa3a77d17cdcb413fcb71&redirect_uri=http://localhost:3000/join&response_type=code'
-
-    //카카오 로그인 페이지로 이동
-    const kakao_LoginHandler = () => {
-        window.location.href = kakaoLink;
-
-    }
- // 응답코드 && 토큰
- 
-
-     
-    //토큰 받기
-    useEffect(() => {
-        const params = new URL(document.location.toString()).searchParams;
-        const code =params.get("code");
-        const grant_type = "authorization_code";
-        const client_id = "0ae55e825a9fa3a77d17cdcb413fcb71";
-        const REDIRECT_URI = 'http://localhost:3000/join';
-      
-        axios
-          .post(
-            `https://kauth.kakao.com/oauth/token?grant_type=${grant_type}&client_id=${client_id}&redirect_uri=${REDIRECT_URI}&code=${code}`,
-            {},
-            {
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
-              },
-            }
-          )
-          .then((res) => {
-            console.log(res);
-        //     const{data} = res;
-        //     const {access_token} = data;
-        //     if(access_token){
-        //         console.log(`Bearer ${access_token}`);
-        //         axios
-        //         .post("https://kapi.kakao.com/v2/user/me",
-        //         {},
-        //         {
-        //             header:{
-        //                 Authorization : `Bearer ${access_token}`,
-        //                 "Content-Type": "application/x-www-form-urlencoded",
-        //             },
-
-        //         }
-        //         )
-        //     }
-        //   }).then((res)=>{
-        //     console.log('데이터성공 ㅠㅠㅠ');
-        //     console.log(res);
-        //   })
-          });
-      }, []);
-    // 카카오 끝
-
-
-
-
-
-
+   
+   
     // 이메일 중복 확인
     const [result, setResult] = useState('');
 
@@ -154,7 +92,7 @@ const Join = ({ user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUs
                         </div>
                         <div id='img_container'>
 
-                            <img id='k' onClick={kakao_LoginHandler} src='https://cdn-icons-png.flaticon.com/512/2111/2111496.png' />
+                            {/* <img id='k' onClick={kakao_LoginHandler} src='https://cdn-icons-png.flaticon.com/512/2111/2111496.png' /> */}
                             <img id='g' src='https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/google-icon.png' />
                         </div>
                     </div>
