@@ -17,7 +17,6 @@ public interface UserMapper {
 	// 로그인
 	@Select("select * from tb_user where user_email=#{user_email} and user_pw=#{user_pw}")
 	public User Login(User user);
-
 	
 	// 이메일 중복체크
 		@Select("select count(*) from tb_user where user_email=#{user_email}")

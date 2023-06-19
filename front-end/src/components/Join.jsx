@@ -4,15 +4,16 @@ import axios from 'axios'
 // export const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
 export const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
 
+
 const Join = ({ user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUser_Nick }) => {
 
 
 // =========================================이 밑으로 일단 주석처리
     //     //SNS 로그인 - KAKAO 연동
 
-    // const JS_KEY = 'dd382d172dfaf2c763c94fe963356a69'
+   
     const REDIRECT_URI = "http://localhost:3000/join";
-    const REST_API_KEY = "  ";
+    const REST_API_KEY = "c7cdf149cf26d90f317204cd9e5a046f";
     const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`  
 
     //카카오 로그인 페이지로 이동
@@ -25,49 +26,64 @@ const Join = ({ user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUs
 
      
     //토큰 받기
-    // useEffect(() => {
-    //     const params = new URL(document.location.toString()).searchParams;
-    //     const code =params.get("code");
-    //     const grant_type = "authorization_code";
-    //     const client_id = "0ae55e825a9fa3a77d17cdcb413fcb71";
-    //     const REDIRECT_URI = 'http://localhost:3000/join';
+    useEffect(() => {
+        const params = new URL(document.location.toString()).searchParams;
+        const code =params.get("code");
+        const grant_type = "authorization_code";
+        const client_id = "c7cdf149cf26d90f317204cd9e5a046f";
+        const REDIRECT_URI = 'http://localhost:3000/join';
       
-    //     axios
-    //       .post(
-    //         `https://kauth.kakao.com/oauth/token?grant_type=${grant_type}&client_id=${client_id}&redirect_uri=${REDIRECT_URI}&code=${code}`,
-    //         {},
-    //         {
-    //           headers: {
-    //             "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
-    //           },
-    //         }
-    //       )
-    //       .then((res) => {
-    //         console.log(res);
+        axios
+          .post(
+            `https://kauth.kakao.com/oauth/token?grant_type=${grant_type}&client_id=${client_id}&redirect_uri=${REDIRECT_URI}&code=${code}`,
+            {},
+            {
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+            }
+          )
+          .then((res) => {
+            console.log(res); 
 
-
-    //     //     const{data} = res;
-    //     //     const {access_token} = data;
-    //     //     if(access_token){
-    //     //         console.log(`Bearer ${access_token}`);
-    //     //         axios
-    //     //         .post("https://kapi.kakao.com/v2/user/me",
-    //     //         {},
-    //     //         {
-    //     //             header:{
-    //     //                 Authorization : `Bearer ${access_token}`,
-    //     //                 "Content-Type": "application/x-www-form-urlencoded",
-    //     //             },
-
-    //     //         }
-    //     //         )
-    //     //     }
-    //     //   }).then((res)=>{
-    //     //     console.log('데이터성공 ㅠㅠㅠ');
-    //     //     console.log(res);
-    //     //   })
-    //       });
-    //   }, []);
+            const { data } = res;
+            const { access_token } = data;
+            if (access_token) {
+              console.log(`Bearer ${access_token}`);
+              axios
+                .post(
+                  "https://kapi.kakao.com/v2/user/me",
+                  {},
+                  {
+                    headers: {
+                      Authorization: `Bearer ${access_token}`,
+                      "Content-Type": "application/x-www-form-urlencoded",
+                    },
+                  }
+                )
+                .then((res) => {
+                  console.log('데이터 성공 ㅠㅠㅠ');
+                  console.log("이메일 :",res.data.kakao_account.email);
+                  const generateRandomString = (num) => {
+                    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
+                    let result = '';
+                    const charactersLength = characters.length;
+                    for (let i = 0; i < num; i++) {
+                        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                    }
+                  
+                    return result;
+                  }
+            console.log(generateRandomString(10));
+             setUser_Email(res.data.kakao_account.email);
+             setUser_Nick(res.data.kakao_account.email);
+            setUser_PW(generateRandomString(10));
+                });
+            } else {
+              console.log("토큰 없음");
+            }
+          })   
+      }, []);
     // 카카오 끝
 
 // ============= 이 위로 일단 주석처리

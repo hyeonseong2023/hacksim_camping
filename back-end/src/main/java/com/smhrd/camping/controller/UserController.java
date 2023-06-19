@@ -34,6 +34,9 @@ public class UserController {
 
 	@Autowired
 	private UserMapper mapper;
+
+
+	
 	
 	@PostMapping("/join")
 	public int Join(@RequestBody User user) {
@@ -44,8 +47,10 @@ public class UserController {
 		System.out.println("가입비밀번호 : "+inputPw);
 		System.out.println("가입닉네임 : "+inputNick);
         int cnt =service.Join(user);
-		return cnt;
+		return   cnt;
 	}
+	
+	
 	
 
 	
@@ -60,9 +65,9 @@ public class UserController {
         if(loginUser!=null) {
         
         	System.out.println("로그인성공");
-//        	System.out.println("가입일 : "+loginUser.getUser_joindate());
+        	System.out.println("가입일 : "+loginUser.getUser_joindate());
         	System.out.println("닉네임 : "+loginUser.getUser_nick());
-//        	System.out.println("회원구분 : "+loginUser.getUser_role());
+        	System.out.println("회원구분 : "+loginUser.getUser_role());
         	return ResponseEntity.ok(loginUser);
         	
         }else {
@@ -78,7 +83,6 @@ public class UserController {
 		System.out.println(user_email);
 		
 		int result = mapper.emailCheck(user_email);
-
 		
 		System.out.println(result);
 		
