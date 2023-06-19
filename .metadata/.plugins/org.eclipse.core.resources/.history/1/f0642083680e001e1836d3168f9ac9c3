@@ -44,7 +44,7 @@ public class UserController {
 		System.out.println("가입비밀번호 : "+inputPw);
 		System.out.println("가입닉네임 : "+inputNick);
         int cnt =service.Join(user);
-		return cnt;
+		return   cnt;
 	}
 	
 
