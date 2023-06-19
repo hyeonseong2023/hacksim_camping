@@ -13,26 +13,14 @@ public class UserService {
 	@Autowired
 	private UserMapper mapper;
 	
-//	public JSONObject userData(String email) {
-//		
-//	}
-	
-//	public JSONObject login(String email, String pw) {
-//		mapper.login(email, pw);
-//	}
 
-	
-	public User Join(User user) {
+	public int Join(User user) {
 		return mapper.Join(user);
 	}
 	
+	
+
 	public User Login(User user) {
 		return mapper.Login(user);
-	}
-	
-	public int emailCheck(String inputEmail) {
-		return mapper.emailCheck(inputEmail);
-	}	
-	
-	
+}
 }
