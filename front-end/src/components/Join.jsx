@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react'
-import '../Join.css'
+import React from 'react'
+import '../Login.css'
 import axios from 'axios'
-const Join = ({ inputEmail, setInputEmail, inputPw, setInputPw, inputNick, setInputNick }) => {
+const Join = ({user_email, setUser_Email, user_pw,setUser_PW,user_nick, setUser_Nick }) => {
 
 
     const handleUseremailChange = (e) => {
-        setInputEmail(e.target.value);
+        setUser_Email(e.target.value);
         console.log(e.target.value);
-        setInputNick(e.target.value);
+        setUser_Nick(e.target.value);
     }
 
 
     const handleUserPwChange = (e) => {
         console.log(e.target.value);
-        setInputPw(e.target.value);
+        setUser_PW(e.target.value);
     }
 
 
@@ -22,9 +22,9 @@ const Join = ({ inputEmail, setInputEmail, inputPw, setInputPw, inputNick, setIn
         event.preventDefault();
 
         const requestData = {
-            inputEmail: inputEmail,
-            inputPw: inputPw,
-            inputNick: inputNick
+            user_email: user_email,
+            user_pw: user_pw,
+            user_nick: user_nick
         };
 
 
@@ -32,52 +32,46 @@ const Join = ({ inputEmail, setInputEmail, inputPw, setInputPw, inputNick, setIn
         axios.post("/gocamping/join", requestData)
             .then((res) => {
                 console.log(res);
-                console.log("이메일 = ", requestData.inputEmail);
-                console.log("PW =  ", requestData.inputPw);
-                console.log("nick =  ", requestData.inputNick);
-                alert('데이터 전송 성공')
+                console.log("이메일 = ", requestData.user_email);
+                console.log("PW =  ", requestData.user_pw);
+                console.log("nick =  ", requestData.user_nick);
+                alert(user_email+'님 회원가입을 축하드립니다😉')
             })
             .catch(error => {
                 console.error(error); // 오류 발생 시 에러 로그를 출력
-                alert('데이터 전송 실패')
+                alert('회원가입 실패😥')
             });
 
     };
 
-
-
-
-
-
-
-
     return (
-        <div>
-            <div className='container'>
-                <div className='body'>
-                    <div id="main-holder">
-                        <h1 id="login-header">Login</h1>
-                        <div id="logo-container">
-                            <img id='k' src='https://cdn-icons-png.flaticon.com/512/2111/2111496.png' />
-                            <img id='g' src='https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/google-icon.png' />
+        // <div id='container'>
+        <div id='login-container'>
+            <body>
+                <div class="main">
+                    <h1 class="logo">회원가입</h1>
+                    <div id="login_container">
+                        {/* <div id='emailcontainer'> */}
+                        <input type="text" value={user_email} onChange={handleUseremailChange}  placeholder="Email" id="id" class="account"></input>
+                        <a class="underline-btn" href="#">중복확인</a>
+                        {/* </div> */}
+                        <input type="password" value={user_pw} onChange={handleUserPwChange} placeholder="Password" id="password" class="account" />
+                        <button onClick={handleFormSubmit} id="login" class="account">회원가입</button>
+                        <p id="alert" class="account"> </p>
+                        <hr/>
+                        <div id='logintxt_container'>
+                        <div id ='login_text'>SNS 회원가입</div>
                         </div>
-                        <div>SNS 로그인</div>
-                        <div id="login-error-msg-holder">
-                            <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+                        <div id='img_container'>
+                        <img id='k' src='https://cdn-icons-png.flaticon.com/512/2111/2111496.png' />
+                        <img id='g' src='https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/google-icon.png' />
                         </div>
-
-                        {/* 회원가입 폼 */}
-                      
-                            <form id="login-form" onSubmit={handleFormSubmit}>
-                                <input type="text" value={inputEmail} onChange={handleUseremailChange} name="useremail" id="useremail-field" className="login-form-field" placeholder="E-mail" />
-                                <input type="text" value={inputPw} onChange={handleUserPwChange} name="userpassword" id="password-field" className="login-form-field" placeholder="Password" />
-                                <button type="submit" id="login-form-submit" />
-                            </form>
-
                     </div>
                 </div>
-            </div>
+                <script src="script.js"></script>
+            </body>
         </div>
+        // </div>
     )
 }
 

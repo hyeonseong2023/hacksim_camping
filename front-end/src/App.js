@@ -8,19 +8,20 @@ import { useState } from 'react';
 import Login from './components/Login';
 
 
+
 function App() {
 
-  const [inputEmail, setInputEmail] = useState("");
-  const [inputPw, setInputPw] = useState("");
-  const [inputNick, setInputNick] = useState("");
+  const [user_email,setUser_Email] = useState("");
+  const [user_pw, setUser_PW] = useState("");
+  const [user_nick, setUser_Nick] = useState("");
   return (
 
     <div>
       <Header />
       <Routes>
       <Route path='/' element={<Figure/>} />
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/join' element={<Join inputNick={inputNick} setInputNick={setInputNick} inputEmail={inputEmail} setInputEmail={setInputEmail} inputPw={inputPw} setInputPw={setInputPw} />} />
+      <Route path='/login' element={<Login user_email={user_email} setUser_Email={setUser_Email} user_pw={user_pw} setUser_PW={setUser_PW}/>}/>
+      <Route path='/join' element={<Join user_nick={user_nick} setUser_Nick={setUser_Nick} user_email={user_email} setUser_Email={setUser_Email} user_pw={user_pw} setUser_PW={setUser_PW} />} />
       </Routes>
       <Footer />
 
