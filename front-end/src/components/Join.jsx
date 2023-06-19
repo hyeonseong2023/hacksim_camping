@@ -1,8 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Join.css'
 import axios from 'axios'
 const Join = ({ inputEmail, setInputEmail, inputPw, setInputPw, inputNick, setInputNick }) => {
 
+    // const [isEmailDuplicate, setIsEmailDuplicate] = useState(null);
+
+    const [result, setResult] = useState('');
 
     const handleUseremailChange = (e) => {
         setInputEmail(e.target.value);
@@ -18,6 +21,36 @@ const Join = ({ inputEmail, setInputEmail, inputPw, setInputPw, inputNick, setIn
 
 
 
+    // const handleEmailCheck = () => {
+    //     axios
+    //         .post("http://localhost:8080/email-check", { email: inputEmail }) // Replace with the actual URL of your backend server
+    //         .then((res) => {
+    //             setIsEmailDuplicate(res.data);
+    //         })
+    //         .catch((error) => {
+    //             console.error(error);
+    //         });
+    // };
+
+    const handleCheckEmail = (e) => {
+        e.preventDefault(); // 기본 동작 방지
+        axios
+            .get("http://localhost:8082/gocamping/emailcheck", {
+                params: {
+                    input: inputEmail,
+                },
+            })
+            .then((response) => {
+                const res = response.data;
+                setResult(res === 'success' ? '이 이메일은 등록할 수 있는 이메일입니다.' : '이 이메일은 등록할 수 없는 이메일입니다.');
+            })
+            .catch((error) => {
+                console.error(error);
+                setResult('통신 실패!');
+            });
+    };
+    
+
     const handleFormSubmit = (event) => {
         event.preventDefault();
 
@@ -28,8 +61,10 @@ const Join = ({ inputEmail, setInputEmail, inputPw, setInputPw, inputNick, setIn
         };
 
 
+
+
         //회원가입 데이터를 서버로 전송
-        axios.post("/gocamping/join", requestData)
+        axios.post("http://localhost:8082/gocamping/join", requestData)
             .then((res) => {
                 console.log(res);
                 console.log("이메일 = ", requestData.inputEmail);
@@ -43,8 +78,6 @@ const Join = ({ inputEmail, setInputEmail, inputPw, setInputPw, inputNick, setIn
             });
 
     };
-
-
 
 
 
@@ -67,12 +100,26 @@ const Join = ({ inputEmail, setInputEmail, inputPw, setInputPw, inputNick, setIn
                         </div>
 
                         {/* 회원가입 폼 */}
-                      
-                            <form id="login-form" onSubmit={handleFormSubmit}>
-                                <input type="text" value={inputEmail} onChange={handleUseremailChange} name="useremail" id="useremail-field" className="login-form-field" placeholder="E-mail" />
-                                <input type="text" value={inputPw} onChange={handleUserPwChange} name="userpassword" id="password-field" className="login-form-field" placeholder="Password" />
-                                <button type="submit" id="login-form-submit" />
-                            </form>
+
+                        <form id="login-form" onSubmit={handleFormSubmit}>
+                            <input type="text" value={inputEmail} onChange={handleUseremailChange} name="useremail" id="useremail-field" className="login-form-field" placeholder="E-mail" />
+                            {/* <button type='button' onClick={handleEmailCheck} id='email-check-button'>
+                                중복이메일 체크
+                            </button>
+                            {isEmailDuplicate === null ? (
+                                <span className="initial-message"></span>
+                            ) : isEmailDuplicate ? (
+                                <span className="duplicate-email">This email is already registered. Please choose a different one.</span>
+                            ) : (
+                                <span className="valid-email">You can use the email you entered.</span>
+                            )} */}
+                            <button type="button" onClick={handleCheckEmail}>이메일 확인</button>
+
+                            <div>{result}</div>
+
+                            <input type="text" value={inputPw} onChange={handleUserPwChange} name="userpassword" id="password-field" className="login-form-field" placeholder="Password" />
+                            <button type="submit" id="login-form-submit" />
+                        </form>
 
                     </div>
                 </div>

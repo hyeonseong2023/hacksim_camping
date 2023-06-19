@@ -30,5 +30,9 @@ public class UserService {
 		return mapper.Login(user);
 	}
 	
+	public int emailCheck(String inputEmail) {
+		return mapper.emailCheck(inputEmail);
+	}	
+	
 	
 }

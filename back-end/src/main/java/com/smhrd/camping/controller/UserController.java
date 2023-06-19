@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smhrd.camping.domain.User;
@@ -69,6 +70,25 @@ public class UserController {
 		service.Login(u);
 		return u;
 	}
+	
+	// view 반환 x -> data(model) 반환
+		// @Controller => view를 반환하는 메서드
+		// @Controller + @ResponseBody => model을 반환하는 메서드
+		@GetMapping(value="/emailcheck")
+		public String emailcheck(@RequestParam("input") String inputEmail) {
+			System.out.println(inputEmail);
+			
+			int result = mapper.emailCheck(inputEmail);
+			
+			System.out.println(result);
+			
+			if(result==1) { // 값 ㅇ -> 사용불가능한 이메일
+				return "fail"; // 일반 문자열 (view)
+			}else{ // 0이 나온다면? -> 사용가능한 이메일
+				return "success";
+			}
+			
+		}
 	
 	
 }

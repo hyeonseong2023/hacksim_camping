@@ -20,6 +20,7 @@ public class User {
 		this.inputPw=inputPw;
 	}
 	
+	
 }
 
 
