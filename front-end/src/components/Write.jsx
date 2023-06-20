@@ -2,10 +2,10 @@ import React, { Fragment, useEffect, useState } from 'react'
 import "../App.css"
 import axios from 'axios';
 
-const Write = () => {
+const Write = ({ inputTitle, setInputTitle, inputUserEmail, setInputUserEmail, inputContent, setInputContent}) => {
 	const [photoZone, setPhotoZone] = useState("");
 	const [imageUrl, setImageUrl] = useState('https://img.freepik.com/free-photo/camping-tents-under-pine-trees-with-sunlight-at-pang-ung-lake-mae-hong-son-in-thailand_335224-929.jpg?size=626&ext=jpg&ga=GA1.1.1498143191.1686661170&semt=sph');
-	const [selectedFile, setSelectedFile] = useState(null); // 사진 파일이 선택 되었는가?
+	const [selectedFile, setSelectedFile] = useState(""); // 사진 파일이 선택 되었는가?
 	const [test, setTest] = useState("https://img.freepik.com/free-photo/camping-tents-under-pine-trees-with-sunlight-at-pang-ung-lake-mae-hong-son-in-thailand_335224-929.jpg?size=626&ext=jpg&ga=GA1.1.1498143191.1686661170&semt=sph")
 	const [isImageLoaded, setIsImageLoaded] = useState(false);
 	const [mouseX, setMouseX] = useState(0);
@@ -19,7 +19,7 @@ const Write = () => {
 		console.log(event.target.files[0]);
 		const reader = new FileReader();
 		reader.readAsDataURL(file);
-		
+		setSelectedFile(file);
 		reader.onloadend = () => {
 			setImageUrl(reader.result);
 			
@@ -33,7 +33,7 @@ const Write = () => {
 	};
 
 	const getTagCategory = (e)=>{
-		axios.get("http://172.30.1.21:8088/gocamping/comunity/a")
+		axios.get("http://172.30.1.21:8088/gocamping/comunity/b")
 		.then((res)=>{
 			e.preventDefault();
 			console.log(res.data);
@@ -80,16 +80,57 @@ const Write = () => {
 		
 	},[])
 
+	const handleTitle = (e)=>{
+		setInputTitle(e.target.value);
+	}
+
+	const handleUserEmail = (e)=>{
+		setInputUserEmail(e.target.value);
+	}
+
+	const handleContent = (e)=>{
+		setInputContent(e.target.value);
+	}
+
+	const handleFormSubmit = (event)=>{
+		event.preventDefault();
+
+		const  requestData ={
+			inputTitle : inputTitle,
+			inputUserEmail : inputUserEmail,
+			inputContent : inputContent 
+		};
+		
+			if (selectedFile) {
+			  const formData = new FormData();
+			  formData.append('imageUrl', selectedFile);
+		
+			  axios
+				.post('http://172.30.1.43:8088/gocamping/comunity/b',formData, requestData)
+				
+				.then((res) => {
+				  console.log('결과', res.data);
+				})
+				.catch((error) => {
+				  console.error('에러', error);
+				});
+			}
+		  
+
+		
+	}
+	
+
 
     return (
     	<div className='write'> 
 			
-			<form action='/write' method='get'>
+			<form action='/comunity' encType="multipart/form-data" method='post' onSubmit={handleFormSubmit}>
 				<div className="story-header">
 					<p>제목</p>
-					<input type='text' name="story_title"></input>
+					<input type='text' onChange={handleTitle} name="story_title"></input>
 					<p>작성자</p>
-					<input type='text' name="story_writer"></input>
+					<input type='text' onChange={handleUserEmail} name="story_writer"></input>
 				</div>
 				<p/>
 				{/* story-body */}
@@ -123,7 +164,7 @@ const Write = () => {
 					)}
 					<img src={imageUrl} onLoad={handleImageLoad} style={{ display: 'none' }} />
 					<div className="content-right">
-						<textarea style={{resize:"none"}} name="story_content" cols="30" rows="10" placeholder='내용을 입력해주세요!' />
+						<textarea style={{resize:"none"}} name="story_content" cols="30" rows="10" placeholder='내용을 입력해주세요!' onChange={handleContent} />
 					</div>
 				</div>
 				<div  className='story-footer'>
