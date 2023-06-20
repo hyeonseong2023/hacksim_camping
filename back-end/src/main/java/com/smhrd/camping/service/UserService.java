@@ -9,24 +9,33 @@ import com.smhrd.camping.mapper.UserMapper;
 
 @Service
 public class UserService {
-	
+
 	@Autowired
 	private UserMapper mapper;
-	
 
+	// 회원가입
 	public int Join(User user) {
 		return mapper.Join(user);
 	}
-	
-	
 
+	// 로그인
 	public User Login(User user) {
 		return mapper.Login(user);
-}
-	
-	
+	}
+
 	// 이메일 중복 체크
 	public int emailCheck(String user_email) {
 		return mapper.emailCheck(user_email);
-	}	
+	}
+
+	// 회원정보수정
+	public int update(User user) {
+		return mapper.update(user);
+	}
+
+	// 회원탈퇴
+	public int delete(User user) {
+		return mapper.delete(user);
+	}
+
 }
