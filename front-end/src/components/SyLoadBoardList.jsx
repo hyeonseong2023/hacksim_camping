@@ -4,7 +4,7 @@ import SyLoadBoardItem from './SyLoadBoardItem'
 
 const SyLoadBoardList = () => {
   useEffect(()=>{
-    axios.get("http://172.30.1.21:8088/gocamping/comunity")
+    axios.get("http://172.30.1.43:8088/gocamping/comunity")
     .then((res)=>{
       console.log('성공')
       console.log(res.data);

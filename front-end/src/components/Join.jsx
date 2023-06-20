@@ -38,7 +38,7 @@ const Join = ({ user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUs
     const handleCheckEmail = (e) => {
         e.preventDefault(); // 기본 동작 방지
         axios
-            .get("http://localhost:8082/gocamping/emailcheck", {
+            .get("http://localhost:8088/gocamping/emailcheck", {
                 params: {
                     input: user_email,
                 },

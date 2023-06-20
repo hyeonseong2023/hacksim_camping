@@ -15,7 +15,7 @@ const StoryDetail = () => {
 // useEffect 안하면 무한 렌더링 됨!  >> 무한루프 , 클릭시점보다 이전의 결과값이 나오는건 모두 useEffect안해서임
    useEffect (()=>{
 
-    axios.get(`http://172.30.1.9:8082/gocamping/${num}`)  // `` 백틱으로 처리해주기 
+    axios.get(`http://172.30.1.43:8088/gocamping/${num}`)  // `` 백틱으로 처리해주기 
     .then((res)=>{
       console.log('단일 결과 :',res.data);
       setOneList(res.data.story_idx) //pcode대신 story_idx쓰기??

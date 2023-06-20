@@ -22,8 +22,7 @@ import { Routes , Route } from 'react-router-dom'
 import MainList from './components/MainList';
 
 import Join from './components/Join';
-import { Route, Routes } from "react-router-dom";
-import { useState } from 'react';
+
 import Login from './components/Login';
 import KakaoCallBack from './components/KakaoCallBack';
 

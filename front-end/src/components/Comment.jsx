@@ -87,7 +87,7 @@ const Comment = () => {
 		e.preventDefault();
 		
 		
-		axios.post("http://172.30.1.21:9999/demo/comment"
+		axios.post("http://172.30.1.43:8088/demo/comment"
 		, { commentContent: inputValue, commentStyle: cStyle})
 		.then((res)=>{
 			console.log('전송 성공');
