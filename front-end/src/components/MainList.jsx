@@ -22,8 +22,8 @@ const MainList = ({comunity, setComunity}) => {
   return (
     <div>
         {comunity.map((item) => {
-            console.log(item.comunity.story_img);
-            return <Item key={item.comunity.story_img} item={item.comunity}/>
+
+            return <Item key={item.comunity.story_img} item={item.comunity} idx={item.comunity.story_idx}/>
         // console.log(comunity.comunity.story_img);    
         // console.log(comunity.story_title);
         // return <Item key={comunity.story_img} item={comunity} />;

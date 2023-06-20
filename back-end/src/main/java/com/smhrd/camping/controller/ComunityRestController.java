@@ -105,7 +105,14 @@ public class ComunityRestController {
 		return comment_array;
 		
 	}
+	
+	@GetMapping("/comunity/search")
+	public ResponseEntity<List<Comunity>> searchComunity(@RequestParam("search") String search){
+		List<Comunity> comunity = service.searchComunity(search);
+		return ResponseEntity.ok(comunity);
+	}
 
+	
 	
 	
 }

@@ -7,7 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+import java.util.Random;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -81,22 +81,31 @@ public class ComunityService {
 		//List -> JsonArray
 		
 		JSONArray jsonArray = new JSONArray();
-		ImageConverter<File, String> converter = new ImageToBase64();
+//		ImageConverter<File, String> converter = new ImageToBase64();
 		//Comunity -> JsonObject
 		for(Comunity c: list) {
 			System.out.println(c.getStory_content()+ c.getStory_title());
 			//1. img 필드값 수정( 파일이름 -> 이미지 바이트 문자열 형태)
 			//-1. 변환할 파일 실제 경로 정의
+			
+			
+			
+			
+			
+			
+			
 //			String filepath = "classpath:/static/img"+c.getStory_img();
 //			Resource resource = resourceLoader.getResource(filepath);
 //			String fileStringValue = null;
 //			try {
 //			fileStringValue= converter.convert(resource.getFile());
-//			}catch(IOException e) {
+//		}catch(IOException e) {
 //				e.printStackTrace();
 //			}
-			
+//			
 //			c.setStory_img(fileStringValue);
+			
+			
 			//2. Comunity -> JsonObject(key:value) 변환
 			JSONObject obj = new JSONObject(); //비어있는 json object 생성
 			obj.put("comunity", c); //비어있는 object에 값을 추가한 것 
@@ -110,7 +119,7 @@ public class ComunityService {
 		Comunity comunity = mapper.ComunityOne(idx);
 		JSONObject obj = new JSONObject();
 		ImageConverter<File, String> converter = new ImageToBase64();
-		String filepath = "classpath:/static/img"+comunity.getStory_img();
+		String filepath = "src/main/resources/" + UPLOAD_DIRECTORY +comunity.getStory_img();
 		Resource resource = resourceLoader.getResource(filepath);
 		String fileStringValue = null;
 		try {
@@ -153,12 +162,43 @@ public class ComunityService {
 	}
 	
 	//이미지 파일 저장하기
+//	public String saveFile(MultipartFile file) {
+//		//파일 저장
+//		//예시: 원본 파일의 확장자를 유지하여 저장하는 방식
+//		String originalFileName = file.getOriginalFilename(); //원본파일 이름
+//		String fileName = UUID.randomUUID().toString() + getExtension(originalFileName); //임의의 파일 이름 + 확장자
+//		String directoryPath = "src/main/resources/" + UPLOAD_DIRECTORY; //파일이 저장될 디렉토리 경로
+////		private static final String UPLOAD_DIRECTORY ="static/img";
+//		try {
+//			//파일 저장 로직 구현
+//			byte[] bytes = file.getBytes();
+//			Path path = Paths.get(directoryPath,fileName);
+//			Files.write(path, bytes);
+//			
+//			System.out.println("파일 저장 성공");
+//			String filePath = UPLOAD_DIRECTORY + "/" + fileName;//리액트 웹에서 접근 가능한 파일 경로
+//			
+//			System.out.println(filePath);
+//			return filePath; // 저장된 파일의 경로 반환
+//			
+//		}catch(IOException e) {
+//			//파일 저장 실패시 예외 처리
+//			e.printStackTrace();
+//			System.out.println("파일 저장 실패");
+//			return null;
+//		}
+//	}
+	
+	
+	
 	public String saveFile(MultipartFile file) {
+		Random rd = new Random();
+		String url = rd.toString();
 		//파일 저장
 		//예시: 원본 파일의 확장자를 유지하여 저장하는 방식
 		String originalFileName = file.getOriginalFilename(); //원본파일 이름
-		String fileName = UUID.randomUUID().toString() + getExtension(originalFileName); //임의의 파일 이름 + 확장자
-		String directoryPath = "src/main/resources/" + UPLOAD_DIRECTORY; //파일이 저장될 디렉토리 경로
+		String fileName = url.toString() + (originalFileName); //임의의 파일 이름 + 확장자
+		String directoryPath = "src/main/resources/static/img"; //파일이 저장될 디렉토리 경로
 //		private static final String UPLOAD_DIRECTORY ="static/img";
 		try {
 			//파일 저장 로직 구현
@@ -167,7 +207,7 @@ public class ComunityService {
 			Files.write(path, bytes);
 			
 			System.out.println("파일 저장 성공");
-			String filePath = UPLOAD_DIRECTORY + "/" + fileName;//리액트 웹에서 접근 가능한 파일 경로
+			String filePath = "static/img/" + fileName;//리액트 웹에서 접근 가능한 파일 경로
 			
 			System.out.println(filePath);
 			return filePath; // 저장된 파일의 경로 반환
@@ -196,6 +236,9 @@ public class ComunityService {
 		return mapper.comment(m);
 	}
 	
+	public List<Comunity> searchComunity(String search){
+		return mapper.searchComunity(search);
+	}
 	
 	
 	

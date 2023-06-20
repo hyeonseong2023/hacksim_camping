@@ -24,4 +24,6 @@ public interface CampingMapper {
 	
 	public  List<Comment> CommentList();
 	
+	public List<Comunity> searchComunity(String search);
+	
 }

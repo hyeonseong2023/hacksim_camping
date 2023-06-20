@@ -22,7 +22,7 @@
   	</select>
   <!-- ComunityList, ComunityOne -->	
   	<select id="ComunityList" resultType="com.smhrd.camping.domain.Comunity">
-  		select STORY_TITLE, STORY_CONTENT, STORY_IMG from TB_Story
+  		select * from TB_Story
   	</select>
   	
   	<select id="ComunityOne" resultType="com.smhrd.camping.domain.Category">
@@ -35,6 +35,10 @@
   	
   	<select id="CommentList" resultType="com.smhrd.camping.domain.Comment">
   		select user_email, cmt_content from tb_comment a
+  	</select>
+  	
+  	<select id="searchComunity" resultType="com.smhrd.camping.domain.Comunity">
+  		select story_title, story_img from tb_story where story_title like concat('%',#{search},'%')
   	</select>
   	
   </mapper>
