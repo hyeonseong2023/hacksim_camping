@@ -41,6 +41,7 @@ public class UserController {
 	
 	@PostMapping("/join")
 	public int Join(@RequestBody User user) {
+		
 		String inputEmail = user.getUser_email();
 		String inputPw =user.getUser_pw();
 		String inputNick =user.getUser_nick();
@@ -48,8 +49,9 @@ public class UserController {
 		System.out.println("가입이메일 : "+inputEmail);
 		System.out.println("가입비밀번호 : "+inputPw);
 		System.out.println("가입닉네임 : "+inputNick);
+		
         int cnt =service.Join(user);
-		return   cnt;
+		return cnt;
 	}
 	
 	

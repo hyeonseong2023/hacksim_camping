@@ -8,7 +8,7 @@ const Header = () => {
     <div className='header_container'>
 
         <Link to='/' style={{ textDecoration: "none", color: "black" }}>
-          <div id='logo'>모두의캠핑</div>
+          <div id='logo'>메인페이지</div>
         </Link>
 
       <div id='search_container'>
