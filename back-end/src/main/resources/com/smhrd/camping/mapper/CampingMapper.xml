@@ -6,7 +6,7 @@
   <mapper namespace="com.smhrd.camping.mapper.CampingMapper">
   	<insert id="write" parameterType="com.smhrd.camping.domain.Comunity">
   		insert into TB_STORY(STORY_CATEGORY,STORY_TITLE,STORY_CONTENT,STORY_IMG,USER_EMAIL)
-  		values(#{story_category},#{story_title},#{story_content},#{story_img},#{user_email})
+  		values('기본',#{story_title},#{story_content},#{story_img},#{story_writer})
   	</insert>
   	
   	<select id="CategoryStep" resultType="com.smhrd.camping.domain.Category">
