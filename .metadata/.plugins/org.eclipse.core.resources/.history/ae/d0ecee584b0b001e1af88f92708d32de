@@ -1,0 +1,5 @@
+package com.smhrd.camping.webconfig;
+
+public class WebConfig {
+
+}

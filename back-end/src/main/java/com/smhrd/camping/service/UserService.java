@@ -13,16 +13,41 @@ public class UserService {
 	@Autowired
 	private UserMapper mapper;
 	
-//	public JSONObject userData(String email) {
-//		
-//	}
+
+
+	public int Join(User user) {
+		return mapper.Join(user);
+
+	}
 	
-//	public JSONObject login(String email, String pw) {
-//		mapper.login(email, pw);
-//	}
+	
+
+	public User Login(User user) {
+		return mapper.Login(user);
+}
+	
+	
+	
+	public User SnsLogin(User user) {
+		return mapper.SnsLogin(user);
+}
+	
+	
+	// 이메일 중복 체크
+	public int emailCheck(String user_email) {
+		return mapper.emailCheck(user_email);
+	}	
+	
+	
+	// 회원정보수정
+		public int update(User user) {
+			return mapper.update(user);
+		}
+
+		// 회원탈퇴
+		public int delete(User user) {
+			return mapper.delete(user);
+		}
 
 	
-	public User join(User user) {
-		return mapper.join(user);
-	}
 }

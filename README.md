@@ -1,1 +1,0 @@
-# hacksim_camping
