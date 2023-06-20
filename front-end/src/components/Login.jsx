@@ -50,14 +50,14 @@ const Login = ({user_email, setUser_Email, user_pw,setUser_PW,user_nick, setUser
     return (
  
         <div id='login-container'>
-            <body>
-                <div class="main">
-                    <h1 class="logo">LOGIN</h1>
+          
+                <div className="main">
+                    <h1 className="logo">LOGIN</h1>
                     <div id="login_container">
-                        <input type="text" value={user_email} onChange={handleUseremailChange}  placeholder="Email" id="id" class="account" />
-                        <input type="password" value={user_pw} onChange={handleUserPwChange} placeholder="Password" id="password" class="account" />
-                        <button onClick={handleLogin} id="login" class="account">login</button>
-                        <p id="alert" class="account"> </p>
+                        <input type="text" value={user_email} onChange={handleUseremailChange}  placeholder="Email" id="id" className="account" />
+                        <input type="password" value={user_pw} onChange={handleUserPwChange} placeholder="Password" id="password" className="account" />
+                        <button onClick={handleLogin} id="login" className="account">login</button>
+                        <p id="alert" className="account"> </p>
                         <hr/>
                         <div id='logintxt_container'>
                         <div id ='login_text'>SNS 로그인</div>
@@ -69,7 +69,7 @@ const Login = ({user_email, setUser_Email, user_pw,setUser_PW,user_nick, setUser
                     </div>
                 </div>
                 <script src="script.js"></script>
-            </body>
+      
         </div>
 
     )

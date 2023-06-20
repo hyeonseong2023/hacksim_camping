@@ -29,4 +29,17 @@ public class UserService {
 	public int emailCheck(String user_email) {
 		return mapper.emailCheck(user_email);
 	}	
+	
+	
+	// 회원정보수정
+		public int update(User user) {
+			return mapper.update(user);
+		}
+
+		// 회원탈퇴
+		public int delete(User user) {
+			return mapper.delete(user);
+		}
+
+	
 }

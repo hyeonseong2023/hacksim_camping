@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,6 +44,7 @@ public class UserController {
 		String inputEmail = user.getUser_email();
 		String inputPw =user.getUser_pw();
 		String inputNick =user.getUser_nick();
+		String inputType =user.getUser_type();
 		System.out.println("가입이메일 : "+inputEmail);
 		System.out.println("가입비밀번호 : "+inputPw);
 		System.out.println("가입닉네임 : "+inputNick);
@@ -55,13 +57,14 @@ public class UserController {
 
 	
 	@PostMapping("/login")
-	public ResponseEntity<User> Login(@RequestBody User user) {
+	public ResponseEntity<User> Login(@RequestBody User user, HttpSession session) {
 		String inputEmail = user.getUser_email();
 		String inputPw =user.getUser_pw();
 		System.out.println("로그인이메일 : "+inputEmail);
 		System.out.println("로그인비밀번호 : "+inputPw);
 
 		User loginUser = mapper.Login(user);
+		session.setAttribute("loginUser", loginUser);
         if(loginUser!=null) {
         
         	System.out.println("로그인성공");
@@ -94,6 +97,39 @@ public class UserController {
 		
 	}
 	
-	
+	// 로그아웃
+		@GetMapping(value = "/logout")
+		public String logout(HttpSession session) {
+			session.removeAttribute("loginUser"); // 위에 로그인 때 적은 키 값
+
+			return "";
+		}
+
+		// 회원정보수정
+		@PostMapping(value = "/update")
+		public String update(@ModelAttribute User user, HttpSession session) {
+
+			User loginUser = (User) session.getAttribute("loginUser");
+			user.setUser_email(loginUser.getUser_email()); // hidden(update input)을 쓰거나 set으로 가져오거나
+
+			int cnt = mapper.update(user);
+
+			if (cnt > 0) { // 수정 성공
+				session.setAttribute("loginMember", user);
+				return ""; // 마이페이지로
+			} else { // 수정 실패
+				return ""; // 수정페이지로
+			}
+		}
+
+		// 회원탈퇴
+		@PostMapping(value = "/delete")
+		public int delete(@RequestBody User user) {
+//		    User user = new WebMember(email);
+			int deleteUser = mapper.delete(user);
+
+			return deleteUser;
+		}
+
 	
 }
