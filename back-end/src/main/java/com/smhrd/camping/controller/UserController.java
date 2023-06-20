@@ -41,6 +41,7 @@ public class UserController {
 		String inputEmail = user.getUser_email();
 		String inputPw = user.getUser_pw();
 		String inputNick = user.getUser_nick();
+		String inputType =user.getUser_type();
 		System.out.println("가입이메일 : " + inputEmail);
 		System.out.println("가입비밀번호 : " + inputPw);
 		System.out.println("가입닉네임 : " + inputNick);

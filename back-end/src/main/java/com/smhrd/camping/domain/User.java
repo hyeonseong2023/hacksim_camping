@@ -17,7 +17,4 @@ public class User {
 	private String user_joindate;
 	private String user_type;
 
-	public User(String user_email) {
-		this.user_email = user_email;
-	}
 }

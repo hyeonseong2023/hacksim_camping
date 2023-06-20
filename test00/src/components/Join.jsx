@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Login.css'
 import axios from 'axios'
+// export const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+export const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
 
 
-
-
-const Join = ({ user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUser_Nick, user_type, setUser_Type }) => {
+const Join = ({ user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUser_Nick }) => {
 
 
 // =========================================이 밑으로 일단 주석처리
@@ -13,31 +13,24 @@ const Join = ({ user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUs
 
    
     const REDIRECT_URI = "http://localhost:3000/join";
-    const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+    const REST_API_KEY = "c7cdf149cf26d90f317204cd9e5a046f";
     const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`  
-
 
     //카카오 로그인 페이지로 이동
     const kakao_LoginHandler = () => {
-
         window.location.href = kakaoLink;
-    
+
     }
-
-
  // 응답코드 && 토큰
-
-
+ 
 
      
     //토큰 받기
     useEffect(() => {
-
         const params = new URL(document.location.toString()).searchParams;
         const code =params.get("code");
-        if(code){
         const grant_type = "authorization_code";
-        const client_id = "3921938e14295e50eea7f9f79b666030";
+        const client_id = "c7cdf149cf26d90f317204cd9e5a046f";
         const REDIRECT_URI = 'http://localhost:3000/join';
       
         axios
@@ -85,19 +78,15 @@ const Join = ({ user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUs
              setUser_Email(res.data.kakao_account.email);
              setUser_Nick(res.data.kakao_account.email);
             setUser_PW(generateRandomString(10));
-            setUser_Type('K');
-          
                 });
             } else {
               console.log("토큰 없음");
             }
           })   
-     
-
-        }
-        }, []);
+      }, []);
     // 카카오 끝
 
+// ============= 이 위로 일단 주석처리
 
 
 
@@ -130,7 +119,6 @@ const Join = ({ user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUs
         setUser_Email(e.target.value);
         console.log(e.target.value);
         setUser_Nick(e.target.value);
-        setUser_Type('P');
     }
 
 
@@ -147,8 +135,7 @@ const Join = ({ user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUs
         const requestData = {
             user_email: user_email,
             user_pw: user_pw,
-            user_nick: user_nick,
-            user_type: user_type
+            user_nick: user_nick
         };
 
 
