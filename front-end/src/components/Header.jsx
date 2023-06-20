@@ -8,7 +8,7 @@ const Header = () => {
     <div className='header_container'>
 
         <Link to='/' style={{ textDecoration: "none", color: "black" }}>
-          <div id='logo'>메인페이지</div>
+          <div id='logo'>前</div>
         </Link>
 
       <div id='search_container'>
@@ -21,6 +21,13 @@ const Header = () => {
       <Link to='/login' style={{ textDecoration: "none", color: "black" }}>
       <div id='login'>로그인</div>
       </Link>
+
+      {/* 여기부터 수정~~~ */}
+      <Link to='/mypage_U' style={{ textDecoration: "none", color: "black" }}>
+        <div id='mypage_U'>마이페이지 </div>
+      </Link>
+      {/* 여기까지~~~ */}
+      
       <Link to='/join' style={{ textDecoration: "none", color: "black" }}>
         <div id='join'>회원가입</div>
       </Link>

@@ -11,7 +11,7 @@ const KakaoCallBack = ({user_email, setUser_Email, user_pw, setUser_PW, user_nic
         const params = new URL(document.location.toString()).searchParams;
         const code =params.get("code");
         const grant_type = "authorization_code";
-        const client_id = "3921938e14295e50eea7f9f79b666030";
+        const client_id = "c7cdf149cf26d90f317204cd9e5a046f";
         const REDIRECT_URI = 'http://localhost:3000/kakaocallback';
       
         axios
