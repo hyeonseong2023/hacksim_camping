@@ -1,11 +1,19 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const Item = ({imgSrc}) => {
+const Item = ({item}) => {
+  const nav = useNavigate();
+  const getDetail = () =>{
+    // nav(`/ProductDetail/${idx}`)
+  }
+
+  
+
   return (
-    <div className='item'>
-      <img width="100%" src={imgSrc}></img>
-      <p>제목</p>
-      <p>설명</p>
+    <div onClick={getDetail}>
+      <img width="100px" src={item.story_img}></img>
+      <p>제목 : {item.story_title}</p>
+      
     </div>
   )
 }

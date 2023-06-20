@@ -16,7 +16,7 @@ public interface CampingMapper {
 	
 	public Comunity ComunityOne(int idx); //Comunity.java에 있는 글순번 idx
 	
-	public int write(Comunity c);
+	public int write(Comunity comunity);
 	
 	public List<Category> CategoryStep();
 	
