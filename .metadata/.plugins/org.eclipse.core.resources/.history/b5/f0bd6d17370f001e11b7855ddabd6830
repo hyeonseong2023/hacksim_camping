@@ -89,7 +89,7 @@ public class UserController {
 		String inputPw =user.getUser_pw();
 		System.out.println("로그인이메일 : "+inputEmail);
 
-		User loginUser = mapper.SnsLogin(user);
+		User loginUser = mapper.Login(user);
 		session.setAttribute("loginUser", loginUser);
         if(loginUser!=null) {
         

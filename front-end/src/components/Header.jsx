@@ -17,6 +17,9 @@ const Header = () => {
           <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png" />
         </div>
       </div>
+      <Link to='/mypage' style={{ textDecoration: "none", color: "black" }}>
+      <div id='mypage'>마이페이지</div>
+      </Link>
       <div id='content'>게시판</div>
       <Link to='/login' style={{ textDecoration: "none", color: "black" }}>
       <div id='login'>로그인</div>

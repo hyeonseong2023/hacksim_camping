@@ -3,6 +3,23 @@ import '../Login.css'
 import axios from 'axios'
 const Login = ({user_email, setUser_Email, user_pw,setUser_PW,user_nick, setUser_Nick }) => {
 
+
+
+//KAKAO 로그인
+   
+const REDIRECT_URI = "http://localhost:3000/kakaocallback2";
+const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`  
+
+
+//카카오 로그인 페이지로 이동
+const kakao_LoginHandler = () => {
+
+    window.location.href = kakaoLink;
+
+}
+
+
     
     const handleUseremailChange = (e) => {
         setUser_Email(e.target.value);
@@ -63,7 +80,7 @@ const Login = ({user_email, setUser_Email, user_pw,setUser_PW,user_nick, setUser
                         <div id ='login_text'>SNS 로그인</div>
                         </div>
                         <div id='img_container'>
-                        <img id='k' src='https://cdn-icons-png.flaticon.com/512/2111/2111496.png' />
+                        <img id='k' onClick={kakao_LoginHandler} src='https://cdn-icons-png.flaticon.com/512/2111/2111496.png' />
                         <img id='g' src='https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/google-icon.png' />
                         </div>
                     </div>

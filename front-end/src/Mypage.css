@@ -1,0 +1,57 @@
+#hj_mypage{
+  padding-left: 20%;
+  padding-right: 20%;
+height: 100vh;
+  
+}
+
+#hj_user-container{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+gap:20%;
+height: 50px;;
+
+}
+
+#hj_columns{
+    column-count: 3;
+    column-gap: 15px;
+    padding: 10px;
+    display: flex;
+    /* flex-direction: row;
+justify-content: space-around; */
+ flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+ 
+  #hj_columns figure {
+    flex-direction: row;
+  justify-content: space-around;
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.2);
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    width: 30%;
+  }
+  #hj_columns figure img{
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+  }
+  
+  #hj_columns figure figcaption{
+    border-top: 1px solid rgba(0,0,0,0.2);
+    padding: 10px;
+    margin-top: 11px;
+    color: #444;
+    line-height: 1.5;
+  }

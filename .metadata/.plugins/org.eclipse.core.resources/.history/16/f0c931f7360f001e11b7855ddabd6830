@@ -82,30 +82,6 @@ public class UserController {
         }
 	
 	
-	
-	@PostMapping("/snslogin")
-	public ResponseEntity<User> SnsLogin(@RequestBody User user, HttpSession session) {
-		String inputEmail = user.getUser_email();
-		String inputPw =user.getUser_pw();
-		System.out.println("로그인이메일 : "+inputEmail);
-
-		User loginUser = mapper.SnsLogin(user);
-		session.setAttribute("loginUser", loginUser);
-        if(loginUser!=null) {
-        
-        	System.out.println("로그인성공");
-        	System.out.println("가입일 : "+loginUser.getUser_joindate());
-        	System.out.println("닉네임 : "+loginUser.getUser_nick());
-        	System.out.println("회원구분 : "+loginUser.getUser_role());
-        	return ResponseEntity.ok(loginUser);
-        	
-        }else {
-        	System.out.println("로그인실패");
-		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
-        }
-        }
-	
-	
 	//회원가입 이메일 중복 체크
 	@GetMapping(value="/emailcheck")
 	public String emailcheck(@RequestParam("input") String user_email) {

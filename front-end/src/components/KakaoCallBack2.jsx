@@ -2,8 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const KakaoCallBack = ({user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUser_Nick, user_type, setUser_Type} ) => {
-
+const KakaoCallBack2 = () => {
 
     const nav = useNavigate();
     useEffect(() => {
@@ -12,7 +11,7 @@ const KakaoCallBack = ({user_email, setUser_Email, user_pw, setUser_PW, user_nic
         const code =params.get("code");
         const grant_type = "authorization_code";
         const client_id =  process.env.REACT_APP_REST_API_KEY;
-        const REDIRECT_URI = 'http://localhost:3000/kakaocallback';
+        const REDIRECT_URI = 'http://localhost:3000/kakaocallback2';
       
         axios
           .post(
@@ -46,41 +45,27 @@ const KakaoCallBack = ({user_email, setUser_Email, user_pw, setUser_PW, user_nic
               
                 
                     console.log("데이터 가져오기 성공",res);
-                    const generateRandomString = (num) => {
-                        const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
-                        let result = '';
-                        const charactersLength = characters.length;
-                        for (let i = 0; i < num; i++) {
-                            result += characters.charAt(Math.floor(Math.random() * charactersLength));
-                        }
-                      
-                        return result;
-                      }
                
    
-       
-                const kemail=res.data.kakao_account.email;
-                const  knick=res.data.kakao_account.email;
-                 const kpw=generateRandomString(10);
-                 const ktype='K';
-             
-      
-            const krequestData = {
-                user_email: kemail,
-                user_pw: kpw,
-                user_nick: knick,
-                user_type: ktype
-            };
+    
+                const krequestData = {
+                    user_email: res.data.kakao_account.email
+                };
  
-            axios.post("/gocamping/join", krequestData)
+            axios.post("/gocamping/snslogin", krequestData)
                 .then((res) => {
+
+                    if(res.status === 200){
                     console.log(res);
-                    alert(kemail + '님 회원가입을 축하드립니다😉')
+                    const user = res.data;
+                    console.log("로그인데이터 : ",res.data);
+                    alert("로그인성공😉")
                     nav('/');
+                    }
                 })
                 .catch(error => {
                     console.error(error); // 오류 발생 시 에러 로그를 출력
-                    alert('회원가입 실패😥')
+                    alert('로그인 실패😥')
                 });
     
           
@@ -94,13 +79,9 @@ const KakaoCallBack = ({user_email, setUser_Email, user_pw, setUser_PW, user_nic
 
         }, []);
 
-
-       
-  
-    
   return (
-    <div>{user_email}{user_pw}{user_nick}</div>
+    <div>KakaoCallBack2</div>
   )
 }
 
-export default KakaoCallBack
+export default KakaoCallBack2
