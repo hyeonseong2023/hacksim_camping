@@ -44,7 +44,7 @@ public class ComunityService {
 		
 		String jsonArr = gson.toJson(clist);
 		
-		System.out.println(jsonArr);
+//		System.out.println(jsonArr);
 		
 //		JSONArray jsonArray = new JSONArray();
 //		JSONObject obj = new JSONObject();

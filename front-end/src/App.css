@@ -178,14 +178,20 @@
   max-height: 350px;
   max-width: 100%;
 }
+
 /* ------------------------- */
 .story-footer {
   margin-top: 1%;
   text-align: right;
 }
 .story-footer button{
-  border: none;
+  /* border: none;
   outline: none;
   background-color: inherit ;
-  cursor: pointer;
+  cursor: pointer; */
+  border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    text-align: center;
 }
