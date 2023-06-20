@@ -11,7 +11,11 @@ const KakaoCallBack = ({user_email, setUser_Email, user_pw, setUser_PW, user_nic
         const params = new URL(document.location.toString()).searchParams;
         const code =params.get("code");
         const grant_type = "authorization_code";
-        const client_id =  process.env.REACT_APP_REST_API_KEY;
+
+        // const client_id =  process.env.REACT_APP_REST_API_KEY;
+
+        const client_id = "c7cdf149cf26d90f317204cd9e5a046f";
+
         const REDIRECT_URI = 'http://localhost:3000/kakaocallback';
       
         axios
@@ -71,7 +75,10 @@ const KakaoCallBack = ({user_email, setUser_Email, user_pw, setUser_PW, user_nic
                 user_nick: knick,
                 user_type: ktype
             };
- 
+
+            console.log("dnaksn00 : ",krequestData);
+            //회원가입 데이터를 서버로 전송
+
             axios.post("/gocamping/join", krequestData)
                 .then((res) => {
                     console.log(res);

@@ -27,12 +27,12 @@ public class UserService {
 }
 	
 	
+
 	
 	public User SnsLogin(User user) {
 		return mapper.SnsLogin(user);
 }
-	
-	
+
 	// 이메일 중복 체크
 	public int emailCheck(String user_email) {
 		return mapper.emailCheck(user_email);

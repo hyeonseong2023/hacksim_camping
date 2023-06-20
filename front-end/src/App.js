@@ -26,8 +26,13 @@ import { Route, Routes } from "react-router-dom";
 import { useState } from 'react';
 import Login from './components/Login';
 import KakaoCallBack from './components/KakaoCallBack';
+
 import KakaoCallBack2 from './components/KakaoCallBack2';
 import Mypage from './components/Mypage';
+
+
+import Mypage_U from './components/Mypage_U';
+import Comment from './components/Comment';
 
 
 
@@ -134,6 +139,11 @@ function App() {
       <Route path='/join' element={<Join user_type={user_type} setUser_Type={setUser_Type} user_nick={user_nick} setUser_Nick={setUser_Nick} user_email={user_email} setUser_Email={setUser_Email} user_pw={user_pw} setUser_PW={setUser_PW} />} />
       <Route path='/kakaocallback' element={<KakaoCallBack user_type={user_type} setUser_Type={setUser_Type} user_nick={user_nick} setUser_Nick={setUser_Nick} user_email={user_email} setUser_Email={setUser_Email} user_pw={user_pw} setUser_PW={setUser_PW}/>}/>
       <Route path='/kakaocallback2' element={<KakaoCallBack2 user_type={user_type} setUser_Type={setUser_Type} user_nick={user_nick} setUser_Nick={setUser_Nick} user_email={user_email} setUser_Email={setUser_Email} user_pw={user_pw} setUser_PW={setUser_PW}/>}/>
+      {/* 여기부터~~ */}
+      <Route path='/mypage_U' element={<Mypage_U/>} />
+      <Route path='/comment' element={<Comment/>} />
+      {/* 여기까지~~ */}
+
       </Routes>
 
       <Footer />
