@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const KakaoCallBack = ({user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUser_Nick, user_type, setUser_Type} ) => {
+const KakaoCallBack = ({} ) => {
 
 
     const nav = useNavigate();
@@ -47,7 +47,7 @@ const KakaoCallBack = ({user_email, setUser_Email, user_pw, setUser_PW, user_nic
                   }
                 )
                 .then((res) => {
-              
+      
                 
                     console.log("데이터 가져오기 성공",res);
                     const generateRandomString = (num) => {
@@ -106,7 +106,7 @@ const KakaoCallBack = ({user_email, setUser_Email, user_pw, setUser_PW, user_nic
   
     
   return (
-    <div>{user_email}{user_pw}{user_nick}</div>
+    <div></div>
   )
 }
 

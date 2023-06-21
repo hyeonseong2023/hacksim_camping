@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-
+// 카카오톡  로그인
 const KakaoCallBack2 = () => {
 
     const nav = useNavigate();
@@ -60,6 +60,15 @@ const KakaoCallBack2 = () => {
                     const user = res.data;
                     console.log("로그인데이터 : ",res.data);
                     alert("로그인성공😉")
+                    
+                localStorage.setItem('loginSuccess', "Y")
+                localStorage.setItem('user_email', user.user_email)
+                localStorage.setItem('user_pw', user.user_pw)
+                localStorage.setItem('user_nick', user.user_nick)
+                localStorage.setItem('user_role', user.user_role)
+                localStorage.setItem('user_joindate', user.user_joindate)
+
+       
                     nav('/');
                     }
                 })
