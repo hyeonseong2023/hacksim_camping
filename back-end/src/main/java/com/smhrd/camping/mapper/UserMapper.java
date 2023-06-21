@@ -13,17 +13,21 @@ import com.smhrd.camping.domain.User;
 public interface UserMapper {
 
 	// 회원가입
+
+
 	@Insert("insert into tb_user(user_email, user_pw, user_nick, user_type) values(#{user_email},#{user_pw},#{user_nick},#{user_type})")
 	public int Join(User user);
+
 	
 	// 로그인
 	@Select("select * from tb_user where user_email=#{user_email} and user_pw=#{user_pw}")
 	public User Login(User user);
 	
+
 	// SNS 로그인
 	@Select("select * from tb_user where user_email=#{user_email}")
 	public User SnsLogin(User user);
-	
+
 	// 이메일 중복체크
 		@Select("select count(*) from tb_user where user_email=#{user_email}")
 		public int emailCheck(@Param("user_email")String user_email);

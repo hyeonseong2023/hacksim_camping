@@ -1,0 +1,49 @@
+.my-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+  }
+  
+  .my-page-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .my-page-content {
+    width: 80%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-email, .user-nickname {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .my-page-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .btn-posts, .btn-comments {
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 7px 20px;
+    font-size: 16px;
+  }
+  
+  .btn-posts:hover, .btn-comments:hover {
+    background-color: #0056b3;
+  }
+  

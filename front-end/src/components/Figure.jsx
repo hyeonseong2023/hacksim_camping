@@ -1,6 +1,8 @@
 import React from 'react';
 import  '../Figure.css'
 const Figure = () => {
+    
+
     return (
 <div id="columns">
         <figure>

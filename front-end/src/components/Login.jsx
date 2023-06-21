@@ -8,7 +8,7 @@ const Login = ({user_email, setUser_Email, user_pw,setUser_PW,user_nick, setUser
 //KAKAO 로그인
    
 const REDIRECT_URI = "http://localhost:3000/kakaocallback2";
-const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+const REST_API_KEY = 'c7cdf149cf26d90f317204cd9e5a046f';
 const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`  
 
 

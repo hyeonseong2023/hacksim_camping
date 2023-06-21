@@ -1,12 +1,10 @@
 #hj_mypage{
   padding-left: 20%;
   padding-right: 20%;
-height: 80%;
+height: 100vh;
   
 }
-::-webkit-scrollbar {
-  display: none;
-}
+
 #hj_user-container{
     display: flex;
 flex-direction: row;
@@ -22,10 +20,12 @@ height: 50px;;
     column-gap: 15px;
     padding: 10px;
     display: flex;
+    /* flex-direction: row;
+justify-content: space-around; */
  flex-direction: row;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    
   }
 
  
@@ -38,7 +38,7 @@ height: 50px;;
     margin-bottom: 15px;
     padding: 10px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    width: 25%;
+    width: 30%;
   }
   #hj_columns figure img{
     width: 100%;

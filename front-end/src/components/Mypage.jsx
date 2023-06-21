@@ -37,18 +37,6 @@ const Mypage = () => {
             <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/167703270657353531.jpg"/>
             <figcaption>감성캠핑</figcaption>
         </figure>
-        <figure>
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/167703270657353531.jpg"/>
-            <figcaption>감성캠핑</figcaption>
-        </figure>
-        <figure>
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/167703270657353531.jpg"/>
-            <figcaption>감성캠핑</figcaption>
-        </figure>
-        <figure>
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/167703270657353531.jpg"/>
-            <figcaption>감성캠핑</figcaption>
-        </figure>
         </div>
     </div>
   )

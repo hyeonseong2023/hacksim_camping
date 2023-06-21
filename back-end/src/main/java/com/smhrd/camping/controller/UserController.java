@@ -82,6 +82,7 @@ public class UserController {
         }
 	
 	
+
 	
 	@PostMapping("/snslogin")
 	public ResponseEntity<User> SnsLogin(@RequestBody User user, HttpSession session) {
@@ -106,6 +107,7 @@ public class UserController {
         }
 	
 	
+
 	//회원가입 이메일 중복 체크
 	@GetMapping(value="/emailcheck")
 	public String emailcheck(@RequestParam("input") String user_email) {
