@@ -32,6 +32,9 @@ import Mypage from './components/Mypage';
 
 import Comment from './components/Comment';
 import Logout from './components/Logout';
+import MyPage_U from './components/Mypage_U';
+import CommentList from './components/CommentList';
+import Update from './components/Update';
 
 
 
@@ -94,9 +97,11 @@ const [campingUser,setCampingUser] = useState({
       <Route path='/join' element={<Join/>} />
       <Route path='/kakaocallback' element={<KakaoCallBack/>}/>
       <Route path='/kakaocallback2' element={<KakaoCallBack2/>}/>
-      {/* 여기부터~~ */}
-
+           {/* 여기부터~~ */}
+           <Route path='/mypage_U' element={<MyPage_U/>} />
       <Route path='/comment' element={<Comment/>} />
+      <Route path='/commentList' element={<CommentList/>} />
+      <Route path='/update' element={<Update/>} />
       {/* 여기까지~~ */}
 
       </Routes>

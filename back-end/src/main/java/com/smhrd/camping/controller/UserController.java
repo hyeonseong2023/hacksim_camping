@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.smhrd.camping.domain.User;
 import com.smhrd.camping.mapper.UserMapper;
@@ -25,7 +26,7 @@ import jakarta.servlet.http.HttpSession;
 
 @RestController
 //"http://localhost:3000" 에서 오는 요청 받겠다는 의미
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin(origins="http://localhost:3000")
 @ControllerAdvice
 public class UserController {
 
@@ -59,20 +60,20 @@ public class UserController {
 
 	
 	@PostMapping("/login")
-	public ResponseEntity<User> Login(@RequestBody User user, HttpSession session) {
+	public ResponseEntity<User> Login(@RequestBody User user) {
 		String inputEmail = user.getUser_email();
 		String inputPw =user.getUser_pw();
 		System.out.println("로그인이메일 : "+inputEmail);
 		System.out.println("로그인비밀번호 : "+inputPw);
 
 		User loginUser = mapper.Login(user);
-		session.setAttribute("loginUser", loginUser);
         if(loginUser!=null) {
         
         	System.out.println("로그인성공");
         	System.out.println("가입일 : "+loginUser.getUser_joindate());
         	System.out.println("닉네임 : "+loginUser.getUser_nick());
         	System.out.println("회원구분 : "+loginUser.getUser_role());
+
         	return ResponseEntity.ok(loginUser);
         	
         }else {
@@ -85,13 +86,12 @@ public class UserController {
 
 	
 	@PostMapping("/snslogin")
-	public ResponseEntity<User> SnsLogin(@RequestBody User user, HttpSession session) {
+	public ResponseEntity<User> SnsLogin(@RequestBody User user) {
 		String inputEmail = user.getUser_email();
 		String inputPw =user.getUser_pw();
 		System.out.println("로그인이메일 : "+inputEmail);
 
 		User loginUser = mapper.SnsLogin(user);
-		session.setAttribute("loginUser", loginUser);
         if(loginUser!=null) {
         
         	System.out.println("로그인성공");
@@ -124,30 +124,22 @@ public class UserController {
 		}
 		
 	}
-	
-	// 로그아웃
-		@GetMapping(value = "/logout")
-		public String logout(HttpSession session) {
-			session.removeAttribute("loginUser"); // 위에 로그인 때 적은 키 값
 
-			return "";
-		}
+		// 회원 정보를 업데이트하는 메서드 => 일단 세션 안씀
+		@PostMapping("/update")
+		public ResponseEntity<String> update(@RequestBody User requestData) {
+		  // 실제로 업데이트 처리를 수행합니다.
+			System.out.println(requestData.getUser_nick());
+			System.out.println(requestData.getUser_pw());
+			System.out.println(requestData.getUser_email());
+			
+		  int result = mapper.update(requestData);
 
-		// 회원정보수정
-		@PostMapping(value = "/update")
-		public String update(@ModelAttribute User user, HttpSession session) {
-
-			User loginUser = (User) session.getAttribute("loginUser");
-			user.setUser_email(loginUser.getUser_email()); // hidden(update input)을 쓰거나 set으로 가져오거나
-
-			int cnt = mapper.update(user);
-
-			if (cnt > 0) { // 수정 성공
-				session.setAttribute("loginMember", user);
-				return ""; // 마이페이지로
-			} else { // 수정 실패
-				return ""; // 수정페이지로
-			}
+		  if (result > 0) { // 성공적으로 업데이트되면 로그인 세션 정보도 업데이트합니다.
+		    return ResponseEntity.ok("회원 정보 수정 완료");
+		  } else {
+		    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("회원 정보 수정 실패");
+		  }
 		}
 
 		// 회원탈퇴
