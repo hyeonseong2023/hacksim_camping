@@ -52,7 +52,7 @@ public class ComunityRestController {
 		return array;
 	}
 	
-	@GetMapping("/{idx}")
+	@GetMapping("/comunity/{idx}")
 	public JSONObject ComunityOne(@PathVariable("idx") int idx) {
 		return service.ComunityOne(idx);
 	}

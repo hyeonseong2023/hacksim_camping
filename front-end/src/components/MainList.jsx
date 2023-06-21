@@ -20,11 +20,12 @@ const MainList = ({comunity, setComunity}) => {
       
       console.log('comunity:', comunity);
   return (
-    <div>
+    <div id='columns'>
         {comunity.map((item) => {
 
             return <Item key={item.comunity.story_img} item={item.comunity} idx={item.comunity.story_idx}/>
         // console.log(comunity.comunity.story_img);    
+        
         // console.log(comunity.story_title);
         // return <Item key={comunity.story_img} item={comunity} />;
         

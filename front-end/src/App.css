@@ -4,6 +4,13 @@
   padding: 10px;
   
 }
+
+.a{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  text-align: center;
+}
 #columns figure {
   display: inline-block;
   border: 1px solid rgba(0,0,0,0.2);
@@ -18,6 +25,13 @@
   border-bottom: 1px solid #ccc;
   padding-bottom: 15px;
   margin-bottom: 5px;
+  border-radius: 50px;
+}
+
+#columns figure img:hover{
+  transform: scale(1.1);
+  transition: transform 0.5s;
+  filter: brightness(70%);
 }
 
 #columns figure figcaption{
@@ -117,8 +131,8 @@
 }
 
 .container > .item img{
-	border-radius: 10px;
-	height: 120px;
+   border-radius: 10px;
+   height: 120px;
 }
 
 
@@ -178,20 +192,14 @@
   max-height: 350px;
   max-width: 100%;
 }
-
 /* ------------------------- */
 .story-footer {
   margin-top: 1%;
   text-align: right;
 }
 .story-footer button{
-  /* border: none;
+  border: none;
   outline: none;
   background-color: inherit ;
-  cursor: pointer; */
-  border: 1px solid #bbb;
-    border-radius: 8px;
-    padding: 10px 12px;
-    font-size: 14px;
-    text-align: center;
+  cursor: pointer;
 }
