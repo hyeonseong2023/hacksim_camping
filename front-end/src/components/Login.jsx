@@ -17,6 +17,7 @@ const kakao_LoginHandler = () => {
 
     window.location.href = kakaoLink;
 
+    
 }
 
 
