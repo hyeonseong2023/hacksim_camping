@@ -9,6 +9,7 @@ import Login from './components/Login';
 import KakaoCallBack from './components/KakaoCallBack';
 import KakaoCallBack2 from './components/KakaoCallBack2';
 import Mypage from './components/Mypage';
+import Header2 from './components/Header2';
 
 
 
@@ -22,8 +23,9 @@ function App() {
   return (
 
     <div>
-      <Header />
+      <Header/>
       <Routes>
+      <Route path='/2' element={<Header2/>} />
       <Route path='/' element={<Figure/>} />
       <Route path='/mypage' element={<Mypage/>}/>
       <Route path='/login' element={<Login user_email={user_email} setUser_Email={setUser_Email} user_pw={user_pw} setUser_PW={setUser_PW}/>}/>
