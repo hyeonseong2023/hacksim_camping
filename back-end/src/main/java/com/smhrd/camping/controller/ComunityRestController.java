@@ -57,35 +57,7 @@ public class ComunityRestController {
 		return service.ComunityOne(idx);
 	}
 	
-	//게시글 업로드 주석
-//	@PostMapping("/comunity/write")
-//	public String write(Comunity c, @RequestParam(value="imageUrl", required=true) MultipartFile file) {
-//		String newFileName = UUID.randomUUID().toString() + file.getOriginalFilename();
-//		// 이미지 file -> 저장(지정된 경로에)
-//		try {
-//			file.transferTo(new File(newFileName));
-//			
-//			
-//		}catch(IllegalStateException e) {
-//			e.printStackTrace();
-//		}catch(IOException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		c.setStory_img(newFileName);
-//		//c(Comunity) -> title, ~~~~ photo(filename)
-//		//comunity table(DB) -> 랜덤숫자+파일 이름만 저장
-//		int cnt = service.write(c);
-//		
-//		if(cnt>0) {
-//			return "/comunity";
-//		}
-//		else {
-//			return "/";
-//		}
-//		
-//	}
-	
+
 	 //게시판 글 작성 데이터 삽입하기
 	   @PostMapping("/comunity/write")
 	   public ResponseEntity<?> write(@RequestParam("story_title") String story_title,
