@@ -1,8 +1,17 @@
-import React from 'react'
 
-const CommentList = () => {
+
+const CommentList = ({userCommentList}) => {
+
+
+ 
   return (
-    <div>CommentList</div>
+    <div>
+ <tbody>
+{
+  
+}
+ </tbody>
+    </div>
   )
 }
 

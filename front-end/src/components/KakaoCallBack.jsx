@@ -76,9 +76,6 @@ const KakaoCallBack = ({} ) => {
                 user_type: ktype
             };
 
-            console.log("dnaksn00 : ",krequestData);
-            //회원가입 데이터를 서버로 전송
-
             axios.post("/gocamping/join", krequestData)
                 .then((res) => {
                     console.log(res);

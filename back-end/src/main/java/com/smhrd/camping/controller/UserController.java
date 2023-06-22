@@ -1,5 +1,8 @@
 package com.smhrd.camping.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // 회원관련 정보 페이지 반환
 import org.apache.catalina.mapper.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import com.smhrd.camping.domain.MyComment;
 import com.smhrd.camping.domain.User;
 import com.smhrd.camping.mapper.UserMapper;
 import com.smhrd.camping.service.UserService;
@@ -151,5 +155,52 @@ public class UserController {
 			return deleteUser;
 		}
 
+		
+		
+//		@PostMapping("/login")
+//		public ResponseEntity<User> Login(@RequestBody User user) {
+//			String inputEmail = user.getUser_email();
+//			String inputPw =user.getUser_pw();
+//			System.out.println("로그인이메일 : "+inputEmail);
+//			System.out.println("로그인비밀번호 : "+inputPw);
+//
+//			User loginUser = mapper.Login(user);
+//	        if(loginUser!=null) {
+//	        
+//	        	System.out.println("로그인성공");
+//	        	System.out.println("가입일 : "+loginUser.getUser_joindate());
+//	        	System.out.println("닉네임 : "+loginUser.getUser_nick());
+//	        	System.out.println("회원구분 : "+loginUser.getUser_role());
+//
+//	        	return ResponseEntity.ok(loginUser);
+//	        	
+//	        }else {
+//	        	System.out.println("로그인실패");
+//			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+//	        }
+//	        }
+		
+		
+		// 내가 작성한 댓글 불러오기
+		@PostMapping("/mycomment")
+		public ResponseEntity<List<MyComment>> myCommentList(@RequestBody User user) {
+		    List<MyComment> myCommentList = new ArrayList<>();
+		   
+		    String inputEmail = user.getUser_email();
+		    myCommentList = service.myCommentList(inputEmail);
+		    
+		    if (myCommentList != null) {
+//		    	System.out.println(myCommentList.get(0).getStory_title());
+		    	System.out.println("내가 댄글 단 글 갯수 : "+myCommentList.size());
+		        return ResponseEntity.ok(myCommentList); // 나중에 return 값 수정
+		    } else {
+		        System.out.println("리스트 출력 실패");
+		        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+		        		
+		    }
+		}
+		
+		
+		
 	
 }

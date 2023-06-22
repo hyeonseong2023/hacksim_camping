@@ -22,6 +22,9 @@ const Header = () => {
       <Link to='/mypage' style={{ textDecoration: "none", color: "black" }}>
       <div id='mypage'>마이페이지</div>
       </Link>
+      <Link to='/mycomment' style={{ textDecoration: "none", color: "black" }}>
+      <div id='comentList'>댓글목록</div>
+      </Link>
       <div id='content'>게시판</div>
       <Link to='/login' style={{ textDecoration: "none", color: "black" }}>
       <div id='login'>로그인</div>

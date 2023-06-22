@@ -1,5 +1,5 @@
 import React from 'react'
-import Comment from "./Comment"
+
 
 const ContentDetail = ({tableMarginTB, contentImgHeight, contentImgWidth, tableWidth}) => {
 	let realImgUrl = ""
@@ -33,7 +33,6 @@ const ContentDetail = ({tableMarginTB, contentImgHeight, contentImgWidth, tableW
 				</tbody>
 			</table>
 						
-			<Comment />
 
 			<div style={{height: "30px"}} />
 		</div>

@@ -30,40 +30,17 @@ import KakaoCallBack2 from './components/KakaoCallBack2';
 import Mypage from './components/Mypage';
 
 
-import Comment from './components/Comment';
 import Logout from './components/Logout';
 import MyPage_U from './components/Mypage_U';
 import CommentList from './components/CommentList';
 import Update from './components/Update';
+import Comment_HJ from './components/Comment_HJ';
 
 
 
 
 function App() {
-  //로그인 유저 정보를 관리할 객체
-const [campingUser,setCampingUser] = useState({
-  user_email : '',
-  user_pw:'',
-  user_nick:'',
-  user_role:'',
-  user_joindate:'',
-  user_type:''
-});
-
-// 유저 데이터 받아온 곳에서 호출 -> 정보 저장
-
-// const LoginSuccess = ()=>{
  
-//   const updatedUser = {
-//     user_email: '새로운 이메일',
-//     user_pw: '새로운 비밀번호',
-//     user_nick: '새로운 닉네임',
-//     user_role: '새로운 역할',
-//     user_joindate: '새로운 가입일',
-//     user_type: '새로운 유형'
-//   };
-//   setCampingUser(updatedUser);
-// };
 
   
   const [inputTitle, setInputTitle] = useState("");
@@ -91,6 +68,8 @@ const [campingUser,setCampingUser] = useState({
 
 
       <Route path='/' element={<Figure/>} />
+      {/* 내가 단 댓글목록 */}
+      <Route path='/mycomment' element={<Comment_HJ/>} />
       <Route path='/logout' element={<Logout/>} />
       <Route path='/mypage' element={<Mypage/>}/>
       <Route path='/login' element={<Login/>}/>
@@ -99,7 +78,6 @@ const [campingUser,setCampingUser] = useState({
       <Route path='/kakaocallback2' element={<KakaoCallBack2/>}/>
            {/* 여기부터~~ */}
            <Route path='/mypage_U' element={<MyPage_U/>} />
-      <Route path='/comment' element={<Comment/>} />
       <Route path='/commentList' element={<CommentList/>} />
       <Route path='/update' element={<Update/>} />
       {/* 여기까지~~ */}
