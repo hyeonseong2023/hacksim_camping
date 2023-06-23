@@ -9,7 +9,9 @@ const Login = ({}) => {
     //KAKAO 로그인
 
     const REDIRECT_URI = "http://localhost:3000/kakaocallback2";
-    const REST_API_KEY = 'c7cdf149cf26d90f317204cd9e5a046f';
+    //혜주
+    const REST_API_KEY =  process.env.REACT_APP_REST_API_KEY;
+    // const REST_API_KEY = 'c7cdf149cf26d90f317204cd9e5a046f';
     const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`
 
 
@@ -56,7 +58,7 @@ const Login = ({}) => {
 
                 localStorage.setItem('loginSuccess', "Y")
                 localStorage.setItem('user_email', user.user_email)
-                localStorage.setItem('user_pw', user.user_pw)
+                // localStorage.setItem('user_pw', user.user_pw)
                 localStorage.setItem('user_nick', user.user_nick)
                 localStorage.setItem('user_role', user.user_role)
                 localStorage.setItem('user_joindate', user.user_joindate)

@@ -10,7 +10,10 @@ const KakaoCallBack2 = () => {
         const params = new URL(document.location.toString()).searchParams;
         const code =params.get("code");
         const grant_type = "authorization_code";
-        const client_id = 'c7cdf149cf26d90f317204cd9e5a046f';
+
+        //혜주
+        const client_id =  process.env.REACT_APP_REST_API_KEY;
+        // const client_id = 'c7cdf149cf26d90f317204cd9e5a046f';
         const REDIRECT_URI = 'http://localhost:3000/kakaocallback2';
       
         axios
@@ -63,7 +66,7 @@ const KakaoCallBack2 = () => {
                     
                 localStorage.setItem('loginSuccess', "Y")
                 localStorage.setItem('user_email', user.user_email)
-                localStorage.setItem('user_pw', user.user_pw)
+                // localStorage.setItem('user_pw', user.user_pw)
                 localStorage.setItem('user_nick', user.user_nick)
                 localStorage.setItem('user_role', user.user_role)
                 localStorage.setItem('user_joindate', user.user_joindate)

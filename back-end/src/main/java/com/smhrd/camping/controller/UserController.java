@@ -156,29 +156,7 @@ public class UserController {
 		}
 
 		
-		
-//		@PostMapping("/login")
-//		public ResponseEntity<User> Login(@RequestBody User user) {
-//			String inputEmail = user.getUser_email();
-//			String inputPw =user.getUser_pw();
-//			System.out.println("로그인이메일 : "+inputEmail);
-//			System.out.println("로그인비밀번호 : "+inputPw);
-//
-//			User loginUser = mapper.Login(user);
-//	        if(loginUser!=null) {
-//	        
-//	        	System.out.println("로그인성공");
-//	        	System.out.println("가입일 : "+loginUser.getUser_joindate());
-//	        	System.out.println("닉네임 : "+loginUser.getUser_nick());
-//	        	System.out.println("회원구분 : "+loginUser.getUser_role());
-//
-//	        	return ResponseEntity.ok(loginUser);
-//	        	
-//	        }else {
-//	        	System.out.println("로그인실패");
-//			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
-//	        }
-//	        }
+	
 		
 		
 		// 내가 작성한 댓글 불러오기
@@ -200,7 +178,20 @@ public class UserController {
 		    }
 		}
 		
-		
+		//내가 작성한 댓글 삭제
+		@PostMapping("/deletecoment")
+		public int deleteComment(@RequestBody MyComment cmtIdx){
+
+			int getCmtIdx = cmtIdx.getCmt_idx();
+			int cnt = service.deleteComment(getCmtIdx);
+			System.out.println("삭제할 인덱스 번호 : "+getCmtIdx);
+			
+			if(cnt==1) { 
+				return 1; 
+			}else{ 
+				return 0;
+			}
+		}
 		
 	
 }

@@ -45,8 +45,10 @@ public interface UserMapper {
 		
 		
 		//내가 작성한 댓글의 게시물 리스트, 그 게시물 속 내가 단 댓글 모두 가져오기 (MyCommnet)
-		@Select("SELECT a.story_idx, a.cmt_content, b.story_title FROM tb_comment a JOIN tb_story b ON a.story_idx = b.story_idx WHERE a.user_email=#{user_email}")
+		@Select("SELECT a. cmt_idx, a.cmt_dt, a.story_idx, a.cmt_content, b.story_title FROM tb_comment a JOIN tb_story b ON a.story_idx = b.story_idx WHERE a.user_email=#{user_email}")
 		public List<MyComment> myCommentList(String user_email);
 
-
+		//내가 작성한 댓글 삭제
+		@Delete("delete from tb_comment where cmt_idx=#{getCmtIdx}")
+		public int deleteComment(int getCmtIdx);
 }	

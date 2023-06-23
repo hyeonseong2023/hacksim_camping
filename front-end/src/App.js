@@ -3,6 +3,8 @@
 
 // import { BrowserRouter, Route , Switch } from 'react-router-dom'
 
+
+
 import Figure from './components/Figure';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -32,9 +34,12 @@ import Mypage from './components/Mypage';
 
 import Logout from './components/Logout';
 import MyPage_U from './components/Mypage_U';
-import CommentList from './components/CommentList';
+
 import Update from './components/Update';
 import Comment_HJ from './components/Comment_HJ';
+import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
+
+
 
 
 
@@ -42,19 +47,22 @@ import Comment_HJ from './components/Comment_HJ';
 function App() {
  
 
-  
   const [inputTitle, setInputTitle] = useState("");
   const [inputUserEmail, setInputUserEmail] = useState("");
   const [inputContent, setInputContent] = useState("");
   const [comunity, setComunity] = useState([]);
 
-
+  const onSuccessHandler = res => {
+    console.log(res)
+  }
 
 
   return (
 
     <div>
+ 
       <Header />
+     
       <Routes>
 
 
@@ -64,11 +72,10 @@ function App() {
         <Route path='/main' element={<MainList comunity={comunity} setComunity={setComunity}/>}/>
 
 
-      
 
 
       <Route path='/' element={<Figure/>} />
-      {/* 내가 단 댓글목록 */}
+ 
       <Route path='/mycomment' element={<Comment_HJ/>} />
       <Route path='/logout' element={<Logout/>} />
       <Route path='/mypage' element={<Mypage/>}/>
@@ -78,7 +85,7 @@ function App() {
       <Route path='/kakaocallback2' element={<KakaoCallBack2/>}/>
            {/* 여기부터~~ */}
            <Route path='/mypage_U' element={<MyPage_U/>} />
-      <Route path='/commentList' element={<CommentList/>} />
+
       <Route path='/update' element={<Update/>} />
       {/* 여기까지~~ */}
 

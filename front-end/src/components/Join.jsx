@@ -2,7 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import '../Login.css'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
-
+import GoogleLogin from './SNSLogin/google'
+import NaverLogin from './SNSLogin/naver'
+import KakaoLogin from './SNSLogin/kakao'
+import Google from './SNSLogin/google'
 
 
 
@@ -14,8 +17,11 @@ const Join = () => {
     //KAKAO 로그인
 
     const REDIRECT_URI = "http://localhost:3000/kakaocallback";
-    const REST_API_KEY = 'c7cdf149cf26d90f317204cd9e5a046f';
-    // const REST_API_KEY = "3921938e14295e50eea7f9f79b666030"
+
+    //혜주
+    const REST_API_KEY =  process.env.REACT_APP_REST_API_KEY;
+    // const REST_API_KEY = 'c7cdf149cf26d90f317204cd9e5a046f';
+
 
     const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`
 
@@ -26,6 +32,7 @@ const Join = () => {
         window.location.href = kakaoLink;
 
     }
+
 
 
     const [user_email, setUser_Email] = useState('')
@@ -102,6 +109,12 @@ const Join = () => {
             });
 
     };
+    
+    // sns 로그인 관련 함수
+    const onSuccessHandler = res => {
+        console.log(res)
+      }
+
 
     return (
 
@@ -123,12 +136,17 @@ const Join = () => {
                         <div id='login_text'>SNS 회원가입</div>
                     </div>
                     <div id='img_container'>
-
-
                         <img id='k' onClick={kakao_LoginHandler} src='https://cdn-icons-png.flaticon.com/512/2111/2111496.png' />
-
-
                         <img id='g' src='https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/google-icon.png' />
+                    
+                    </div>
+
+                    <div className="App">
+                        <GoogleLogin
+                            success={onSuccessHandler}
+                            fail={res => console.log(res)}
+                        />
+                        
                     </div>
                 </div>
             </div>

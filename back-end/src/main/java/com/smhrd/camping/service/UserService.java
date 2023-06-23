@@ -52,10 +52,15 @@ public class UserService {
 			return mapper.delete(user);
 		}
 
-		//내가 댓글 단 글 출력
+		//내가 댓글 단 댓글 출력
 		
 		public List<MyComment> myCommentList(String user_email) {
 			return mapper.myCommentList(user_email);
 		}
 	
+		
+		// 내가 단 댓글 삭제
+		public int deleteComment(int getCmtIdx) {
+			return mapper.deleteComment(getCmtIdx);
+		}
 }

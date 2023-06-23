@@ -8,7 +8,7 @@ const Logout = () => {
     useEffect(()=>{
     localStorage.removeItem("loginSuccess");
     localStorage.removeItem("user_email");
-    localStorage.removeItem("user_pw");
+    // localStorage.removeItem("user_pw");
     localStorage.removeItem("user_nick");
     localStorage.removeItem("user_role");
     localStorage.removeItem("user_joindate");
