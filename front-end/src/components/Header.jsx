@@ -32,6 +32,10 @@ const Header = () => {
         <div id='mypage_U'>마이페이지 </div>
       </Link>
       {/* 여기까지~~~ */}
+
+      <Link to='/mycomment' style={{ textDecoration: "none", color: "black" }}>
+        <div id='mypage_U'>내가 작성한 댓글 </div>
+      </Link>
       
       <Link to='/join' style={{ textDecoration: "none", color: "black" }}>
         <div id='join'>회원가입</div>

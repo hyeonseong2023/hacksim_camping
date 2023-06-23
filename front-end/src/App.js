@@ -8,8 +8,8 @@ import Nav from './components/Nav'
 import Figure from './components/Figure';
 import Header from './components/Header';
 import Footer from './components/Footer';
-
-
+import Header2 from './components/Header2';
+import Comment_HJ from './components/Comment_HJ';
 // import Write from './components/Write';
 import Write_Test from './components/Write_Test'
 import { useState, useEffect } from 'react';
@@ -147,6 +147,7 @@ function App() {
       <Route path='/kakaocallback' element={<KakaoCallBack user_type={user_type} setUser_Type={setUser_Type} user_nick={user_nick} setUser_Nick={setUser_Nick} user_email={user_email} setUser_Email={setUser_Email} user_pw={user_pw} setUser_PW={setUser_PW}/>}/>
       <Route path='/kakaocallback2' element={<KakaoCallBack2 user_type={user_type} setUser_Type={setUser_Type} user_nick={user_nick} setUser_Nick={setUser_Nick} user_email={user_email} setUser_Email={setUser_Email} user_pw={user_pw} setUser_PW={setUser_PW}/>}/>
       {/* 여기부터~~ */}
+      <Route path='/mycomment' element={<Comment_HJ/>}/>
       <Route path='/mypage_U' element={<Mypage_U/>} />
       <Route path='/comment' element={<Comment/>} />
       {/* 여기까지~~ */}
