@@ -469,3 +469,8 @@
 2023-06-23 10:21:19,331 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2023-06-23 10:21:19,345 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 100 resources from src\main\resources to target\classes
 2023-06-23 10:21:19,380 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\smhrd\Desktop\hacksim_camping\back-end\src\test\resources
+2023-06-23 10:34:02,630 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-06-23 10:34:24,944 [Worker-2: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.smhrd:back-end:0.0.1-SNAPSHOT @ C:\Users\smhrd\Desktop\hacksim_camping\back-end\pom.xml.
+2023-06-23 10:34:27,372 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-06-23 10:34:27,393 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 100 resources from src\main\resources to target\classes
+2023-06-23 10:34:27,605 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\smhrd\Desktop\hacksim_camping\back-end\src\test\resources
