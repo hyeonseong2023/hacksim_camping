@@ -20,7 +20,7 @@ const Comment = () => {
 	const [ inputValue, setInputValue ] = useState('0');
 	const ref_editor = useRef(null);
 	const styleProperties = ['font-weight', 'font-style', 'font-size', 'text-decoration', 'height'];
-
+	
 	function setStyle(style) {
 		
 		document.execCommand(style);
@@ -83,19 +83,36 @@ const Comment = () => {
 		}
 	}
 	
+	// axios.post("http://172.30.1.43:8088/gocamping/comunity/comment"
+	// 	, { commentContent: inputValue, commentStyle: cStyle})
+	// 	.then((res)=>{
+	// 		console.log('전송 성공');
+
+	// 	})
+	// 	.catch(()=>{
+	// 		alert("통신 실패");
+	// 	})
 	const submitHandle = (e)=>{
 		e.preventDefault();
 		
+		const requestData = {
+			commentContent: inputValue,
+			commentStyle: JSON.stringify(cStyle),
+		  };
 		
-		axios.post("http://172.30.1.43:8088/demo/comment"
-		, { commentContent: inputValue, commentStyle: cStyle})
-		.then((res)=>{
-			console.log('전송 성공');
-
-		})
-		.catch(()=>{
+		  axios
+		  .post("http://172.30.1.43:8088/gocamping/comunity/comment", JSON.stringify(requestData), {
+			headers: {
+			  'Content-Type': 'application/json',
+			},
+		  })
+		  .then((res) => {
+			console.log("전송 성공");
+		  })
+		  .catch((error) => {
+			console.error("통신 실패", error);
 			alert("통신 실패");
-		})
+		  });
 	}
 
 

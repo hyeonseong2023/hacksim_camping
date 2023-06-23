@@ -5,8 +5,10 @@ import { useNavigate } from 'react-router-dom'
 const Item = ({item, idx}) => {
   const nav = useNavigate();
   const getDetail = () =>{
-  
-    nav(`/ContentDetail/${idx}`);
+    
+    nav(`/comunity/ContentDeatil/${idx}`);
+    
+    //  nav(`/comunity/ComunityDetail/${idx}`)
     
   }
 

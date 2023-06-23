@@ -1,6 +1,5 @@
 package com.smhrd.camping.service;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,14 +11,11 @@ import java.util.Random;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.Gson;
-import com.smhrd.camping.converter.ImageConverter;
-import com.smhrd.camping.converter.ImageToBase64;
 import com.smhrd.camping.domain.Category;
 import com.smhrd.camping.domain.Comment;
 import com.smhrd.camping.domain.Comunity;
@@ -59,22 +55,14 @@ public class ComunityService {
 		return jsonArr;
 	}
 	
-	public String CommentList() {
-		List<Comment> comment_list = mapper.CommentList();
-		
-		Gson gson = new Gson();
-		
-		String comment_json = gson.toJson(comment_list);
-		
-		return comment_json;
-	}
+	
 	
 	public JSONArray ComunityList() {
 		List<Comunity> list = mapper.ComunityList();
 
 		JSONArray jsonArray = new JSONArray();
 		for(Comunity c: list) {
-			System.out.println(c.getStory_content()+ c.getStory_title());
+//			System.out.println(c.getStory_content()+ c.getStory_title());
 			JSONObject obj = new JSONObject(); //비어있는 json object 생성
 			obj.put("comunity", c); //비어있는 object에 값을 추가한 것 
 			
@@ -84,26 +72,8 @@ public class ComunityService {
 	}
 	
 	
-	public JSONObject ComunityOne(int idx) {
-		Comunity comunity = mapper.ComunityOne(idx);
-		JSONObject obj = new JSONObject();
-//		ImageConverter<File, String> converter = new ImageToBase64();
-//		String filepath = "src/main/resources/" + UPLOAD_DIRECTORY +comunity.getStory_img();
-//		Resource resource = resourceLoader.getResource(filepath);
-//		String fileStringValue = null;
-//		try {
-//		fileStringValue= converter.convert(resource.getFile());
-//		}catch(IOException e) {
-//			e.printStackTrace();
-//		}
-		
-		
-		//2. Comunity -> JsonObject(key:value)변환
-		obj.put("comunity", comunity);
-		
-		return obj;
-		
-		
+	public Comunity ComunityOne(int idx) {
+		return mapper.ComunityOne(idx);	
 	}
 	
 	public Comunity write(String story_title, String story_content, List<MultipartFile> file, String user_email , String story_category) {
@@ -200,13 +170,36 @@ public class ComunityService {
 	}
 	
 
-	public int comment(Comment m) {
-		// TODO Auto-generated method stub
-		return mapper.comment(m);
+	public int comment(int idx, String cmt_content, String user_email) {
+		Comment cmt = new Comment();
+		cmt.setStory_idx(idx);
+		cmt.setCmt_content(cmt_content);
+		cmt.setUser_email(user_email);
+		int result = mapper.comment(cmt);
+		return result;
 	}
+	
+	public List<Comment> CommentList(int idx) {
+		List<Comment> comment_list = mapper.CommentList(idx);
+		
+//		Gson gson = new Gson();
+//		
+//		String comment_json = gson.toJson(comment_list);
+		
+		
+		return mapper.CommentList(idx);
+	}
+	
 	
 	public List<Comunity> searchComunity(String search){
 		return mapper.searchComunity(search);
+	}
+
+
+
+	public List<Comment> getComments(int idx) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

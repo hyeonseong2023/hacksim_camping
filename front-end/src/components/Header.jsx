@@ -7,7 +7,7 @@ const Header = () => {
 
     <div className='header_container'>
 
-        <Link to='/' style={{ textDecoration: "none", color: "black" }}>
+        <Link to='/main' style={{ textDecoration: "none", color: "black" }}>
 
           <div id='logo'>메인페이지</div>
 

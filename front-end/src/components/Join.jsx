@@ -81,6 +81,7 @@ const Join = ({ user_email, setUser_Email, user_pw, setUser_PW, user_nick, setUs
             user_type: user_type
         };
 
+        
 
         //회원가입 데이터를 서버로 전송
         axios.post("/gocamping/join", requestData)

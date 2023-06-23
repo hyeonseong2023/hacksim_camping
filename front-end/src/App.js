@@ -119,7 +119,7 @@ function App() {
   return (
 
     <div>
-      <Nav />
+      <Header />
       <Routes>
 
 
@@ -127,6 +127,7 @@ function App() {
         {/* <Route path="/write1" element={<Write inputTitle={inputTitle} setInputTitle={setInputTitle} inputUserEmail={inputUserEmail} setInputUserEmail={setInputUserEmail} inputContent={inputContent} setInputContent={setInputContent}/>} /> */}
         <Route path="/write1" element={<Write_Test inputTitle={inputTitle} setInputTitle={setInputTitle} inputUserEmail={inputUserEmail} setInputUserEmail={setInputUserEmail} inputContent={inputContent} setInputContent={setInputContent}/>} />
         <Route path='/main' element={<MainList comunity={comunity} setComunity={setComunity}/>}/>
+        <Route path="/comunity/ContentDeatil/:idx" element={<ContentDetail tableMarginTB={0} tableWidth={"100%"} contentImgWidth={"45%"} contentImgHeight={"80%"} comunity={comunity} setComunity={setComunity}/>} />
 
       
         {/* <Route path='/' element={<Figure /> } />
@@ -134,9 +135,8 @@ function App() {
         <Route path="/comunity" element={<SyLoadBoardList /> }/> */}
 
         
-        <Route path="/ContentDeatil/:num" element={<ContentDetail tableMarginTB={0} tableWidth={"100%"} contentImgWidth={"45%"} contentImgHeight={"80%"} comunity={comunity} setComunity={setComunity}/>} />
       
-      {/* <Route path='/ComunityDetail:num' element={<ComunityDetail comunity={comunity}/>}></Route> */}
+      {/* <Route path='/ComunityDetail/:num' element={<ComunityDetail comunity={comunity}/>}></Route> */}
 
 
 

@@ -29,16 +29,19 @@
   		select * from TB_Story
   	</select>
   	
-  	<select id="ComunityOne" resultType="com.smhrd.camping.domain.Category">
+  	<select id="ComunityOne" resultType="com.smhrd.camping.domain.Comunity">
   		select * from TB_Story where story_idx=#{story_idx}
   	</select>
   	
   	<insert id="comment" parameterType="com.smhrd.camping.domain.Comment">
-  		insert into TB_COMMENT (CMT_CONTENT) values(#{cmt_content})
+  		 <!-- INSERT INTO TB_COMMENT (CMT_IDX, STORY_IDX, CMT_CONTENT, CMT_DT, USER_EMAIL)
+        VALUES (NEXTVAL('CMT_IDX_SEQ'), #{story_idx}, #{cmt_content}, SYSDATE, #{user_email}) -->
+        insert into tb_comment (cmt_idx, story_idx, cmt_content, cmt_dt, user_email)
+        values(1, #{story_idx}, #{cmt_content}, SYSDATE, #{user_email})
   	</insert>
   	
   	<select id="CommentList" resultType="com.smhrd.camping.domain.Comment">
-  		select user_email, cmt_content from tb_comment a
+  		select * from tb_comment
   	</select>
   	
   	<select id="searchComunity" resultType="com.smhrd.camping.domain.Comunity">

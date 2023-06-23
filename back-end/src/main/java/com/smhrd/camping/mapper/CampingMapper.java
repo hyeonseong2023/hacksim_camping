@@ -3,6 +3,8 @@ package com.smhrd.camping.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.smhrd.camping.domain.Category;
 import com.smhrd.camping.domain.Comment;
@@ -20,10 +22,11 @@ public interface CampingMapper {
 	
 	public List<Category> CategoryStep();
 	
-	public int comment(Comment m);
+	public int comment(Comment cmt);
 	
-	public  List<Comment> CommentList();
+	public  List<Comment> CommentList(int idx);
 	
 	public List<Comunity> searchComunity(String search);
+	
 	
 }

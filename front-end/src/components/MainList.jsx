@@ -12,24 +12,25 @@ const MainList = ({comunity, setComunity}) => {
           .then((res) => {
             console.log('API Response:', res.data);
             setComunity(res.data);
+            console.log(typeof comunity);
           })
           .catch((error) => {
             console.log('API Error:', error);
           });
       }, []);
+
+      
       
       console.log('comunity:', comunity);
+      
   return (
     <div id='columns'>
-        {comunity.map((item) => {
-
-            return <Item key={item.comunity.story_img} item={item.comunity} idx={item.comunity.story_idx}/>
-        // console.log(comunity.comunity.story_img);    
-        
-        // console.log(comunity.story_title);
-        // return <Item key={comunity.story_img} item={comunity} />;
-        
-})}
+      {comunity.length > 0 && comunity.map((item) => {
+            console.log('asdf', item.comunity.story_img);
+            return <Item  key={item.comunity.story_idx} item={item.comunity} idx={item.comunity.story_idx}/>
+   
+        })}
+        {}
     </div>
   )
 }
