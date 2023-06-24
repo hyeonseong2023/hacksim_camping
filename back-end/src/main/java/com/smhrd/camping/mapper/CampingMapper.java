@@ -14,21 +14,21 @@ import com.smhrd.camping.domain.Comunity;
 public interface CampingMapper {
 
 	//comunity 전체 정보 불러오기
-	public List<Comunity> ComunityList();
+	public List<Comunity> ComunityList(); //게시판 게시물 조회
 	
-	public Comunity ComunityOne(int idx); //Comunity.java에 있는 글순번 idx
+	public Comunity ComunityOne(int idx); //Comunity.java에 있는 글순번 idx, 상세 게시물 조회
 	
-	public int write(Comunity comunity);
+	public int write(Comunity comunity); //댓글 작성
 	
-	public List<Category> CategoryStep();
+	public List<Category> CategoryStep(); //상품 카테고리 스텝
 	
-	public int comment(Comment cmt);
+	public int comment(Comment cmt); //댓글 작성
 	
-	public  List<Comment> CommentList(int idx);
+	public  List<Comment> CommentList(int idx); //댓글 리스트 
 	
-	public List<Comunity> searchComunity(String search);
+	public List<Comunity> searchComunity(String search); //게시물 검색
 
-	public int CommentDelete(int cmt_idx, String user_email);
+	public int CommentDelete(int cmt_idx, String user_email); //댓글 삭제
 	
 	
 }

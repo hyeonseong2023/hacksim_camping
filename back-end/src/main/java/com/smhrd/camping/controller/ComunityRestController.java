@@ -25,10 +25,11 @@ import com.smhrd.camping.service.ComunityService;
 @RestController
 @CrossOrigin("http://localhost:3000")
 public class ComunityRestController {
-
+	//service 의존성 주입
 	@Autowired
 	private ComunityService service;
 	
+	//게시판 게시물 목록 조회
 	@GetMapping("/comunity")
 	public JSONArray ComunityList() {
 		JSONArray array = service.ComunityList();
@@ -36,6 +37,7 @@ public class ComunityRestController {
 		return array;
 	}
 	
+	//상세 게시물 조회
 	@GetMapping("/comunity/{idx}")
 	public ResponseEntity<Comunity> ComunityOne(@PathVariable("idx") int idx) {
 		Comunity comunity = service.ComunityOne(idx);
@@ -96,6 +98,7 @@ public class ComunityRestController {
 	      
 	   }
 
+	//??
 	@GetMapping("/comunity/a")
 	public String category() { //carray : 카테고리 스텝 array
 		String carray = service.CategoryStep();
@@ -103,7 +106,7 @@ public class ComunityRestController {
 		
 	}
 
-	
+	//댓글 작성
 	@PostMapping("/comunity/{idx}/comment")
     public ResponseEntity<Integer> comment(@PathVariable("idx") int idx, @RequestBody Map<String, Object> paramMap) {
 		System.out.println("aaa");
@@ -116,7 +119,7 @@ public class ComunityRestController {
     }
 	
 	
-
+	//댓글 목록 조회
 	@GetMapping("/comunity/{idx}/comment1")
 	public ResponseEntity<List<Comment>> CommentList(@PathVariable("idx") int idx){
 		
@@ -128,7 +131,7 @@ public class ComunityRestController {
 	
 
 	
-	
+	//게시물 검색 조회
 	@GetMapping("/comunity/search")
 	public ResponseEntity<List<Comunity>> searchComunity(@RequestParam("search") String search){
 		List<Comunity> comunity = service.searchComunity(search);
@@ -136,7 +139,7 @@ public class ComunityRestController {
 	}
 
 	
-	//내가 작성한 댓글 삭제
+			//내가 작성한 댓글 삭제
 			@PostMapping("/comunity/{cmtIdx}/delete")
 			public int CommentDelete(@PathVariable("cmtIdx") int cmt_idx, @RequestBody Map<String, Object> user_email){
 				String email = (String)user_email.get("user_email");

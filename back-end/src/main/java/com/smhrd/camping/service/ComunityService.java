@@ -25,15 +25,17 @@ import com.smhrd.camping.mapper.CampingMapper;
 
 @Service
 public class ComunityService {
-	
+	//mapper 의존성 주입
 	@Autowired
 	private CampingMapper mapper;
+	
 	
 	@Autowired
 	private ResourceLoader resourceLoader;
 	
-	private static final String UPLOAD_DIRECTORY ="static/img"; //리액트 웹에서 접근 가능한 경로
+//	private static final String UPLOAD_DIRECTORY ="static/img"; 리액트 웹에서 접근 가능한 경로
 	
+	//상품 카테고리 스텝
 	public String CategoryStep() {
 		List<Category> clist = mapper.CategoryStep();
 		
@@ -57,7 +59,7 @@ public class ComunityService {
 	}
 	
 	
-	
+	//게시판 게시물 목록 조회
 	public JSONArray ComunityList() {
 		List<Comunity> list = mapper.ComunityList();
 
@@ -72,11 +74,12 @@ public class ComunityService {
 		return jsonArray;
 	}
 	
-	
+	//상세 게시물 조회
 	public Comunity ComunityOne(int idx) {
 		return mapper.ComunityOne(idx);	
 	}
 	
+	//댓글 작성
 	public Comunity write(String story_title, String story_content, List<MultipartFile> file, String user_email , String story_category) {
 		Comunity comunity = new Comunity();
 		comunity.setStory_title(story_title);
@@ -130,7 +133,7 @@ public class ComunityService {
 //	}
 	
 	
-	
+	//파일 저장
 	public String saveFile(MultipartFile file) {
 		Random rd = new Random();
 		String url = rd.toString();
@@ -170,7 +173,7 @@ public class ComunityService {
 		return filename.substring(lastIndex); //확장자를 포함한 경우
 	}
 	
-
+	//댓글 작성
 	public int comment(int idx, String cmt_content, String user_email) {
 		Comment cmt = new Comment();
 		cmt.setStory_idx(idx);
@@ -180,6 +183,8 @@ public class ComunityService {
 		return result;
 	}
 	
+	
+	//댓글 목록 조회
 	public List<Comment> CommentList(int idx) {
 		System.out.println("service" +idx);
 		List<Comment> comment_list = mapper.CommentList(idx);
@@ -192,20 +197,13 @@ public class ComunityService {
 		return comment_list;
 	}
 	
-	
+	// 게시물 검색
 	public List<Comunity> searchComunity(String search){
 		return mapper.searchComunity(search);
 	}
 
 
-
-	public List<Comment> getComments(int idx) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
+	//댓글 삭제
 	public int CommentDelete(int cmt_idx, String user_email) {
 		System.out.println("serivce"+ user_email);
 		
