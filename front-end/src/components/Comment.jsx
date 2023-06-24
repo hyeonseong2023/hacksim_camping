@@ -100,6 +100,7 @@ const Comment = () => {
 			commentStyle: JSON.stringify(cStyle),
 		  };
 		
+
 		  axios
 		  .post("http://172.30.1.43:8088/gocamping/comunity/comment", JSON.stringify(requestData), {
 			headers: {
@@ -111,6 +112,7 @@ const Comment = () => {
 		  })
 		  .catch((error) => {
 			console.error("통신 실패", error);
+
 			alert("통신 실패");
 		  });
 	}
@@ -127,8 +129,8 @@ const Comment = () => {
 			<p>Comment</p>
 			<form method='post'>
 				<div style={{ display: "flex", alignItems: "center" }}>
-					<img src="http://place-hold.it/30x30" style={{ marginRight: "0px" }} />
-					<span>닉네임 [style: {JSON.stringify(cStyle)}], [{cStyle.length}]</span>
+					<img src="https://picsum.photos/30/30" style={{ marginRight: "0px" }} />
+					<span>닉네임 </span>
 				</div>
 				
 				<div>

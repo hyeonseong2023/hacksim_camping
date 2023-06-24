@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../Login.css'
 import axios from 'axios'
+
 import { useNavigate } from 'react-router-dom'
 const Login = ({}) => {
 
@@ -29,14 +30,20 @@ const Login = ({}) => {
 
     const handleUseremailChange = (e) => {
         setLoginEmail(e.target.value);
+
         console.log(e.target.value);
     }
 
 
     const handleUserPwChange = (e) => {
         console.log(e.target.value);
+
         setLoginPw(e.target.value);
+
+        setUser_PW(e.target.value);
+
     }
+
 
 
 
@@ -71,8 +78,10 @@ const Login = ({}) => {
                 alert("EMAil 또는 PASWWORD를 확인해주세요")
                 console.log('로그인 실패');
             }
+
         }
     };
+
 
 
 
@@ -100,6 +109,7 @@ const Login = ({}) => {
                 </div>
             </div>
             <script src="script.js"></script>
+
 
         </div>
 

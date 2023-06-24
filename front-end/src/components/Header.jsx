@@ -22,18 +22,27 @@ const Header = () => {
       <Link to='/mypage' style={{ textDecoration: "none", color: "black" }}>
       <div id='mypage'>마이페이지</div>
       </Link>
+
       <Link to='/mycomment' style={{ textDecoration: "none", color: "black" }}>
       <div id='comentList'>댓글목록</div>
       </Link>
+
       <div id='content'>게시판</div>
       <Link to='/login' style={{ textDecoration: "none", color: "black" }}>
       <div id='login'>로그인</div>
       </Link>
+
       <Link to='/logout' style={{ textDecoration: "none", color: "black" }}>
       <div id='login'>로그아웃</div>
       </Link>
 
-  
+
+      {/* 여기부터 수정~~~ */}
+      <Link to='/mypage_U' style={{ textDecoration: "none", color: "black" }}>
+        <div id='mypage_U'>마이페이지 </div>
+      </Link>
+      {/* 여기까지~~~ */}
+
       
       <Link to='/join' style={{ textDecoration: "none", color: "black" }}>
         <div id='join'>회원가입</div>

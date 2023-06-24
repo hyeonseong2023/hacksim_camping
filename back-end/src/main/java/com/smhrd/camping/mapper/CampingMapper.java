@@ -16,6 +16,7 @@ public interface CampingMapper {
 	//comunity 전체 정보 불러오기
 	public List<Comunity> ComunityList(); //게시판 게시물 조회
 	
+
 	public Comunity ComunityOne(int idx); //Comunity.java에 있는 글순번 idx, 상세 게시물 조회
 	
 	public int write(Comunity comunity); //댓글 작성
@@ -29,6 +30,21 @@ public interface CampingMapper {
 	public List<Comunity> searchComunity(String search); //게시물 검색
 
 	public int CommentDelete(int cmt_idx, String user_email); //댓글 삭제
+
+
+
+
+
+	// 수연
+
+	// 게시물 -> 좋아요순으로 
+	public List<Comunity> LoadCommunityLike();
+	
+	// 게시물 -> 조회수 순으로 
+	public List<Comunity> LoadCommunityView();
+
+	
+	
 	
 	
 }

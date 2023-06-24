@@ -12,12 +12,15 @@ const MainList = ({comunity, setComunity}) => {
           .then((res) => {
             console.log('API Response:', res.data);
             setComunity(res.data);
+
             console.log(typeof comunity);
+
           })
           .catch((error) => {
             console.log('API Error:', error);
           });
       }, []);
+
 
       
       
@@ -31,6 +34,7 @@ const MainList = ({comunity, setComunity}) => {
    
         })}
         {}
+
     </div>
   )
 }

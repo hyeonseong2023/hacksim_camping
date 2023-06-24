@@ -1,5 +1,7 @@
 import React from 'react'
+
 import {Link} from 'react-router-dom'
+
 
 const Nav = () => {
   return (
@@ -19,7 +21,9 @@ const Nav = () => {
           </div>
           <div>
         <li className="nav-item">
+
           {/* <a class="nav-link" href="#">Link</a>  */}
+
           <Link to="/list">Link</Link>  
         </li>
         </div>

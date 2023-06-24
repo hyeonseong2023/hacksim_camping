@@ -11,6 +11,16 @@
   		
 		values(#{story_category},#{story_title},#{story_content},#{story_img},#{user_email})
   	</insert> -->
+
+  	
+  	<!-- 게시판 업로드 생성 -->
+  	<insert id="write" parameterType="com.smhrd.camping.domain.Comunity">
+		insert into TB_STORY(STORY_CATEGORY, STORY_TITLE, STORY_CONTENT, STORY_IMG, USER_EMAIL)
+		values( #{story_category}, #{story_title}, #{story_content}, #{story_img}, #{user_email})
+	</insert>
+	
+  		
+
   	
   	<!-- 게시판 업로드 생성 -->
   	<insert id="write" parameterType="com.smhrd.camping.domain.Comunity">
@@ -37,6 +47,7 @@
   		select * from TB_Story where story_idx=#{story_idx}
   	</select>
   	
+
   	
   	<!-- 댓글 작성 -->
   	<insert id="comment" parameterType="com.smhrd.camping.domain.Comment">
@@ -55,14 +66,30 @@
   	
   	
   	<!-- 게시물 검색 -->
+
+  	
+  	<!-- 게시판 좋아요 순으로 3개 정렬 -->
+  	<select id="LoadCommunityLike" resultType="com.smhrd.camping.domain.Comunity">
+  		select * from tb_story where rownum &lt;= 6 order by story_likes desc,story_idx asc
+  	</select>
+  	
+  	<!-- 게시판 조회수 순으로 3개 정렬 -->
+  	<select id="LoadCommunityView" resultType="com.smhrd.camping.domain.Comunity">
+  		select * from tb_story where rownum &lt;= 6 order by story_views desc,story_idx asc
+  	</select>
+  	
+  	
+  	
+
   	<select id="searchComunity" resultType="com.smhrd.camping.domain.Comunity">
   		select story_title, story_img from tb_story where story_title like concat('%',#{search},'%')
   	</select>
   	
+
   	
   	<!-- 댓글 삭제 -->
   	<delete id="CommentDelete">
   		delete from tb_comment where cmt_idx=#{cmt_idx} and user_email=#{user_email}
   	</delete>
-  	
+
   </mapper>

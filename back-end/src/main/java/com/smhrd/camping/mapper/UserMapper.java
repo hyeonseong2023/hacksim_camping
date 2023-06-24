@@ -1,5 +1,6 @@
 package com.smhrd.camping.mapper;
 
+
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -9,7 +10,9 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+
 import com.smhrd.camping.domain.MyComment;
+
 import com.smhrd.camping.domain.User;
 
 @Mapper
@@ -17,7 +20,9 @@ public interface UserMapper {
 
 	// 회원가입
 
+
 	//자체 회원가입
+
 	@Insert("insert into tb_user(user_email, user_pw, user_nick, user_type) values(#{user_email},#{user_pw},#{user_nick},#{user_type})")
 	public int Join(User user);
 
@@ -42,6 +47,7 @@ public interface UserMapper {
 		// 회원탈퇴
 		@Delete("delete from tb_user where user_email=#{user_email}")
 		public int delete(User user);
+
 		
 		
 		//내가 작성한 댓글의 게시물 리스트, 그 게시물 속 내가 단 댓글 모두 가져오기 (MyCommnet)
@@ -51,4 +57,5 @@ public interface UserMapper {
 		//내가 작성한 댓글 삭제
 		@Delete("delete from tb_comment where cmt_idx=#{getCmtIdx}")
 		public int deleteComment(int getCmtIdx);
+
 }	

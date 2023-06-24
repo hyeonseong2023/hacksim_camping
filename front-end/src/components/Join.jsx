@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import '../Login.css'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
+
 import GoogleLogin from './SNSLogin/google'
 import NaverLogin from './SNSLogin/naver'
 import KakaoLogin from './SNSLogin/kakao'
@@ -26,6 +27,7 @@ const Join = () => {
     const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`
 
 
+
     //카카오 로그인 페이지로 이동
     const kakao_LoginHandler = () => {
 
@@ -35,10 +37,12 @@ const Join = () => {
 
 
 
+
     const [user_email, setUser_Email] = useState('')
     const [user_pw, setUser_PW] = useState('')
     const [user_nick, setUser_Nick] = useState('')
     const [user_type, setUser_Type] = useState('')
+
 
     // 이메일 중복 확인
     const [result, setResult] = useState('');
@@ -54,7 +58,9 @@ const Join = () => {
             })
             .then((response) => {
                 const res = response.data;
+
                 console.log("중복확인 : ", response.data);
+
                 setResult(res === 'success' ? '사용 가능한 이메일입니다' : '사용할 수 없는 이메일 입니다');
             })
             .catch((error) => {
@@ -106,6 +112,7 @@ const Join = () => {
                 console.error(error); // 오류 발생 시 에러 로그를 출력
                 alert('회원가입 실패😥')
 
+
             });
 
     };
@@ -151,6 +158,7 @@ const Join = () => {
                 </div>
             </div>
             <script src="script.js"></script>
+
 
         </div>
 
