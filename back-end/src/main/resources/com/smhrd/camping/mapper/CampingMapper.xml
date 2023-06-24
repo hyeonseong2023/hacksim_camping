@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.smhrd.camping.mapper.CampingMapper">
+  	<!-- <insert id="write" parameterType="com.smhrd.camping.domain.Comunity">
+  		insert into TB_STORY(STORY_CATEGORY,STORY_TITLE,STORY_CONTENT,STORY_IMG,USER_EMAIL)
+		values('기본',#{story_title},#{story_content},#{story_img},#{story_writer})
+  		</insert>
+  		
+		values(#{story_category},#{story_title},#{story_content},#{story_img},#{user_email})
+  	</insert> -->
+  	
+  	<!-- 게시판 업로드 생성 -->
+  	<insert id="write" parameterType="com.smhrd.camping.domain.Comunity">
+		insert into TB_STORY(STORY_CATEGORY, STORY_TITLE, STORY_CONTENT, STORY_IMG, USER_EMAIL)
+		values( #{story_category}, #{story_title}, #{story_content}, #{story_img}, #{user_email})
+	</insert>
+	
+  		
+
+  	
+  	<select id="CategoryStep" resultType="com.smhrd.camping.domain.Category">
+  		select * from TB_CATEGORY
+  	</select>
+  <!-- ComunityList, ComunityOne -->	
+  	<select id="ComunityList" resultType="com.smhrd.camping.domain.Comunity">
+  		select * from TB_Story
+  	</select>
+  	
+  	<select id="ComunityOne" resultType="com.smhrd.camping.domain.Category">
+  		select * from TB_Story where idx=#{idx}
+  	</select>
+  	
+  	<insert id="comment" parameterType="com.smhrd.camping.domain.Comment">
+  		insert into TB_COMMENT (CMT_CONTENT) values(#{cmt_content})
+  	</insert>
+  	
+  	<select id="CommentList" resultType="com.smhrd.camping.domain.Comment">
+  		select user_email, cmt_content from tb_comment a
+  	</select>
+  	
+  	<select id="searchComunity" resultType="com.smhrd.camping.domain.Comunity">
+  		select story_title, story_img from tb_story where story_title like concat('%',#{search},'%')
+  	</select>
+  	
+  </mapper>
