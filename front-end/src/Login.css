@@ -94,21 +94,30 @@ background-color: rgb(64, 181, 227);
     border-radius: 3px;
 
 }
-#img_container{
-    padding: 5%;
+
+
+.k{
+    height: 80%;
+    width: 15%;
     display: flex;
     justify-content: center;
-    gap : 40px;
-    /* flex-direction: row;
-    justify-content: center; */
+position: relative;
+left: -28px;
 }
-
-
-#img_container img{
+.img_container {
+    cursor: pointer;
+    background-color: rgb(245, 233, 0);
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  justify-content: center;
     flex-direction: row;
     justify-content: center;
-    width: 40px;
- 
+    width: 208px;
+height: 40px;
+
     margin: 0;
  
 }

@@ -24,6 +24,10 @@ public interface CampingMapper {
 	
 	public  List<Comment> CommentList();
 	
-	public List<Comunity> searchComunity(String search);
+	public List<Comunity> searchComunity(String query);
+	
+	// CampingMapper.java에 코드 추가
+	public List<Comunity> sortedComunity(String mode);
+
 	
 }

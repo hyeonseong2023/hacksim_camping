@@ -236,11 +236,15 @@ public class ComunityService {
 		return mapper.comment(m);
 	}
 	
-	public List<Comunity> searchComunity(String search){
-		return mapper.searchComunity(search);
-	}
+    public List<Comunity> searchComunity(String query) {
+        return mapper.searchComunity(query);
+    }
 	
-	
+ // ComunityService.java에 코드 추가
+    public List<Comunity> sortedComunity(String mode) {
+      return mapper.sortedComunity(mode);
+    }
+
 	
 
 }

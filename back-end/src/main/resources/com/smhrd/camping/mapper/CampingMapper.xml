@@ -41,8 +41,25 @@
   		select user_email, cmt_content from tb_comment a
   	</select>
   	
-  	<select id="searchComunity" resultType="com.smhrd.camping.domain.Comunity">
-  		select story_title, story_img from tb_story where story_title like concat('%',#{search},'%')
-  	</select>
+  	   <select id="searchComunity" resultType="com.smhrd.camping.domain.Comunity">
+          SELECT * FROM tb_story
+    WHERE story_title LIKE '%' || #{query} || '%'
+    OR story_content LIKE '%' || #{query} || '%'
+    </select>
+    
+    
+<select id="sortedComunity" resultType="com.smhrd.camping.domain.Comunity" parameterType="string">
+    SELECT * FROM tb_story
+    ORDER BY
+        CASE #{mode}
+            WHEN 'views' THEN story_views
+            WHEN 'likes' THEN story_likes
+            WHEN 'usefuls' THEN story_usefuls
+            WHEN 'recent' THEN TO_NUMBER(TO_CHAR(story_dt, 'YYYYMMDDHH24MISS'))
+            ELSE TO_NUMBER(TO_CHAR(story_dt, 'YYYYMMDDHH24MISS'))
+        END DESC
+</select>
+
+    
   	
   </mapper>

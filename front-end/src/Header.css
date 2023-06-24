@@ -17,7 +17,7 @@
     }
     
     /* logo */
-    #logo{
+    #logo{ 
     flex-basis: 30%;
     box-sizing: border-box;
     font-family: 'EF_watermelonSalad';
@@ -43,6 +43,21 @@
       display: flex;
       width: 200px;
     }
+
+       /* login */
+       #login{
+        box-sizing: border-box;
+        
+        width: 200px;
+        height: 43px;
+        left: 790px;
+        top: 49px;
+        
+        background: #E5E5E5;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+        text-align: center;
+        }
     
     input {
       border: 1px solid #bbb;
@@ -73,17 +88,4 @@
     text-align: center;
     }
     
-    /* login */
-    #login{
-    box-sizing: border-box;
-    
-    width: 200px;
-    height: 43px;
-    left: 790px;
-    top: 49px;
-    
-    background: #E5E5E5;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 2px;
-    text-align: center;
-    }
+ 

@@ -168,13 +168,20 @@ public class ComunityRestController {
 	}
 	
 	@GetMapping("/comunity/search")
-	public ResponseEntity<List<Comunity>> searchComunity(@RequestParam("search") String search){
-		List<Comunity> comunity = service.searchComunity(search);
-		return ResponseEntity.ok(comunity);
+	public ResponseEntity<List<Comunity>> searchComunity(@RequestParam("query") String query){
+		System.out.println("입력값 : " + query);
+		List<Comunity> comunity = service.searchComunity(query);
+	    return ResponseEntity.ok(comunity);
 	}
 
+	// 게시글 조좋유 순
+	@GetMapping("/comunity/sort")
+	public ResponseEntity<List<Comunity>> sortedComunity(@RequestParam("mode") String mode) {
+		System.out.println("무슨 버튼 눌렀니 : " + mode);
+		List<Comunity> comunity = service.sortedComunity(mode);
+	  return ResponseEntity.ok(comunity);
+	}
 
-	
 	
 	
 }

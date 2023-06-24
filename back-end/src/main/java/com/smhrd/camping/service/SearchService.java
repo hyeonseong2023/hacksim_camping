@@ -15,34 +15,25 @@ import com.smhrd.camping.domain.Comunity;
 import com.smhrd.camping.domain.MyComment;
 import com.smhrd.camping.mapper.SearchMapper;
 
-
-
-
 @Service
 public class SearchService {
 	@Autowired
 	private SearchMapper mapper;
-	
-	//파일 받아오기
+
+	// 파일 받아오기
 	@Autowired
 	private ResourceLoader resourceLoader;
-	
-	private static final String UPLOAD_DIRECTORY ="static/img"; //리액트 웹에서 접근 가능한 경로
-	
-	
-	
+
+	private static final String UPLOAD_DIRECTORY = "static/img"; // 리액트 웹에서 접근 가능한 경로
+
 	// 검색기능
 	public List<Comunity> Search(String getWorld) {
 		return mapper.Search(getWorld);
 	}
 
-	
-	//내 데이터 출력 기능
+	// 내 데이터 출력 기능
 	public List<Comunity> myStory(String user_email1) {
 		return mapper.myStory(user_email1);
 	}
-
-	
-	
 
 }

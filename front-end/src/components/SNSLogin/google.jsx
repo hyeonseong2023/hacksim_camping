@@ -9,7 +9,7 @@ const Google = (props) => {
 
   const success = (payload) => {
     props.success(snsPayloadParser.GOOGLE(payload));
-    
+
   };
 
   const fail = (payload) => {
@@ -28,6 +28,7 @@ const Google = (props) => {
                         // console.log(res);
 
                         console.log(jwtDecode(res.credential));
+                     
                     }}
                     onFailure={(err) => {
                         console.log(err);
