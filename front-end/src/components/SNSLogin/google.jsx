@@ -18,12 +18,15 @@ const Google = (props) => {
 
   if (!clientId) return <>.env의 REACT_APP_GOOGLE을 확인해주세요.</>
 
+ 
+
   return (
     <>
             <GoogleOAuthProvider clientId={clientId}>
                 <GoogleLogin
                     onSuccess={(res) => {
                         // console.log(res);
+
                         console.log(jwtDecode(res.credential));
                     }}
                     onFailure={(err) => {

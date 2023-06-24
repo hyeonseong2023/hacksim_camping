@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import '../Comment_HJ.css'
+
 
 const Comment_HJ = () => {
  
@@ -41,9 +41,9 @@ const Comment_HJ = () => {
 
   //댓글 삭제 기능
   const CommentHandler = (e) => {
-    console.log('클릭 : ', e.target);
-    let innerIdx = e.target.parentNode.parentNode.querySelector("#hiddenCol2").innerText;
-    console.log(innerIdx);
+    console.log('클릭 : ', e.target.value);
+    let innerIdx = e.target.value;
+
 
     axios.post("/gocamping/deletecoment", { cmt_idx: innerIdx })
       .then((res) => {
@@ -69,7 +69,6 @@ const Comment_HJ = () => {
       <table border="1" align='center' width={600}>
         <tbody align='center'>
           <tr>
-            <td id="hiddenCol1" >댓글번호</td>
             <td>글 제목</td>
             <td>내가 작성한 댓글 내용</td>
             <td>댓글 작성일</td>
@@ -78,11 +77,10 @@ const Comment_HJ = () => {
           </tr>
           {myCommentList.map((item, index) => (
             <tr key={index} >
-              <td id="hiddenCol2" >{item.cmt_idx}</td>
               <td>{item.story_title}</td>
               <td>{item.cmt_content}</td>
               <td>{item.cmt_dt}</td>
-              <td><button onClick={CommentHandler}>삭제</button></td>
+              <td><button onClick={CommentHandler} value={item.cmt_idx}>삭제</button></td>
             </tr>
           ))}
         </tbody>

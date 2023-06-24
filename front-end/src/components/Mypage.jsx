@@ -1,61 +1,59 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import  '../Mypage.css'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios';
 const Mypage = () => {
 const nav = useNavigate();
+
+const [myStory,setmyStory] = useState([]);
 
     useEffect(()=>{
         if (localStorage.getItem('loginSuccess') === null) {
             nav('/login')
           }
-    },[])
+
+          const printMyStory = async () => {
+            const user_email = (localStorage.getItem('user_email'));
+          try {
+              const response = await axios.post("/gocamping/mystory", {user_email : user_email})
+      
+              if (response.status === 200) {
+                console.log(response.data);
+            
+                setmyStory(response.data);
+                  
+              }
+          } catch (error) {
+              if (error.response && error.response.status === 401) {
+                console.error(error); // 오류 발생 시 에러 로그를 출력
+                alert('데이터로드실패😥')
+              }
+          }
+        };
+        printMyStory();
+        },[])
+
+
   return (
     <div id='hj_mypage'>
         <div id='hj_user-container'>
             <div>회원정보 수정</div>
-           
-            <div>내가 작성한 댓글 목록</div>
-
+            <Link to='/mycomment' style={{ textDecoration: "none", color: "black" }}>
+      <div id='comentList'>작성 댓글</div>
+      </Link>
         </div>
         <hr/>
         <div id = 'hj_columns'>
   
-         <figure>
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/167703270657353531.jpg"/>
-            <figcaption>감성캠핑</figcaption>
-        </figure>
-        <figure>
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/167703270657353531.jpg"/>
-            <figcaption>감성캠핑</figcaption>
-        </figure>
-        <figure>
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/167703270657353531.jpg"/>
-            <figcaption>감성캠핑</figcaption>
-        </figure>
-        <figure>
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/167703270657353531.jpg"/>
-            <figcaption>감성캠핑</figcaption>
-        </figure>
-        <figure>
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/167703270657353531.jpg"/>
-            <figcaption>감성캠핑</figcaption>
-        </figure>
-        <figure>
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/167703270657353531.jpg"/>
-            <figcaption>감성캠핑</figcaption>
-        </figure>
-        <figure>
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/167703270657353531.jpg"/>
-            <figcaption>감성캠핑</figcaption>
-        </figure>
-        <figure>
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/167703270657353531.jpg"/>
-            <figcaption>감성캠핑</figcaption>
-        </figure>
-        <figure>
-            <img src="https://image.ohou.se/i/bucketplace-v2-development/uploads/cards/167703270657353531.jpg"/>
-            <figcaption>감성캠핑</figcaption>
-        </figure>
+        <div id='hj_columns'>
+                {myStory.map((item, index) => (
+                    <figure id = 'hj_columns figure img' key={index}>
+                        <img src={`http://localhost:8088/gocamping/${item.story_img}`} alt={`Image ${index}`} />
+                       <figcaption>{item.story_title}</figcaption>
+                    </figure>
+                ))}
+
+            </div>
         </div>
     </div>
   )
