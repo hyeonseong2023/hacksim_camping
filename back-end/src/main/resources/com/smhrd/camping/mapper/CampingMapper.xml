@@ -40,12 +40,17 @@
         values(1, #{story_idx}, #{cmt_content}, SYSDATE, #{user_email})
   	</insert>
   	
-  	<select id="CommentList" resultType="com.smhrd.camping.domain.Comment">
-  		select * from tb_comment
+  	<select id="CommentList" parameterType="com.smhrd.camping.domain.Comment" resultType="com.smhrd.camping.domain.Comment">
+  		<!-- select a.cmt_idx, a.cmt_content, b.user_email from tb_comment a JOIN tb_story b ON a.user_email = b.user_email WHERE a.story_idx = b.story_idx -->
+  		select * from tb_comment where story_idx=#{story_idx}
   	</select>
   	
   	<select id="searchComunity" resultType="com.smhrd.camping.domain.Comunity">
   		select story_title, story_img from tb_story where story_title like concat('%',#{search},'%')
   	</select>
+  	
+  	<delete id="CommentDelete">
+  		delete from tb_comment where cmt_idx=#{cmt_idx} and user_email=#{user_email}
+  	</delete>
   	
   </mapper>

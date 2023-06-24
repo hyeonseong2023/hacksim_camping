@@ -46,77 +46,12 @@ function App() {
 
 
   
-  // const formData = new FormData();
-
-
-
-  // useEffect(()=>{
-  // axios.get("http://172.30.1.21:8088/gocamping/comunity/a")
-  // .then((res)=>{
-  //   console.log('결과',res.data);
-  //   })
-  // },[])
-
-
-//   useEffect(()=>{
-//   axios.post("http://172.30.1.43:8088/gocamping/comunity/write",
-//   // formData,
-//   // { 
-//   //   headers:{"Content-Type" : "multipart/form-data"}
-//   // }
-// )
-//   .then((res)=>{
-//     console.log('결과',res.data);
-//     })
-//   },[])
-// useEffect(() => {
-//   const formData = new FormData();
-//   formData.append('imageUrl', selectedFile);
-
-//   axios
-//     .post('http://172.30.1.43:8088/gocamping/comunity/write', formData)
-//     .then((res) => {
-//       console.log('결과', res.data);
-//     })
-//     .catch((error) => {
-//       console.error('에러', error);
-//     });
-// }, []);
-
-
-  
-
-//   return (
-
-
-//     <div>
-//       <Header />
-//       <Routes>
-      
-//         <Route path='/' element={<Figure /> } />
-//         <Route path='/write1' element={<Write />} />
-//       </Routes>
-
-//       <Footer />
-
-//     </div>
-
-//   );
-// }function App() {
+ 
   
   const [inputTitle, setInputTitle] = useState("");
   const [inputUserEmail, setInputUserEmail] = useState("");
   const [inputContent, setInputContent] = useState("");
   const [comunity, setComunity] = useState([]);
-
-
-  const [user_email,setUser_Email] = useState("");
-  const [user_pw, setUser_PW] = useState("");
-  const [user_nick, setUser_Nick] = useState("");
-  const[user_type,setUser_Type] = useState("");
-
-  
-
 
   return (
 
@@ -143,6 +78,7 @@ function App() {
 
 
       <Route path='/' element={<Figure/>} />
+ 
       <Route path='/mycomment' element={<Comment_HJ/>} />
       <Route path='/logout' element={<Logout/>} />
       <Route path='/mypage' element={<Mypage/>}/>
@@ -154,6 +90,7 @@ function App() {
            <Route path='/mypage_U' element={<Mypage_U/>} />
 
       <Route path='/update' element={<Update/>} />
+      {/* 여기까지~~ */}
 
       </Routes>
 

@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.smhrd.camping.domain.Comment;
 import com.smhrd.camping.domain.Comunity;
+import com.smhrd.camping.domain.MyComment;
 import com.smhrd.camping.service.ComunityService;
 
 @RestController
@@ -116,9 +117,10 @@ public class ComunityRestController {
 	
 	
 
-	@GetMapping("/comunity/{idx}/comment")
+	@GetMapping("/comunity/{idx}/comment1")
 	public ResponseEntity<List<Comment>> CommentList(@PathVariable("idx") int idx){
-		List<Comment> cmt = service.getComments(idx);
+		
+		List<Comment> cmt = service.CommentList(idx);
 		return ResponseEntity.ok(cmt);
 	}
 	
@@ -133,6 +135,15 @@ public class ComunityRestController {
 		return ResponseEntity.ok(comunity);
 	}
 
+	
+	//내가 작성한 댓글 삭제
+			@PostMapping("/comunity/{cmtIdx}/delete")
+			public int CommentDelete(@PathVariable("cmtIdx") int cmt_idx, @RequestBody Map<String, Object> user_email){
+				String email = (String)user_email.get("user_email");
+				System.out.println("controller"+email);
+				return service.CommentDelete(cmt_idx, email);
+				
+			}
 	
 	
 	

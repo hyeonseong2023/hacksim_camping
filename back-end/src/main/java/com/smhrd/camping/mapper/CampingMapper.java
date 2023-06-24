@@ -27,6 +27,8 @@ public interface CampingMapper {
 	public  List<Comment> CommentList(int idx);
 	
 	public List<Comunity> searchComunity(String search);
+
+	public int CommentDelete(int cmt_idx, String user_email);
 	
 	
 }

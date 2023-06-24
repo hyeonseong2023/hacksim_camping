@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -136,7 +137,7 @@ public class ComunityService {
 		//파일 저장
 		//예시: 원본 파일의 확장자를 유지하여 저장하는 방식
 		String originalFileName = file.getOriginalFilename(); //원본파일 이름
-		String fileName = url.toString() + (originalFileName); //임의의 파일 이름 + 확장자
+		String fileName = UUID.randomUUID().toString() + getExtension(originalFileName); //임의의 파일 이름 + 확장자
 		String directoryPath = "src/main/resources/static/img"; //파일이 저장될 디렉토리 경로
 //		private static final String UPLOAD_DIRECTORY ="static/img";
 		try {
@@ -180,14 +181,15 @@ public class ComunityService {
 	}
 	
 	public List<Comment> CommentList(int idx) {
+		System.out.println("service" +idx);
 		List<Comment> comment_list = mapper.CommentList(idx);
-		
+		System.out.println("service" +comment_list);
 //		Gson gson = new Gson();
 //		
 //		String comment_json = gson.toJson(comment_list);
 		
 		
-		return mapper.CommentList(idx);
+		return comment_list;
 	}
 	
 	
@@ -201,6 +203,18 @@ public class ComunityService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+
+	public int CommentDelete(int cmt_idx, String user_email) {
+		System.out.println("serivce"+ user_email);
+		
+		return mapper.CommentDelete(cmt_idx, user_email);
+	}
+
+
+
+	
 	
 	
 	
