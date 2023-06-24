@@ -1,0 +1,119 @@
+
+
+#login-container{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    height: 90vh;  
+}
+
+.main {
+    width: 400px;
+    height: 500px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.logo {
+
+    margin-top: 0px;
+    margin-bottom: 40px;
+}
+
+/* #emailcontainer{
+    display: flex;
+
+} */
+
+.underline-btn{
+    /* display: inline-block; */
+      /* padding-left: 35%; */
+      border-radius: 0;
+    
+    
+    color: rgb(159, 170, 255);
+      margin-left:30%;
+      font-weight: bold;
+      font-size: 0.678rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+    position: relative;
+      &:hover{
+          color: #1d57ba;
+          &:before{
+              transform: none;
+              opacity: 1;
+              transition-duration: .4s;
+          }
+          
+        }
+    }
+
+#emailcheck{
+background-color: white;
+width: 50%;
+font-size: small;
+justify-content: center;
+    align-items: center;
+margin-left: 25%;
+}
+
+#login {
+    width: 100%;
+    background-color: skyblue;
+    border-color: transparent;
+    color: white;
+    cursor: pointer;
+    
+}
+#login:active {
+background-color: rgb(64, 181, 227);
+}
+#logintxt_container{
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    align-items: center;
+}
+#login_text{
+    font-size: small;
+    justify-content: center;
+    align-items: center;
+    padding: 20%
+}
+.account {
+    display: block;
+    margin-bottom: 3px;
+    padding: 3px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+
+}
+#img_container{
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    gap : 40px;
+    /* flex-direction: row;
+    justify-content: center; */
+}
+
+
+#img_container img{
+    flex-direction: row;
+    justify-content: center;
+    width: 40px;
+ 
+    margin: 0;
+ 
+}
+
+
+#alert {
+    border-color: transparent;
+}

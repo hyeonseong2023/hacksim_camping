@@ -15,9 +15,9 @@ public class Comunity {
 	private String story_title;  	//게시판 제목
 	private String story_content;	//게시판 내용
 	private String story_img;		//게시판 이미지
-	private String story_writer; 	//게시판 작성자
 	private String story_category;  //게시판 카테고리
 	private String user_email; 		//회원 이메일
-	
+	private String story_views;		//게시물 조회수
+	private String story_likes;		//게시물 좋아요 수
+	private String story_usefuls; 	//게시물 유용해요 수
 }
-

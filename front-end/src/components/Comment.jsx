@@ -1,3 +1,4 @@
+
 import { click } from '@testing-library/user-event/dist/click';
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react'
@@ -86,7 +87,7 @@ const Comment = () => {
 		e.preventDefault();
 		
 		
-		axios.post("http://172.30.1.21:9999/demo/comment"
+		axios.post("http://172.30.1.43:8088/demo/comment"
 		, { commentContent: inputValue, commentStyle: cStyle})
 		.then((res)=>{
 			console.log('전송 성공');
@@ -109,8 +110,8 @@ const Comment = () => {
 			<p>Comment</p>
 			<form method='post'>
 				<div style={{ display: "flex", alignItems: "center" }}>
-					<img src="http://place-hold.it/30x30" style={{ marginRight: "0px" }} />
-					<span>닉네임 [style: {JSON.stringify(cStyle)}], [{cStyle.length}]</span>
+					<img src="https://picsum.photos/30/30" style={{ marginRight: "0px" }} />
+					<span>닉네임 </span>
 				</div>
 				
 				<div>
@@ -143,6 +144,7 @@ const Comment = () => {
 			</form>
 		</div>
 	)
+
 }
 
 export default Comment
