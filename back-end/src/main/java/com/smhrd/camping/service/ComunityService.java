@@ -117,28 +117,7 @@ public class ComunityService {
 		return jsonArray;		
 	}
 	
-	// ? <-
-	public JSONObject ComunityOne(int idx) {
-		Comunity comunity = mapper.ComunityOne(idx);
-		JSONObject obj = new JSONObject();
-		ImageConverter<File, String> converter = new ImageToBase64();
-		String filepath = "src/main/resources/" + UPLOAD_DIRECTORY +comunity.getStory_img();
-		Resource resource = resourceLoader.getResource(filepath);
-		String fileStringValue = null;
-		try {
-		fileStringValue= converter.convert(resource.getFile());
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
-		
-		comunity.setStory_img(fileStringValue);
-		//2. Comunity -> JsonObject(key:value)변환
-		obj.put("comunity", comunity);
-		
-		return obj;
-		
-		
-	}
+	
 	
 	// 글쓰기 
 

@@ -31,12 +31,6 @@ public interface CampingMapper {
 
 	public int CommentDelete(int cmt_idx, String user_email); //댓글 삭제
 
-
-
-
-
-	// 수연
-
 	// 게시물 -> 좋아요순으로 
 	public List<Comunity> LoadCommunityLike();
 	
