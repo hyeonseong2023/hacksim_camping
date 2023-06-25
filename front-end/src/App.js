@@ -5,7 +5,7 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from './components/Nav'
-n
+
 
 import Figure from './components/Figure';
 import Header from './components/Header';
@@ -71,7 +71,8 @@ return(
 			<Route path='/main' element={<MainList comunity={comunity} setComunity={setComunity} />} />
 			<Route path="/comunity/ContentDeatil/:idx" element={<ContentDetail tableMarginTB={0} tableWidth={"100%"} contentImgWidth={"45%"} contentImgHeight={"80%"} comunity={comunity} setComunity={setComunity} />} />
 			<Route path="/comunity/contentDetail" element={<SyLoadBoardList />} />
-			<Route path="/test" element={<Test />} />
+			
+			<Route path='/write' element={<Write/>}/>
 			<Route path='/comment' element={<Comment />} />
 			{/* <Route path='/' element={<Figure /> } />
         <Route path='/write1' element={<Write />} />

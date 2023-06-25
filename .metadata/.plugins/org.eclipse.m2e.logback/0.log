@@ -802,3 +802,10 @@
 2023-06-24 15:58:38,081 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2023-06-24 15:58:38,081 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2023-06-24 15:58:38,084 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\smhrd\Desktop\hacksim_camping\back-end\src\test\resources
+2023-06-25 13:34:44,621 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-06-25 13:35:20,864 [Worker-2: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.smhrd:back-end:0.0.1-SNAPSHOT @ C:\Users\smhrd\OneDrive\πŸ≈¡ »≠∏È\hacksim_camping\back-end\pom.xml.
+2023-06-25 13:35:20,864 [Worker-6: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.smhrd:back-end:0.0.1-SNAPSHOT @ C:\Users\smhrd\OneDrive\πŸ≈¡ »≠∏È\hacksim_camping\back-end\pom.xml.
+2023-06-25 13:35:22,322 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-06-25 13:35:22,340 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 97 resources from src\main\resources to target\classes
+2023-06-25 13:35:22,474 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\smhrd\OneDrive\πŸ≈¡ »≠∏È\hacksim_camping\back-end\src\test\resources
+2023-06-25 13:35:23,737 [Worker-1: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.smhrd:back-end:0.0.1-SNAPSHOT @ C:\Users\smhrd\OneDrive\πŸ≈¡ »≠∏È\hacksim_camping\back-end\pom.xml.

@@ -40,7 +40,6 @@ const Login = ({}) => {
 
         setLoginPw(e.target.value);
 
-        setUser_PW(e.target.value);
 
     }
 
