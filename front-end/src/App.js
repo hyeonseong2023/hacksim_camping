@@ -86,38 +86,52 @@ return(
     <Notice />
 
 		<Routes>
-
-
-			{/* <Route path="/" element={<Figure />} /> */}
-			{/* <Route path="/write1" element={<Write inputTitle={inputTitle} setInputTitle={setInputTitle} inputUserEmail={inputUserEmail} setInputUserEmail={setInputUserEmail} inputContent={inputContent} setInputContent={setInputContent}/>} /> */}
-			<Route path="/write1" element={<Write_Test inputTitle={inputTitle} setInputTitle={setInputTitle} inputUserEmail={inputUserEmail} setInputUserEmail={setInputUserEmail} inputContent={inputContent} setInputContent={setInputContent} />} />
-			<Route path='/' element={<MainList comunity={comunity} setComunity={setComunity} />} />
-			<Route path="/comunity/ContentDeatil/:idx" element={<ContentDetail tableMarginTB={0} tableWidth={"100%"} contentImgWidth={"45%"} contentImgHeight={"80%"} comunity={comunity} setComunity={setComunity} />} />
-			<Route path="/comunity/contentDetail" element={<SyLoadBoardList />} />
+                        {/* 헤더 */}
                         <Route path='/searchpage' element={<SearchPage world={world} setWorld={setWorld} searchList={searchList} setSearchList={setSearchList} />} />
-			<Route path='/write' element={<Write/>}/>
-			<Route path='/comment' element={<Comment />} />
-			{/* <Route path='/' element={<Figure /> } />
-        <Route path='/write1' element={<Write />} />
-        <Route path="/comunity" element={<SyLoadBoardList /> }/> */}
+
+                        {/* 메인페이지 */}
+                        <Route path='/' element={<MainList comunity={comunity} setComunity={setComunity} />} />
+                        <Route path="/comunity/ContentDeatil/:idx" element={<ContentDetail tableMarginTB={0} tableWidth={"100%"} contentImgWidth={"45%"} contentImgHeight={"80%"} comunity={comunity} setComunity={setComunity} />} />
+			<Route path="/comunity/contentDetail" element={<SyLoadBoardList />} />
+                        
+                        {/* 게시판 */}
+                        <Route path="/write1" element={<Write_Test inputTitle={inputTitle} setInputTitle={setInputTitle} inputUserEmail={inputUserEmail} setInputUserEmail={setInputUserEmail}
+                         inputContent={inputContent} setInputContent={setInputContent} />} />
+
+                        <Route path='/write' element={<Write/>}/>
+
+                        <Route path='/comment' element={<Comment />} />
 
 
-        
+                        {/* 마이페이지 */}
+                        <Route path='/mycomment' element={<Comment_HJ />} />
+                        <Route path='/mypage' element={<Mypage />} />
 
-
-			{/* <Route path='/ComunityDetail/:num' element={<ComunityDetail comunity={comunity}/>}></Route> */}
-
-
-
-
-
-			<Route path='/mycomment' element={<Comment_HJ />} />
-			<Route path='/logout' element={<Logout />} />
-			<Route path='/mypage' element={<Mypage />} />
+                        {/*  로그인 */}
+                        <Route path='/logout' element={<Logout />} />
+			
 			<Route path='/login' element={<Login />} />
-			<Route path='/join' element={<Join />} />
-			<Route path='/kakaocallback' element={<KakaoCallBack />} />
-			<Route path='/kakaocallback2' element={<KakaoCallBack2 />} />
+
+                        <Route path='/kakaocallback2' element={<KakaoCallBack2 />} />
+                        {/* 회원가입 */}
+                        <Route path='/join' element={<Join />} />
+
+                        <Route path='/kakaocallback' element={<KakaoCallBack />} />
+
+                        
+                        {/*  */}
+			
+			
+			
+			
+                        
+			
+			
+			
+			
+			
+			
+			
 			{/* 여기부터~~ */}
 		
 
@@ -139,13 +153,6 @@ return(
 		</div>
 
 )
-
-       
-
-        {/* 내 정보 관리 - 마이페이지와 연동 */}
-        
-
-
 
 }
 
