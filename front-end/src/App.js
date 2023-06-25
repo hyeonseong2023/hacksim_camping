@@ -31,10 +31,6 @@ import Login from './components/Login';
 import KakaoCallBack from './components/KakaoCallBack';
 import KakaoCallBack2 from './components/KakaoCallBack2';
 import Mypage from './components/Mypage';
-
-
-
-
 import Comment from './components/Comment';
 import ComunityDetail from './components/ComunityDetail';
 import Item from './components/Item';
@@ -51,7 +47,7 @@ import StoryList from './components/StoryList';
 import BestList from './components/BestList';
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import Notice from './components/Notice';
-
+import intro from './intro-video.gif'
 
 
 function App() {
