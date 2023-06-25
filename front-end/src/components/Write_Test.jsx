@@ -25,7 +25,8 @@ const BoardCreate = () => {
     }
 
     axios
-      .post('http://172.30.1.43:8088/gocamping/comunity/write', formData)
+      // .post('http://172.30.1.43:8088/gocamping/comunity/write', formData)
+      .post('http://172.30.1.9:8088/gocamping/comunity/write', formData)
       .then((res) => {
         console.log(res.data);
         alert('등록되었습니다.');

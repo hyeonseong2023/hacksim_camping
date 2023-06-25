@@ -34,15 +34,15 @@ import Mypage from './components/Mypage';
 
 
 
-import Mypage_U from './components/Mypage_U';
+
 import Comment from './components/Comment';
 import ComunityDetail from './components/ComunityDetail';
 import Item from './components/Item';
 import Logout from './components/Logout';
-import Update from './components/Update.jsx';
+
 
 import Update from './components/Update';
-import Comment_HJ from './components/Comment_HJ';
+
 import MyPage_A from './components/MyPage_A';
 import AllUser from './components/AllUSer';
 import AllStory from './components/AllStory';
@@ -74,15 +74,15 @@ function App() {
 
 return(
 	<div>
-		<Header />
+		{/* <Header /> */}
                 <Header world={world} setWorld={setWorld} searchList={searchList} setSearchList={setSearchList} />
 		<Routes>
 
 
-			<Route path="/" element={<Figure />} />
+			{/* <Route path="/" element={<Figure />} /> */}
 			{/* <Route path="/write1" element={<Write inputTitle={inputTitle} setInputTitle={setInputTitle} inputUserEmail={inputUserEmail} setInputUserEmail={setInputUserEmail} inputContent={inputContent} setInputContent={setInputContent}/>} /> */}
 			<Route path="/write1" element={<Write_Test inputTitle={inputTitle} setInputTitle={setInputTitle} inputUserEmail={inputUserEmail} setInputUserEmail={setInputUserEmail} inputContent={inputContent} setInputContent={setInputContent} />} />
-			<Route path='/main' element={<MainList comunity={comunity} setComunity={setComunity} />} />
+			<Route path='/' element={<MainList comunity={comunity} setComunity={setComunity} />} />
 			<Route path="/comunity/ContentDeatil/:idx" element={<ContentDetail tableMarginTB={0} tableWidth={"100%"} contentImgWidth={"45%"} contentImgHeight={"80%"} comunity={comunity} setComunity={setComunity} />} />
 			<Route path="/comunity/contentDetail" element={<SyLoadBoardList />} />
                         <Route path='/searchpage' element={<SearchPage world={world} setWorld={setWorld} searchList={searchList} setSearchList={setSearchList} />} />
@@ -110,7 +110,7 @@ return(
 			<Route path='/kakaocallback' element={<KakaoCallBack />} />
 			<Route path='/kakaocallback2' element={<KakaoCallBack2 />} />
 			{/* 여기부터~~ */}
-			<Route path='/mypage_U' element={<Mypage_U />} />
+		
 
 			<Route path='/update' element={<Update />} />
 

@@ -6,10 +6,10 @@ import GoogleLogin from './SNSLogin/google'
 
 import Google from './SNSLogin/google'
 
-import GoogleLogin from './SNSLogin/google'
+
 import NaverLogin from './SNSLogin/naver'
 import KakaoLogin from './SNSLogin/kakao'
-import Google from './SNSLogin/google'
+
 
 
 const Join = () => {
