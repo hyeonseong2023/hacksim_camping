@@ -16,7 +16,8 @@ const ContentDetail = ({tableMarginTB, contentImgHeight, contentImgWidth, tableW
 
 	useEffect(() =>{
 		console.log(idx);
-		let url=`http://172.30.1.43:8088/gocamping/comunity/${idx}`;
+		// let url=`http://172.30.1.43:8088/gocamping/comunity/${idx}`;
+		let url=`http://172.30.1.9:8088/gocamping/comunity/${idx}`;
 		axios
 		.get(url)
 		.then((res) => {
@@ -39,7 +40,7 @@ const ContentDetail = ({tableMarginTB, contentImgHeight, contentImgWidth, tableW
 				<tbody>
 					<tr>
 						<th>제목</th>
-						{comunity.story_img!=undefined&& <td style={{ border: "1px solid pink" }}> <img width='250px' src={`http://172.30.1.43:8088/gocamping/${comunity.story_img}`}/> </td>}
+						{comunity.story_img!=undefined&& <td style={{ border: "1px solid pink" }}> <img width='250px' src={`http://172.30.1.9:8088/gocamping/${comunity.story_img}`}/> </td>}
 						
 					</tr>
 

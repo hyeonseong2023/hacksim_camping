@@ -24,7 +24,8 @@ const Item = ({ item, idx }) => {
   return (
 
     <figure onClick={getDetail}>
-      <img width="100px" src={`http://172.30.1.43:8088/gocamping/${item.story_img}`}></img>
+      {/* <img width="100px" src={`http://172.30.1.43:8088/gocamping/${item.story_img}`}></img> */}
+      <img width="100px" src={`http://172.30.1.9:8088/gocamping/${item.story_img}`}></img>
 
       <figcaption>제목 : {item.story_title}</figcaption>
     </figure>
