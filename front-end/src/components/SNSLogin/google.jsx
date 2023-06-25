@@ -23,11 +23,12 @@ const Google = (props) => {
   return (
     <>
             <GoogleOAuthProvider clientId={clientId}>
-                <GoogleLogin
+                <GoogleLogin 
                     onSuccess={(res) => {
-                        // console.log(res);
+
 
                         console.log(jwtDecode(res.credential));
+                    
                      
                     }}
                     onFailure={(err) => {

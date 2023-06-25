@@ -28,9 +28,7 @@ import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 
 
 function App() {
-
-  //댓글수정-모달창
-  const [idxnum,setIdxNum] = useState('');
+  
 
   //검색기능 props 정의
   const [searchList, setSearchList] = useState([])
@@ -62,7 +60,7 @@ function App() {
         <Route path='/searchpage' element={<SearchPage world={world} setWorld={setWorld} searchList={searchList} setSearchList={setSearchList} />} />
 
         {/* 내가 작성한 댓글 관리 - 마이페이지와 연동 */}
-        <Route path='/mycomment' element={<Comment_HJ idxnum={idxnum} setIdxNum={setIdxNum}/>} />
+        <Route path='/mycomment' element={<Comment_HJ/>} />
         <Route path='/mypage' element={<Mypage />} />
 
         {/* 회원가입 */}
