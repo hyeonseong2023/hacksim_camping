@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import "../App.css"
+import { Link } from 'react-router-dom'
 
 const Header2 = () => {
     useEffect(()=>{
@@ -33,16 +34,16 @@ const Header2 = () => {
                 <div className="sub-menu">
                     <ul className="menu">
                         <li>
-                            <a href="/signin">Sign In</a>
+                            <Link to='/login'>로그인</Link>
                         </li>
                         <li>
-                            <a href="#">About</a>
+                            {/* <Link to={}>About</Link>  */}
                         </li>
                         <li>
                             <a href="#">Customer Upload Community</a>
                         </li>
                         <li>
-                            <a href="#">My Page</a>
+                            <Link to='/Mypage'>마이페이지</Link>
                         </li>
                     </ul>
                     <div className="search">

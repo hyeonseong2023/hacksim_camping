@@ -259,7 +259,7 @@ header .main-menu .item .item__contents .contents__menu > ul > li ul li:hover{
 header .main-menu .item .item__contents .contents__texture {
   padding : 26px 0;
   font-size:  12px;
-  
+  background-image: url("../public/img/main1_slide.jpg");
 }
 header .main-menu .item .item__contents .contents__texture h4 {
   color : #999;
@@ -426,7 +426,7 @@ header .badges .badge {
   right : 0;
 }
 .notice .promotion .swiper-pagination-bullet { 
- background-image: url("../public/img/main4_slide.jpg");
+ background-image: url("../public/img/main2_slide.jpg");
 }
 
 /* ------------------------------------------------------------------------------------------- */
