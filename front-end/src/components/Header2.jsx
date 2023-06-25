@@ -28,9 +28,11 @@ const Header2 = () => {
     return (
         <header>
             <div className="inner">
-                <a href="/" className="logo">
-                    <img src="#" alt="Modoo Camping" />
-                </a>
+            
+
+                {/* 사진 넣어주세요*/}
+                <Link to='/' className='logo'>Modoo Camping</Link>
+
 
                 <div className="sub-menu">
                     <ul className="menu">
@@ -44,7 +46,8 @@ const Header2 = () => {
                             {/* <Link to={}>About</Link>  */}
                         </li>
                         <li>
-                            <a href="#">Customer Upload Community</a>
+                            {/* <a href="a">Community</a> */}
+                            <Link to='/comunity/contentDetail'>Community</Link>
                         </li> 
                         <li>
                         <Link to="/mypage" style={{ textDecoration: "none", color: "black" }}>
@@ -57,6 +60,9 @@ const Header2 = () => {
                         </Link>
                         {/* <!-- 구글 아이콘 출력하는 방법  --> */}
                         <div className="material-icons">search</div>
+                        <div>
+                            <Link to='/write'>글쓰기</Link>
+                        </div>
                     </div>
                 </div>
             </div>

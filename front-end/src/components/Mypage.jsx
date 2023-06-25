@@ -41,7 +41,7 @@ const Mypage = () => {
         <Link to='/update' style={{ textDecoration: "none", color: "black" }}>
           <div>내 정보 관리</div>
         </Link>
-        <Link to='/mycomment' style={{ textDecoration: "none", color: "black" }}>
+        <Link to='/mypage/mycomment' style={{ textDecoration: "none", color: "black" }}>
           <div id='comentList'>작성 댓글</div>
         </Link>
       </div>

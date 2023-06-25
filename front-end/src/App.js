@@ -1,13 +1,3 @@
-
-
-// import './App.css';
-
-// import { BrowserRouter, Route , Switch } from 'react-router-dom'
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Nav from './components/Nav'
-
-
 import Figure from './components/Figure';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -85,23 +75,24 @@ return(
 
     
 
+                        
 		<Routes>
                         {/* 헤더 */}
                         <Route path='/searchpage' element={<SearchPage world={world} setWorld={setWorld} searchList={searchList} setSearchList={setSearchList} />} />
 
-
                         {/* 메인페이지 */}
-                        <Route path='/' element={<Notice />}/>
+                        
                         <Route path='/' element={<MainList comunity={comunity} setComunity={setComunity} />} />
-                        <Route path="/comunity/ContentDeatil/:idx" element={<ContentDetail tableMarginTB={0} tableWidth={"100%"} contentImgWidth={"45%"} contentImgHeight={"80%"} comunity={comunity} setComunity={setComunity} />} />
-			<Route path="/comunity/contentDetail" element={<SyLoadBoardList />} />
+                       
                         
                         {/* 게시판 */}
 
                         <Route path="/write1" element={<Write_Test inputTitle={inputTitle} setInputTitle={setInputTitle} inputUserEmail={inputUserEmail} setInputUserEmail={setInputUserEmail}
                          inputContent={inputContent} setInputContent={setInputContent} />} />
-                        <Route path='/write' element={<Write/>}/>
-                        <Route path='/comment' element={<Comment />} />
+                        <Route path='/write' element={<Write/>}/> 
+                        <Route path='/comunity/ContentDetail/comment' element={<Comment />} />
+                        <Route path="/comunity/ContentDeatil/:idx" element={<ContentDetail tableMarginTB={0} tableWidth={"100%"} contentImgWidth={"45%"} contentImgHeight={"80%"} comunity={comunity} setComunity={setComunity} />} />
+			<Route path="/comunity/contentDetail" element={<SyLoadBoardList />} />
 
 
                         {/* 마이페이지 */}
@@ -120,7 +111,7 @@ return(
                       
                         {/* 회원가입 */}
                         <Route path='/join' element={<Join />} />
-                        <Route path='/kakaocallback' element={<KakaoCallBack />} />
+                        <Route path='/join/kakaocallback' element={<KakaoCallBack />} />
 
                         
 
@@ -137,7 +128,7 @@ return(
 			
 			</Routes>
 
-                        
+                        <Footer/>
 		</div>
 
 )

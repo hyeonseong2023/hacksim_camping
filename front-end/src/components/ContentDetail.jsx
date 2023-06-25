@@ -4,6 +4,7 @@ import Comment from "./Comment"
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import Comment_test from './Comment_test'
+import Footer from './Footer'
 
 const ContentDetail = ({tableMarginTB, contentImgHeight, contentImgWidth, tableWidth, comunity,setComunity}) => {
 
@@ -62,6 +63,7 @@ const ContentDetail = ({tableMarginTB, contentImgHeight, contentImgWidth, tableW
 					</tr>
 				</tbody>
 			</table>
+			
 
 						
 			<Comment_test />
@@ -69,7 +71,10 @@ const ContentDetail = ({tableMarginTB, contentImgHeight, contentImgWidth, tableW
 
 
 
-			<div style={{ height: "30px" }} />
+			{/* <div style={{ height: "30px" }} /> */}
+
+
+		
 		</div>
 	)
 }

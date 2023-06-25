@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Item from './Item';
+import Notice from './Notice';
 
 const MainList = ({ comunity, setComunity }) => {
 
@@ -29,6 +30,8 @@ const MainList = ({ comunity, setComunity }) => {
       console.log('comunity:', comunity);
       
   return (
+    <div>
+      <Notice/>
     <div id='columns'>
       {comunity.length > 0 && comunity.map((item) => {
             console.log('asdf', item.comunity.story_img);
@@ -38,6 +41,7 @@ const MainList = ({ comunity, setComunity }) => {
         {}
 
 
+    </div>
     </div>
   )
 }

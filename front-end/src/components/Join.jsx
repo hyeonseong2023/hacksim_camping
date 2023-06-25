@@ -21,7 +21,7 @@ const Join = () => {
 
     //KAKAO 로그인
 
-    const REDIRECT_URI = "http://localhost:3000/kakaocallback";
+    const REDIRECT_URI = "http://localhost:3000/join/kakaocallback";
 
     //혜주
 

@@ -113,8 +113,15 @@ header .logo {
  left: 0;
  right: 0;
  margin: auto;
+ display: flex;
+ flex-direction: row;
+
+
 
 } 
+#logoTxt{
+  font-size: x-large;
+}
 
 header .sub-menu {
   position: absolute;
