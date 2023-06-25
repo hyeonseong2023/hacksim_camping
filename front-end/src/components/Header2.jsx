@@ -41,7 +41,7 @@ const Header2 = () => {
                         </li>
                         <li>
                             <a href="#">Customer Upload Community</a>
-                        </li>
+                        </li> 
                         <li>
                             <Link to='/Mypage'>마이페이지</Link>
                         </li>
