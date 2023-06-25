@@ -83,7 +83,7 @@ return(
 
       {/* <div style={{height:'100vh',background:`url(${intro})`,backgroundSize:'cover', backgroundRepeat: 'no-repeat' }}></div> */}
 
-<Notice />
+    <Notice />
 
 		<Routes>
 
