@@ -27,7 +27,7 @@ public interface CampingMapper {
 	
 	public  List<Comment> CommentList(int idx); //댓글 리스트 
 	
-	public List<Comunity> searchComunity(String search); //게시물 검색
+	// public List<Comunity> searchComunity(String search); //게시물 검색
 
 	public int CommentDelete(int cmt_idx, String user_email); //댓글 삭제
 
@@ -37,8 +37,11 @@ public interface CampingMapper {
 	// 게시물 -> 조회수 순으로 
 	public List<Comunity> LoadCommunityView();
 
+	public List<Comunity> searchComunity(String query);
 	
-	
-	
+	// CampingMapper.java에 코드 추가
+	public List<Comunity> sortedComunity(String mode);
+
+
 	
 }

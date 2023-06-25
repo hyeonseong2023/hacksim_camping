@@ -2,9 +2,10 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Item from './Item';
 
-const MainList = ({comunity, setComunity}) => {
+const MainList = ({ comunity, setComunity }) => {
 
-    // const [comunity, setComunity] = useState([]);
+  // const [comunity, setComunity] = useState([]);
+
 
     useEffect(() => {
         axios
@@ -35,6 +36,7 @@ const MainList = ({comunity, setComunity}) => {
    
         })}
         {}
+
 
     </div>
   )

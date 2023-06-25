@@ -231,6 +231,7 @@ public class ComunityService {
 		return result;
 	}
 	
+
 	
 	//댓글 목록 조회
 	public List<Comment> CommentList(int idx) {
@@ -246,9 +247,9 @@ public class ComunityService {
 	}
 	
 	// 게시물 검색
-	public List<Comunity> searchComunity(String search){
-		return mapper.searchComunity(search);
-	}
+	// public List<Comunity> searchComunity(String search){
+	// 	return mapper.searchComunity(search);
+	// }
 
 
 	//댓글 삭제
@@ -258,12 +259,16 @@ public class ComunityService {
 		return mapper.CommentDelete(cmt_idx, user_email);
 	}
 
-
+    public List<Comunity> searchComunity(String query) {
+        return mapper.searchComunity(query);
+    }
 
 	
+ // ComunityService.java에 코드 추가
+    public List<Comunity> sortedComunity(String mode) {
+      return mapper.sortedComunity(mode);
+    }
 
-	
-	
 	
 
 }

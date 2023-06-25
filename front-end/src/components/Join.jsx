@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import '../Login.css'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
+import GoogleLogin from './SNSLogin/google'
+
+import Google from './SNSLogin/google'
 
 import GoogleLogin from './SNSLogin/google'
 import NaverLogin from './SNSLogin/naver'
@@ -9,8 +12,9 @@ import KakaoLogin from './SNSLogin/kakao'
 import Google from './SNSLogin/google'
 
 
-
 const Join = () => {
+
+
 
     const nav = useNavigate();
 
@@ -20,7 +24,9 @@ const Join = () => {
     const REDIRECT_URI = "http://localhost:3000/kakaocallback";
 
     //혜주
-    const REST_API_KEY =  process.env.REACT_APP_REST_API_KEY;
+
+    const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+
     // const REST_API_KEY = 'c7cdf149cf26d90f317204cd9e5a046f';
 
 
@@ -117,10 +123,14 @@ const Join = () => {
 
     };
     
+ 
+
+
+
     // sns 로그인 관련 함수
     const onSuccessHandler = res => {
         console.log(res)
-      }
+    }
 
 
     return (
@@ -142,10 +152,11 @@ const Join = () => {
                     <div id='logintxt_container'>
                         <div id='login_text'>SNS 회원가입</div>
                     </div>
-                    <div id='img_container'>
-                        <img id='k' onClick={kakao_LoginHandler} src='https://cdn-icons-png.flaticon.com/512/2111/2111496.png' />
-                        <img id='g' src='https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/google-icon.png' />
-                    
+                    <div className='img_container'>
+                        {/* <img id='k' onClick={kakao_LoginHandler} src='https://cdn-icons-png.flaticon.com/512/2111/2111496.png' /> */}
+                        {/* <img id='g' src='https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/google-icon.png' /> */}
+                        {/* <img id = 'k' src={process.env.PUBLIC_URL + 'img/kakao_login_large_wide.png'} /> */}
+                   <div className='img_container' onClick={kakao_LoginHandler}><img className = 'k' src={process.env.PUBLIC_URL + 'img/kakaologo.png'} />카카오 로그인</div>
                     </div>
 
                     <div className="App">
@@ -153,7 +164,8 @@ const Join = () => {
                             success={onSuccessHandler}
                             fail={res => console.log(res)}
                         />
-                        
+
+
                     </div>
                 </div>
             </div>

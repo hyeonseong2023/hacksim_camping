@@ -7,9 +7,11 @@ const Header2 = () => {
 
     <div className='header_container'>
 
+
         <Link to='/' style={{ textDecoration: "none", color: "black" }}>
           <div id='logo'>메인페이지</div>
         </Link>
+
 
       <div id='search_container'>
         <div id="search">
@@ -18,7 +20,9 @@ const Header2 = () => {
         </div>
       </div>
       <Link to='/mypage' style={{ textDecoration: "none", color: "black" }}>
-      <div id='mypage'>마이페이지</div>
+
+        <div id='mypage'>마이페이지</div>
+
       </Link>
       <div id='content'>게시판</div>
       <Link to='/login' style={{ textDecoration: "none", color: "black" }}>

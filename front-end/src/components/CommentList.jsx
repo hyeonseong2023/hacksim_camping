@@ -1,16 +1,18 @@
 
 
-const CommentList = ({userCommentList}) => {
+
+const CommentList = ({ userCommentList }) => {
 
 
- 
+
   return (
     <div>
- <tbody>
-{
-  
-}
- </tbody>
+
+      {
+
+      }
+
+
     </div>
   )
 }

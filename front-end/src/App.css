@@ -2,7 +2,7 @@
   column-count: 3;
   column-gap: 15px;
   padding: 10px;
-  
+
 }
 
 .a{
@@ -41,9 +41,18 @@
   color: #444;
   line-height: 1.5;
 }
-
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
 /* Footer */
-
+*{
+  border: 0%;
+  margin: 0%;
+  font-family: 'Pretendard-Regular';
+}
 .footer-container{
   background-color: lightgray;
   height: 10%;
@@ -71,7 +80,7 @@
   display:flex;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: yellow;
+  background-color: rgb(225, 225, 204);
   
 }
 
@@ -232,6 +241,7 @@
   outline: none;
   background-color: inherit ;
   cursor: pointer; */
+
 	border: 1px solid #bbb;
 	border-radius: 8px;
 	padding: 10px 12px;
@@ -239,3 +249,4 @@
 	text-align: center;
 
 }
+

@@ -13,6 +13,7 @@ export const snsPayloadParser = {
     gender: false,
     email: payload.profileObj.email,
     platform: 'google',
+    
   }),
   KAKAO: (payload) => ({
     id: payload.profile.id,
