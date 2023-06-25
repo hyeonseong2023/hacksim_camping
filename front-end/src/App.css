@@ -17,7 +17,7 @@ body {
   
 }
 img {
-  display: block;
+  /* display: block; */
   height: 533px;
   width: 819;
 }
@@ -127,9 +127,14 @@ header .sub-menu {
 header .sub-menu ul.menu {
   font-family: Arial, sans-serif;
   display: flex;
-  
-
 }
+  /* 뒷배경 색 맞추려고 추가 */
+.menu li{
+  background-color : #f6f5f0;
+  border : #f6f5f0;
+}
+
+
 header .sub-menu ul.menu li {
   position: relative;
   list-style: none;
@@ -149,7 +154,7 @@ header .sub-menu ul.menu li:first-child::before {
 }
 header .sub-menu ul.menu li a {
   font-size: 12px;
-  padding: 11px 16px;
+  /* padding: 11px 16px; */
   display: block;
   color : #656565; 
 }

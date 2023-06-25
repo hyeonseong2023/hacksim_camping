@@ -83,70 +83,58 @@ return(
 
       {/* <div style={{height:'100vh',background:`url(${intro})`,backgroundSize:'cover', backgroundRepeat: 'no-repeat' }}></div> */}
 
-    <Notice />
+    
 
 		<Routes>
                         {/* 헤더 */}
                         <Route path='/searchpage' element={<SearchPage world={world} setWorld={setWorld} searchList={searchList} setSearchList={setSearchList} />} />
 
+
                         {/* 메인페이지 */}
+                        <Route path='/' element={<Notice />}/>
                         <Route path='/' element={<MainList comunity={comunity} setComunity={setComunity} />} />
                         <Route path="/comunity/ContentDeatil/:idx" element={<ContentDetail tableMarginTB={0} tableWidth={"100%"} contentImgWidth={"45%"} contentImgHeight={"80%"} comunity={comunity} setComunity={setComunity} />} />
 			<Route path="/comunity/contentDetail" element={<SyLoadBoardList />} />
                         
                         {/* 게시판 */}
+
                         <Route path="/write1" element={<Write_Test inputTitle={inputTitle} setInputTitle={setInputTitle} inputUserEmail={inputUserEmail} setInputUserEmail={setInputUserEmail}
                          inputContent={inputContent} setInputContent={setInputContent} />} />
-
                         <Route path='/write' element={<Write/>}/>
-
                         <Route path='/comment' element={<Comment />} />
 
 
                         {/* 마이페이지 */}
-                        <Route path='/mycomment' element={<Comment_HJ />} />
+                        <Route path='/mypage/mycomment' element={<Comment_HJ />} />
                         <Route path='/mypage' element={<Mypage />} />
+                        <Route path='/mypage/update' element={<Update />} />
+
+
 
                         {/*  로그인 */}
                         <Route path='/logout' element={<Logout />} />
-			
 			<Route path='/login' element={<Login />} />
-
                         <Route path='/kakaocallback2' element={<KakaoCallBack2 />} />
+
+
+                      
                         {/* 회원가입 */}
                         <Route path='/join' element={<Join />} />
-
                         <Route path='/kakaocallback' element={<KakaoCallBack />} />
 
                         
-                        {/*  */}
-			
-			
-			
-			
-                        
-			
-			
-			
-			
-			
-			
-			
-			{/* 여기부터~~ */}
-		
-
-			<Route path='/update' element={<Update />} />
 
                          {/* 게시판 */}
                         <Route path='/bestList' element={<BestList />} />
                         <Route path='/storyList' element={<StoryList />} />
-                
+
+
 
                         {/* 관리자용 마이 페이지 */}
                         <Route path='/mypage_A' element={<MyPage_A />} />
                         <Route path='/allUser' element={<AllUser />} />
                         <Route path='/allstory' element={<AllStory />} />
-			{/* 여기까지~~ */}
+			
 			</Routes>
 
                         

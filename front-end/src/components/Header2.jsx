@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import "../App.css"
 import { Link } from 'react-router-dom'
+import intro from '../../src/intro-video.gif'
 
 const Header2 = () => {
     useEffect(()=>{
@@ -33,9 +34,12 @@ const Header2 = () => {
 
                 <div className="sub-menu">
                     <ul className="menu">
+                    <Link to="/login" style={{ textDecoration: "none", color: "red" }}>
                         <li>
-                            <Link to='/login'>로그인</Link>
+                       
+                            로그인
                         </li>
+                        </Link>
                         <li>
                             {/* <Link to={}>About</Link>  */}
                         </li>
@@ -43,16 +47,21 @@ const Header2 = () => {
                             <a href="#">Customer Upload Community</a>
                         </li> 
                         <li>
-                            <Link to='/Mypage'>마이페이지</Link>
+                        <Link to="/mypage" style={{ textDecoration: "none", color: "black" }}>
+                                마이페이지</Link>
                         </li>
                     </ul>
                     <div className="search">
+                    <Link to='/searchpage' style={{ textDecoration: "none", color: "black" }}>
                         <input type="text" />
+                        </Link>
                         {/* <!-- 구글 아이콘 출력하는 방법  --> */}
                         <div className="material-icons">search</div>
                     </div>
                 </div>
             </div>
+
+            
         </header>
     )
 }
