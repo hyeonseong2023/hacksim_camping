@@ -50,7 +50,7 @@ import Search from './components/Search';
 import StoryList from './components/StoryList';
 import BestList from './components/BestList';
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
-
+import Notice from './components/Notice';
 
 
 
@@ -75,7 +75,20 @@ function App() {
 return(
 	<div>
 		{/* <Header /> */}
-                <Header world={world} setWorld={setWorld} searchList={searchList} setSearchList={setSearchList} />
+                {/* <Header world={world} setWorld={setWorld} searchList={searchList} setSearchList={setSearchList} /> */}
+    
+
+      <Header2/>
+      {/* 여기가 동영상 코드 */}
+      <div style={{height:"56px"}}></div>
+      <div style={{height:'50vh',background:`url(${intro})`,backgroundSize:'cover', textAlign:"center", padding:"auto 0", display:"flex",justifyContent:"center" ,alignItems:"center"}}>
+        <h1 style={{display:"inline-block", color:"white", fontSize:"7.5vw", fontWeight:"900", fontFamily:"Pretendard Variable"}}> 모두의 캠핑 </h1>
+      </div>
+
+      {/* <div style={{height:'100vh',background:`url(${intro})`,backgroundSize:'cover', backgroundRepeat: 'no-repeat' }}></div> */}
+
+<Notice />
+
 		<Routes>
 
 
