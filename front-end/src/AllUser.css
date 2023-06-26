@@ -1,0 +1,44 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .table, .table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+    color: black;
+  }
+  
+  .table td {
+    vertical-align: middle;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .deleteBtn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor:pointer;
+    margin-left: 5px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .center-align {
+    text-align: center;
+  }
+  
+  .right-align {
+    text-align: right;
+  }
+  
