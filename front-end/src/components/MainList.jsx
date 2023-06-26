@@ -10,8 +10,8 @@ const MainList = ({ comunity, setComunity }) => {
 
     useEffect(() => {
         axios
-          // .get(`http://172.30.1.43:8088/gocamping/comunity`) 현민
-          .get(`http://172.30.1.9:8088/gocamping/comunity`)
+          .get(`http://172.30.1.43:8088/gocamping/comunity`) 
+          // .get(`http://172.30.1.9:8088/gocamping/comunity`)
           .then((res) => {
             console.log('API Response:', res.data);
             setComunity(res.data);

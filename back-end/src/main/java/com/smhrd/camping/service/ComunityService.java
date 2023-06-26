@@ -7,9 +7,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 import java.util.UUID;
-
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -22,6 +20,7 @@ import com.google.gson.Gson;
 import com.smhrd.camping.domain.Category;
 import com.smhrd.camping.domain.Comment;
 import com.smhrd.camping.domain.Comunity;
+import com.smhrd.camping.domain.Tags;
 import com.smhrd.camping.mapper.CampingMapper;
 
 
@@ -143,6 +142,11 @@ public class ComunityService {
 		mapper.write(comunity);
 		
 		return comunity;
+	}
+	
+
+	public int addTags(Tags tag) {
+		return mapper.addTags(tag);
 	}
 	
 	//이미지 파일 저장하기

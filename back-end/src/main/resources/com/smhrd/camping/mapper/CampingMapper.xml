@@ -13,10 +13,16 @@
   	</insert> -->
 
   	
-  	<!-- 게시판 업로드 생성 -->
-  	<insert id="write" parameterType="com.smhrd.camping.domain.Comunity">
-		insert into TB_STORY(STORY_CATEGORY, STORY_TITLE, STORY_CONTENT, STORY_IMG, USER_EMAIL)
-		values( #{story_category}, #{story_title}, #{story_content}, #{story_img}, #{user_email})
+  	<insert id="write" parameterType="com.smhrd.camping.domain.Comunity"  useGeneratedKeys="false">
+	  	insert into TB_STORY(STORY_CATEGORY, STORY_TITLE, STORY_CONTENT, STORY_IMG, USER_EMAIL)
+	  	values(#{story_category}, #{story_title}, #{story_content}, #{story_img}, #{user_email})
+	  	<!--  -->
+	  	<!--   values('기본', '오늘 캠핑', 'ㅇㅇ', 'ㅇㄹㅇㄹ', 'aa@naver.com')-->
+		<selectKey resultType="int" keyProperty="story_idx" order="AFTER">
+    		select TB_STORY_SEQ.currval from dual
+  		</selectKey> 
+	  	  	
+		
 	</insert>
 	
 

@@ -52,13 +52,13 @@ const Write = () => {
 	}
 
 
-   const handleFileSelect = (event) => { // 입력한 파일(사진)을 렌더링 해주는 함수
-      console.log('handleFileSelect 함수 들어옴')
-      const file = event.target.files[0];
+	const handleFileSelect = (event) => { // 입력한 파일(사진)을 렌더링 해주는 함수
+		console.log('handleFileSelect 함수 들어옴')
+		const file = event.target.files[0];
 
-      console.log(event.target.files[0]);
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
+		console.log(event.target.files[0]);
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
 
 
 		reader.onloadend = () => {
@@ -119,48 +119,53 @@ const Write = () => {
 		// }
 		const formData = new FormData();
 		formData.append("story_title", story_title);
-		formData.append("user_email", story_writer);
+		formData.append("user_email", "aa@naver.com");
 		formData.append("story_content", story_content);
 		formData.append("story_category", "기본");
-
-
-      console.log("1", story_title)
-      console.log("2", story_writer)
-      console.log("3", story_content)
-
-
 		formData.append('story_img', story_img);
 		console.log("4 story_img", formData.get("file"))
+		
+		let testtt = JSON.stringify(tagLists);
+		console.log("typeof : ", typeof testtt)
+		formData.append("tagLists", testtt);
+		// formData.append("tagLists", typeof (JSON.stringify(tagLists)));
+		console.log("typeof taglistsssssssssssssssssssssss", typeof tagLists)
 
-		axios.post('http://localhost:8088/gocamping/comunity/write', formData, {
-			headers: {
-				'Content-Type': 'multipart/form-data'
-			}
+		console.log("1", story_title)
+		console.log("2", story_writer)
+		console.log("3", story_content)
+
+
+
+	axios.post('http://localhost:8088/gocamping/comunity/write', formData, {
+		headers: {
+			'Content-Type': 'multipart/form-data'
+		}
 		})
-			.then((res) => {
-				// alert('통신 성공!')
-				console.log(res)
-				alert("글 올리기 성공!")
-			})
-			.catch((e) => {
-				alert('통신 실패')
-			})
+		.then((res) => {
+		// alert('통신 성공!')
+			console.log(res)
+			alert("글 올리기 성공!")
+		})
+		.catch((e) => {
+			alert('통신 실패')
+		})
 	}
 
 
-	const getTagCategory = (e) => {
-		axios.get("http://localhost:8088/gocamping/comunity/a")
-			.then((res) => {
-				e.preventDefault();
-				console.log(res.data);
-				setTagCategoryList(res.data);
-			})
-			.catch((e) => {
-				console.log(e)
-			})
+const getTagCategory = (e) => {
+	axios.get("http://localhost:8088/gocamping/comunity/a")
+	.then((res) => {
+		e.preventDefault();
+		console.log(res.data);
+		setTagCategoryList(res.data);
+	})
+	.catch((e) => {
+		console.log(e)
+	})
+}
 
 
-   }
 
    useEffect(() => {
       // input(type=file) 파일이 추가되었을때 -> 이벤트 발생
@@ -205,15 +210,7 @@ const Write = () => {
 
 	const handleStoryTitle=(e)=>{
 		setStory_title(e.target.value)
-		if(story_title==""||story_writer==""||story_content=="") {
-			document.querySelector("#uploadBtn").disabled=true;
-		} else {
-			document.querySelector("#uploadBtn").disabled=false;
-		}
-	}
-	const handleStoryWriter=(e)=>{
-		setStory_writer(e.target.value)
-		if(story_title==""||story_writer==""||story_content=="") {
+		if(story_title==""||story_content=="") {
 			document.querySelector("#uploadBtn").disabled=true;
 		} else {
 			document.querySelector("#uploadBtn").disabled=false;
@@ -221,7 +218,7 @@ const Write = () => {
 	}
 	const handleStoryContent=(e)=>{
 		setStory_content(e.target.value)
-		if(story_title==""||story_writer==""||story_content=="") {
+		if(story_title==""||story_content=="") {
 			document.querySelector("#uploadBtn").disabled=true;
 		} else {
 			document.querySelector("#uploadBtn").disabled=false;
@@ -236,8 +233,7 @@ const Write = () => {
 					<div className="story-header">
 						<p>제목</p>
 						<input onChange={handleStoryTitle} onBlur={handleStoryTitle} value={story_title} type='text' name="story_title"></input>
-						<p>작성자</p>
-						<input onChange={setStory_writer} onBlur={handleStoryWriter} value={story_writer} type='text'></input>
+						
 					</div>
 					<p />
 					{/* story-body */}
@@ -343,7 +339,8 @@ const Write = () => {
 
 
 					<hr />
-					{story_content}
+					{/* {story_content}<br/>
+					{JSON.stringify(tagLists)} */}
 
 				</form>
 

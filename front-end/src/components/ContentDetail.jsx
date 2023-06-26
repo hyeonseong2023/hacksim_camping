@@ -17,8 +17,8 @@ const ContentDetail = ({tableMarginTB, contentImgHeight, contentImgWidth, tableW
 
 	useEffect(() =>{
 		console.log(idx);
-		// let url=`http://172.30.1.43:8088/gocamping/comunity/${idx}`;
-		let url=`http://172.30.1.9:8088/gocamping/comunity/${idx}`;
+		let url=`http://172.30.1.43:8088/gocamping/comunity/${idx}`;
+		// let url=`http://172.30.1.9:8088/gocamping/comunity/${idx}`;
 		axios
 		.get(url)
 		.then((res) => {
@@ -30,7 +30,7 @@ const ContentDetail = ({tableMarginTB, contentImgHeight, contentImgWidth, tableW
 		});
 	},[])
 	
-	realImgUrl = "https://images.unsplash.com/photo-1620439032751-d2011065c735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fHRlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+	// realImgUrl = "https://images.unsplash.com/photo-1620439032751-d2011065c735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fHRlbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
 	return (
 
 		<div style={{position:"relative"}}>
@@ -41,19 +41,19 @@ const ContentDetail = ({tableMarginTB, contentImgHeight, contentImgWidth, tableW
 				<tbody>
 					<tr>
 						<th>제목</th>
-						{comunity.story_img!=undefined&& <td style={{ border: "1px solid pink" }}> <img width='250px' src={`http://172.30.1.9:8088/gocamping/${comunity.story_img}`}/> </td>}
+						<td>{comunity.story_title}</td>
 						
 					</tr>
 
 					<tr style={{ border: "1px solid pink" }}>
 						<th>작성자</th>
-						<td style={{ border: "1px solid pink" }}>캠핑 좋아</td>
+						<td style={{ border: "1px solid pink" }}>{comunity.user_email}</td>
 					</tr>
 
 					<tr style={{ border: "1px solid pink" }}>
 						<th>이미지</th>
 						<td style={{ border: "1px solid pink", position: "relative" }}>
-							<img src={realImgUrl} style={{ height: contentImgHeight, width: contentImgWidth }} />
+						{comunity.story_img!=undefined&& <td style={{ border: "1px solid pink" }}> <img width='250px' src={`http://172.30.1.43:8088/gocamping/${comunity.story_img}`}/> </td>}
 						</td>
 					</tr>
 

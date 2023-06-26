@@ -1,6 +1,7 @@
 package com.smhrd.camping.controller;
 
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smhrd.camping.domain.Comment;
 import com.smhrd.camping.domain.Comunity;
+import com.smhrd.camping.domain.Tags;
 import com.smhrd.camping.service.ComunityService;
 
 @RestController
@@ -56,21 +59,54 @@ public class ComunityRestController {
 
 
 	 //게시판 글 작성 데이터 삽입하기
-	   @PostMapping("/comunity/write")
-	   public ResponseEntity<?> write(@RequestParam("story_title") String story_title,
-			 @RequestParam("user_email") String user_email,
-			 @RequestParam("story_category") String story_category,
-	         @RequestParam("story_content") String story_content ,
-	         @RequestPart(name="story_img") List<MultipartFile> file) 
-	      
-	   {
-	      
-	      // boardInsert 메서드에 매개변수들 전달
-	      Comunity write = service.write(story_title, story_content, file, user_email, story_category); 
-	       
-	       return ResponseEntity.ok(write); // 예시로 간단히 응답만 반환하도록 설정
-	      
-	   }
+	@PostMapping("/comunity/write")
+	public ResponseEntity<?> write(@RequestParam("story_title") String story_title,
+			@RequestParam("user_email") String user_email, @RequestParam("story_category") String story_category,
+			@RequestParam("story_content") String story_content,
+			@RequestPart(name = "story_img") List<MultipartFile> file,
+			@RequestParam(value = "tagLists", required = false) String jsonString) {
+		Tags[] tags = null;
+//	   System.out.println("jsonString"+jsonString);
+		if (!jsonString.equals("[]")) {
+//		    System.out.println("jsonString의 길이" + jsonString.length());
+			System.out.println("null 아님");
+			ObjectMapper objectMapper = new ObjectMapper();
+			try {
+				tags = objectMapper.readValue(jsonString, Tags[].class);
+			} catch (IOException e) {
+				System.out.println("입출력 에러");
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("null입니다.");
+		}
+
+		System.out.println("type:" + jsonString.getClass().getName());
+
+		Comunity write = null;
+		int cnt = 0;
+		if (tags == null) {
+			System.out.println("tags = null");
+			// boardInsert 메서드에 매개변수들 전달
+			write = service.write(story_title, story_content, file, user_email, story_category);
+			
+		} else {
+			System.out.println("tags = null 아님");
+			write = service.write(story_title, story_content, file, user_email, story_category);
+			System.out.println("업로드 성공, story_idx : "+write.getStory_idx()+" 제목 : "+write.getStory_title());
+			
+			for(Tags t : tags) {
+				t.setStory_idx(write.getStory_idx());
+				
+				
+				service.addTags(t);
+				cnt++;
+			}
+		}
+		System.out.printf("%d개의 태그가 등록 됨", cnt);
+		return ResponseEntity.ok(write); // 예시로 간단히 응답만 반환하도록 설정
+
+	}
 
 	
 	 

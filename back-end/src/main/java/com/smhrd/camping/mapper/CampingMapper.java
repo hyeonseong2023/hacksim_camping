@@ -3,12 +3,11 @@ package com.smhrd.camping.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.smhrd.camping.domain.Category;
 import com.smhrd.camping.domain.Comment;
 import com.smhrd.camping.domain.Comunity;
+import com.smhrd.camping.domain.Tags;
 
 @Mapper
 public interface CampingMapper {
@@ -19,7 +18,9 @@ public interface CampingMapper {
 
 	public Comunity ComunityOne(int idx); //Comunity.java에 있는 글순번 idx, 상세 게시물 조회
 	
-	public int write(Comunity comunity); //댓글 작성
+	public int write(Comunity comunity); //게시물 작성
+	
+	public int addTags(Tags tag); // 태그 추가하기
 	
 	public List<Category> CategoryStep(); //상품 카테고리 스텝
 	
