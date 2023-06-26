@@ -841,3 +841,9 @@
 2023-06-26 09:02:48,544 [Worker-88: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2023-06-26 09:02:48,569 [Worker-88: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 97 resources from src\main\resources to target\classes
 2023-06-26 09:02:48,591 [Worker-88: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\smhrd\Desktop\hacksim_camping\back-end\src\test\resources
+2023-06-26 09:06:38,455 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-06-26 09:06:38,477 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 98 resources from src\main\resources to target\classes
+2023-06-26 09:06:38,508 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\smhrd\Desktop\hacksim_camping\back-end\src\test\resources
+2023-06-26 09:06:41,029 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-06-26 09:06:41,039 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 98 resources from src\main\resources to target\classes
+2023-06-26 09:06:41,058 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\smhrd\Desktop\hacksim_camping\back-end\src\test\resources
