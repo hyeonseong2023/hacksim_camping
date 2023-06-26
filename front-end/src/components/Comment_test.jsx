@@ -18,7 +18,8 @@ const Comment_test = () => {
       // 댓글 리스트
       const StoryCommentList = async () =>{
         try{
-          axios.get(`http://172.30.1.43:8088/gocamping/comunity/${idx}/comment1`,{story_idx : idx})
+          // axios.get(`http://172.30.1.43:8088/gocamping/comunity/${idx}/comment1`,{story_idx : idx})
+          axios.get(`http://172.30.1.9:8088/gocamping/comunity/${idx}/comment1`,{story_idx : idx})
           .then((res)=>{
 
             console.log('리스트 출력 성공');
@@ -46,11 +47,12 @@ const Comment_test = () => {
 
       const formData = new FormData();
       formData.append('cmt_content', cmt_content);
-      formData.append('user_email', user_email);
+      formData.append('user_email', loginuserEmail);
 
       
       
-        axios.post(`http://172.30.1.43:8088/gocamping/comunity/${idx}/comment`, formData,
+        // axios.post(`http://172.30.1.43:8088/gocamping/comunity/${idx}/comment`, formData,
+        axios.post(`http://172.30.1.9:8088/gocamping/comunity/${idx}/comment`, formData,
         {
             headers: {
                 'Content-Type' : 'application/json',
@@ -84,7 +86,8 @@ const Comment_test = () => {
 
       console.log("user_email", user_email)
       try{
-        const response = await axios.post(`http://172.30.1.43:8088/gocamping/comunity/${e.target.value}/delete`, {user_email : loginuserEmail})
+        // const response = await axios.post(`http://172.30.1.43:8088/gocamping/comunity/${e.target.value}/delete`, {user_email : loginuserEmail}) 현민
+        const response = await axios.post(`http://172.30.1.9:8088/gocamping/comunity/${e.target.value}/delete`, {user_email : loginuserEmail})
         .then((res)=>{
           StoryCommentList();
         })
@@ -118,12 +121,12 @@ const Comment_test = () => {
                 rows={3}
               />
             </div>
-            <input
+            {/* <input
               type="text"
               value={user_email}
               onChange={(e) => setuser_Email(e.target.value)}
               placeholder="User email"
-            />
+            /> */}
     
             <button type="submit" >댓글 작성</button>
           </form>

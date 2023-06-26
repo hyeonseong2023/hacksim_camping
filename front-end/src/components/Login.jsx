@@ -3,7 +3,9 @@ import '../Login.css'
 import axios from 'axios'
 
 import { useNavigate } from 'react-router-dom'
-const Login = ({}) => {
+import GoogleLogin from './SNSLogin/google'
+const Login = ({ }) => {
+
 
     const nav = useNavigate()
 
@@ -11,7 +13,8 @@ const Login = ({}) => {
 
     const REDIRECT_URI = "http://localhost:3000/kakaocallback2";
     //혜주
-    const REST_API_KEY =  process.env.REACT_APP_REST_API_KEY;
+    const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+
     // const REST_API_KEY = 'c7cdf149cf26d90f317204cd9e5a046f';
     const kakaoLink = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`
 
@@ -24,9 +27,10 @@ const Login = ({}) => {
 
     }
 
-   const [loginEmail,setLoginEmail] = useState('')
-   const [loginPw,setLoginPw] = useState('')
-  
+
+    const [loginEmail, setLoginEmail] = useState('')
+    const [loginPw, setLoginPw] = useState('')
+
 
     const handleUseremailChange = (e) => {
         setLoginEmail(e.target.value);
@@ -37,10 +41,7 @@ const Login = ({}) => {
 
     const handleUserPwChange = (e) => {
         console.log(e.target.value);
-
         setLoginPw(e.target.value);
-
-        setUser_PW(e.target.value);
 
     }
 
@@ -61,6 +62,7 @@ const Login = ({}) => {
 
                 const user = response.data; // 사용자 정보
 
+
                 console.log(user);
 
                 localStorage.setItem('loginSuccess', "Y")
@@ -70,8 +72,8 @@ const Login = ({}) => {
                 localStorage.setItem('user_role', user.user_role)
                 localStorage.setItem('user_joindate', user.user_joindate)
 
-              nav('/')
-                
+                nav('/')
+
             }
         } catch (error) {
             if (error.response && error.response.status === 401) {
@@ -83,7 +85,10 @@ const Login = ({}) => {
     };
 
 
-
+  // sns 로그인 관련 함수
+  const onSuccessHandler = res => {
+    console.log(res)
+}
 
 
 
@@ -103,8 +108,17 @@ const Login = ({}) => {
                         <div id='login_text'>SNS 로그인</div>
                     </div>
                     <div id='img_container'>
-                        <img id='k' onClick={kakao_LoginHandler} src='https://cdn-icons-png.flaticon.com/512/2111/2111496.png' />
-                        <img id='g' src='https://img.uxwing.com/wp-content/themes/uxwing/download/brands-social-media/google-icon.png' />
+
+                    <div className='img_container' onClick={kakao_LoginHandler}><img className = 'k' src={process.env.PUBLIC_URL + 'img/kakaologo.png'} />카카오 로그인</div>
+                        {/* <img id='k' onClick={kakao_LoginHandler} src='https://cdn-icons-png.flaticon.com/512/2111/2111496.png' /> */}   
+                    </div>
+                    <div className="App">
+                        <GoogleLogin
+                            success={onSuccessHandler}
+                            fail={res => console.log(res)}
+                        />
+
+
                     </div>
                 </div>
             </div>
