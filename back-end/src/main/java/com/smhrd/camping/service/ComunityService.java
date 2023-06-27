@@ -90,6 +90,37 @@ public class ComunityService {
 		return mapper.ComunityOne(idx);	
 	}
 	
+	public JSONObject ComunityListOne(int story_idx) {
+		Comunity comunity = mapper.ComunityListOne(story_idx);
+//		JSONArray jsonArray = new JSONArray();
+		JSONObject obj = new JSONObject(); //비어있는 json object 생성
+		
+		if(comunity!=null) {
+			obj.put("comunity", comunity);	
+		}
+		return obj;		
+	}
+	
+	
+	// 게시판 내림차순
+	public JSONArray ComunityListDesc(int page) {
+		List<Comunity> list = mapper.ComunityListDesc(page);
+		JSONArray jsonArray = new JSONArray();
+		for(Comunity c: list) {
+//			System.out.println(c.getStory_content()+ c.getStory_title());
+			JSONObject obj = new JSONObject(); //비어있는 json object 생성
+			obj.put("comunity", c); //비어있는 object에 값을 추가한 것 
+			
+			jsonArray.add(obj); 
+		}
+		return jsonArray;		
+	}
+	
+	// 게시판 내림차순 갯수
+	public int ComunityListDescCount() {
+		return mapper.ComunityListDescCount();
+	}
+	
 	//댓글 작성
 
 	// 좋아요 높은 순으로 불러오기

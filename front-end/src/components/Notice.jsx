@@ -94,7 +94,7 @@ const Notice = () => {
                     </div>
                 </div>
 
-                <div className="promotion">
+                <div className="promotion" style={{height: "height: 533px"}}>
                     <div className="swiper-container">
                         <div className="swiper-wrapper">
                             <div className="swiper-slide">

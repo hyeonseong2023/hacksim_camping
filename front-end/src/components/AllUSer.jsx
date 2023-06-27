@@ -27,8 +27,11 @@ const AllUser = () => {
   const handleDelete = async (user_email) => {
     try {
       // 회원 정보 삭제 요청을 서버에 전달합니다.
-      const response = await axios.post("/gocamping/deleteUser", { user_email }, {
-        headers: {
+      const response = await axios.post(
+        "/gocamping/deleteUser", 
+        { user_email }, 
+        {
+          headers: {
           "Content-Type": "application/json",
         },
       });

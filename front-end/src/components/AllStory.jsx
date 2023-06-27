@@ -61,7 +61,7 @@ const AllStory = () => {
               <td className="center-align">
                 <button
                   className="deleteBtn"
-                  onClick={() => handleDelete(story)}
+                  onClick={() => handleDelete(story.user_email)}
                 >
                   삭제
                 </button>

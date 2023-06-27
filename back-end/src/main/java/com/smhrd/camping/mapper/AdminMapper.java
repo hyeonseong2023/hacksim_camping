@@ -29,7 +29,7 @@ public interface AdminMapper {
 	public List<Comunity> allStory();
 
 	// 게시글을 삭제하는 쿼리
-	@Delete("DELETE FROM TB_STORY WHERE user_email = #{user_email}")
+	@Delete("DELETE FROM TB_STORY WHERE story_idx = #{story_idx}")
 	public int deleteStory(Comunity story);
 
 }

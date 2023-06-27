@@ -20,6 +20,13 @@ public class SearchService {
 	@Autowired
 	private SearchMapper mapper;
 
+	
+	// 링크 가져오기
+	   public String getLink(int getlink) {
+	      return mapper.getLink(getlink);
+	   }
+	   
+	   
 	// 파일 받아오기
 	@Autowired
 	private ResourceLoader resourceLoader;

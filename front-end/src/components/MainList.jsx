@@ -4,7 +4,7 @@ import Item from './Item';
 import Notice from './Notice';
 
 const MainList = ({ comunity, setComunity }) => {
-
+ 
   // const [comunity, setComunity] = useState([]);
 
 
@@ -38,7 +38,7 @@ const MainList = ({ comunity, setComunity }) => {
             return <Item  key={item.comunity.story_idx} item={item.comunity} idx={item.comunity.story_idx}/>
    
         })}
-        {}
+        
 
 
     </div>

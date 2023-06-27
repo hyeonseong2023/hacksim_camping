@@ -1,4 +1,4 @@
-/* header */
+header
 .header_container{
     
   position: sticky;
@@ -47,7 +47,7 @@
   input {
     border: 1px solid #bbb;
     border-radius: 8px;
-    padding: 10px 12px;
+    padding: 10px 0px;
     font-size: 14px;
     text-align: center;
   }

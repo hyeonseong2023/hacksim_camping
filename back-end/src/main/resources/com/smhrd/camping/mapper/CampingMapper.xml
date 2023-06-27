@@ -3,101 +3,153 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-  <mapper namespace="com.smhrd.camping.mapper.CampingMapper">
-  	<!-- <insert id="write" parameterType="com.smhrd.camping.domain.Comunity">
-  		insert into TB_STORY(STORY_CATEGORY,STORY_TITLE,STORY_CONTENT,STORY_IMG,USER_EMAIL)
-		values('기본',#{story_title},#{story_content},#{story_img},#{story_writer})
-  		</insert>
-  		
-		values(#{story_category},#{story_title},#{story_content},#{story_img},#{user_email})
-  	</insert> -->
+<mapper namespace="com.smhrd.camping.mapper.CampingMapper">
+	<!-- <insert id="write" parameterType="com.smhrd.camping.domain.Comunity"> 
+		insert into TB_STORY(STORY_CATEGORY,STORY_TITLE,STORY_CONTENT,STORY_IMG,USER_EMAIL) 
+		values('기본',#{story_title},#{story_content},#{story_img},#{story_writer}) 
+		</insert> values(#{story_category},#{story_title},#{story_content},#{story_img},#{user_email}) 
+		</insert> -->
 
-  	
-  	<insert id="write" parameterType="com.smhrd.camping.domain.Comunity"  useGeneratedKeys="false">
-	  	insert into TB_STORY(STORY_CATEGORY, STORY_TITLE, STORY_CONTENT, STORY_IMG, USER_EMAIL)
-	  	values(#{story_category}, #{story_title}, #{story_content}, #{story_img}, #{user_email})
-	  	<!--  -->
-	  	<!--   values('기본', '오늘 캠핑', 'ㅇㅇ', 'ㅇㄹㅇㄹ', 'aa@naver.com')-->
-		<selectKey resultType="int" keyProperty="story_idx" order="AFTER">
-    		select TB_STORY_SEQ.currval from dual
-  		</selectKey> 
-	  	  	
-		
+
+	<insert id="write"
+		parameterType="com.smhrd.camping.domain.Comunity"
+		useGeneratedKeys="false">
+		insert into TB_STORY(STORY_CATEGORY, STORY_TITLE, STORY_CONTENT,
+		STORY_IMG, USER_EMAIL)
+		values(#{story_category}, #{story_title}, #{story_content}, #{story_img}, #{user_email})
+		<!-- -->
+		<!-- values('기본', '오늘 캠핑', 'ㅇㅇ', 'ㅇㄹㅇㄹ', 'aa@naver.com') -->
+		<selectKey resultType="int" keyProperty="story_idx"
+			order="AFTER">
+			select TB_STORY_SEQ.currval from dual
+		</selectKey>
+
+
 	</insert>
-	
 
-  	<!-- 상품 카테고리 스텝 -->
-  	<select id="CategoryStep" resultType="com.smhrd.camping.domain.Category">
-  		select * from TB_CATEGORY
-  	</select>
-  	
-  	
-  	<!-- 게시판 게시물 목록 조회 -->
-  	<select id="ComunityList" resultType="com.smhrd.camping.domain.Comunity">
-  		select * from TB_Story
-  	</select>
-  	
-  	
-  	<!-- 상세 게시물 조회 -->
-  	<select id="ComunityOne" resultType="com.smhrd.camping.domain.Comunity">
-  		select * from TB_Story where story_idx=#{story_idx}
-  	</select>
-  	
+	<!-- 태그 추가하기 -->
+	<insert id="addTags"
+		parameterType="com.smhrd.camping.domain.Tags">
+		insert into TB_poi(story_idx, poi_X, poi_y, category_idx, product_link,
+		product_name)
+		values( #{story_idx}, #{poi_x}, #{poi_y},
+		#{category_idx}, #{product_link}, #{product_name})
 
-  	
-  	<!-- 댓글 작성 -->
-  	<insert id="comment" parameterType="com.smhrd.camping.domain.Comment">
-  		 <!-- INSERT INTO TB_COMMENT (CMT_IDX, STORY_IDX, CMT_CONTENT, CMT_DT, USER_EMAIL)
-        VALUES (NEXTVAL('CMT_IDX_SEQ'), #{story_idx}, #{cmt_content}, SYSDATE, #{user_email}) -->
-        insert into tb_comment (cmt_idx, story_idx, cmt_content, cmt_dt, user_email)
-        values(1, #{story_idx}, #{cmt_content}, SYSDATE, #{user_email})
-  	</insert>
-  	
-  	
-  	<!-- 댓글 목록 -->
-  	<select id="CommentList" parameterType="com.smhrd.camping.domain.Comment" resultType="com.smhrd.camping.domain.Comment">
-  		<!-- select a.cmt_idx, a.cmt_content, b.user_email from tb_comment a JOIN tb_story b ON a.user_email = b.user_email WHERE a.story_idx = b.story_idx -->
-  		select * from tb_comment where story_idx=#{story_idx}
-  	</select>
-  	
 
-  	
-  	
-  	
-  	<!-- 게시판 좋아요 순으로 3개 정렬 -->
-  	<select id="LoadCommunityLike" resultType="com.smhrd.camping.domain.Comunity">
-  		select * from tb_story where rownum &lt;= 6 order by story_likes desc,story_idx asc
-  	</select>
+	</insert>
 
-  	   <select id="searchComunity" resultType="com.smhrd.camping.domain.Comunity">
-          SELECT * FROM tb_story
-    WHERE story_title LIKE '%' || #{query} || '%'
-    OR story_content LIKE '%' || #{query} || '%'
-    </select>
-    
-    
-<select id="sortedComunity" resultType="com.smhrd.camping.domain.Comunity" parameterType="string">
-    SELECT * FROM tb_story
-    ORDER BY
-        CASE #{mode}
-            WHEN 'views' THEN story_views
-            WHEN 'likes' THEN story_likes
-            WHEN 'usefuls' THEN story_usefuls
-            WHEN 'recent' THEN TO_NUMBER(TO_CHAR(story_dt, 'YYYYMMDDHH24MISS'))
-            ELSE TO_NUMBER(TO_CHAR(story_dt, 'YYYYMMDDHH24MISS'))
-        END DESC
-</select>
 
-  	
-  	<!-- 게시판 조회수 순으로 3개 정렬 -->
-  	<select id="LoadCommunityView" resultType="com.smhrd.camping.domain.Comunity">
-  		select * from tb_story where rownum &lt;= 6 order by story_views desc,story_idx asc
-  	</select>
-  	
-  
-  	<!-- 댓글 삭제 -->
-  	<delete id="CommentDelete">
-  		delete from tb_comment where cmt_idx=#{cmt_idx} and user_email=#{user_email}
-  	</delete>
+	<select id="ComunityListOne"
+		resultType="com.smhrd.camping.domain.Comunity">
+		select * from TB_Story where story_idx=#{story_idx}
+	</select>
 
-  </mapper>
+	<!-- 게시판 내림차순 조회 -->
+	<select id="ComunityListDesc"
+		resultType="com.smhrd.camping.domain.Comunity">
+		<!-- SELECT * FROM TB_Story ORDER BY story_idx DESC -->
+		select *
+		from (
+		select rownum as rn, a.*
+		from (
+		select *
+		from tb_story
+		order by story_idx desc ) a
+		where rownum &lt;= 5 * #{page} )
+		where rn &gt;=5*(#{page}-1)+1
+	</select>
+
+	<!-- 게시판 내림차순 갯수 -->
+	<select id="ComunityListDescCount">
+		select count(story_idx) from tb_story
+	</select>
+
+	<!-- 상품 카테고리 스텝 -->
+	<select id="CategoryStep"
+		resultType="com.smhrd.camping.domain.Category">
+		select * from TB_CATEGORY
+	</select>
+
+
+	<!-- 게시판 게시물 목록 조회 -->
+	<select id="ComunityList"
+		resultType="com.smhrd.camping.domain.Comunity">
+		select * from TB_Story
+	</select>
+
+
+	<!-- 상세 게시물 조회 -->
+	<select id="ComunityOne"
+		resultType="com.smhrd.camping.domain.Comunity">
+		select * from TB_Story where story_idx=#{story_idx}
+	</select>
+
+
+
+	<!-- 댓글 작성 -->
+	<insert id="comment"
+		parameterType="com.smhrd.camping.domain.Comment">
+		<!-- INSERT INTO TB_COMMENT (CMT_IDX, STORY_IDX, CMT_CONTENT, CMT_DT, USER_EMAIL) 
+			VALUES (NEXTVAL('CMT_IDX_SEQ'), #{story_idx}, #{cmt_content}, SYSDATE, #{user_email}) -->
+		insert into tb_comment (cmt_idx, story_idx, cmt_content, cmt_dt,
+		user_email)
+		values(1, #{story_idx}, #{cmt_content}, SYSDATE, #{user_email})
+	</insert>
+
+
+	<!-- 댓글 목록 -->
+	<select id="CommentList"
+		parameterType="com.smhrd.camping.domain.Comment"
+		resultType="com.smhrd.camping.domain.Comment">
+		<!-- select a.cmt_idx, a.cmt_content, b.user_email from tb_comment a JOIN 
+			tb_story b ON a.user_email = b.user_email WHERE a.story_idx = b.story_idx -->
+		select * from tb_comment where story_idx=#{story_idx}
+	</select>
+
+
+
+
+
+	<!-- 게시판 좋아요 순으로 3개 정렬 -->
+	<select id="LoadCommunityLike"
+		resultType="com.smhrd.camping.domain.Comunity">
+		select * from tb_story where rownum &lt;= 6 order by story_likes
+		desc,story_idx asc
+	</select>
+
+	<select id="searchComunity"
+		resultType="com.smhrd.camping.domain.Comunity">
+		SELECT * FROM tb_story
+		WHERE story_title LIKE '%' || #{query} || '%'
+		OR story_content LIKE '%' || #{query} || '%'
+	</select>
+
+
+	<select id="sortedComunity"
+		resultType="com.smhrd.camping.domain.Comunity" parameterType="string">
+		SELECT * FROM tb_story
+		ORDER BY
+		CASE #{mode}
+		WHEN 'views' THEN story_views
+		WHEN 'likes' THEN story_likes
+		WHEN 'usefuls' THEN story_usefuls
+		WHEN 'recent' THEN TO_NUMBER(TO_CHAR(story_dt, 'YYYYMMDDHH24MISS'))
+		ELSE TO_NUMBER(TO_CHAR(story_dt, 'YYYYMMDDHH24MISS'))
+		END DESC
+	</select>
+
+
+	<!-- 게시판 조회수 순으로 3개 정렬 -->
+	<select id="LoadCommunityView"
+		resultType="com.smhrd.camping.domain.Comunity">
+		select * from tb_story where rownum &lt;= 6 order by story_views
+		desc,story_idx asc
+	</select>
+
+
+	<!-- 댓글 삭제 -->
+	<delete id="CommentDelete">
+		delete from tb_comment where cmt_idx=#{cmt_idx} and user_email=#{user_email}
+	</delete>
+
+</mapper>

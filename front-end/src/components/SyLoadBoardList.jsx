@@ -66,7 +66,7 @@ const SyLoadBoardList = () => {
 				<div style={{ display: "flex", flexWrap: "wrap", margin: "0 10%" }}>
 					{likeList && likeList.map((item) => {
 						return (
-							<SyLoadBoardItem srcImg={`http://localhost:8088/gocamping/${item.comunity.story_img}`}
+							<SyLoadBoardItem srcImg={`http://172.30.1.43:8088/gocamping/${item.comunity.story_img}`}
 								s_title={item.comunity.story_title} s_idx={item.comunity.story_idx} user_email={item.comunity.user_email}
 								s_like={item.comunity.story_likes}
 								imgWidth={"100%"} imgHeight={"200px"}
@@ -83,7 +83,7 @@ const SyLoadBoardList = () => {
 				<div style={{ display: "flex", flexWrap: "wrap", margin: "0 10%" }}>
 					{viewsList && viewsList.map((item) => {
 						return (
-							<SyLoadBoardItem srcImg={`http://localhost:8088/gocamping/${item.comunity.story_img}`}
+							<SyLoadBoardItem srcImg={`http://172.30.1.43:8088/gocamping/${item.comunity.story_img}`}
 								s_title={item.comunity.story_title} s_idx={item.comunity.story_idx} user_email={item.comunity.user_email}
 								s_view={item.comunity.story_views}
 								imgWidth={"100%"} imgHeight={"200px"}
@@ -95,15 +95,15 @@ const SyLoadBoardList = () => {
 
 			{/* New 최신글 */}
 			<div >
-				<h4> 😎 New 최신글</h4>
+			<a href="/comunity/list/1"><h4> 😎 New 최신글</h4></a>
 				<div style={{ display: "flex", flexWrap: "wrap", margin: "0 10%" }}>
 
 					{ filteredList && filteredList.map((item)=>{
 						return (
-						<SyLoadBoardItem srcImg={`http://localhost:8088/gocamping/${item.comunity.story_img}`}
+						<SyLoadBoardItem srcImg={`http://172.30.1.43:8088/gocamping/${item.comunity.story_img}`}
 						s_title={item.comunity.story_title} s_idx={item.comunity.story_idx} user_email= {item.comunity.user_email}
 						imgWidth={"100%"} imgHeight={"200px"}
-						key={item.comunity.story_idx} />
+						key={item.comunity.story_idx}/>
 						)
 					})}
 

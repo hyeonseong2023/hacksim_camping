@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.smhrd.camping.domain.Comunity;
 import com.smhrd.camping.domain.MyComment;
+import com.smhrd.camping.domain.Tags;
 import com.smhrd.camping.domain.User;
 import com.smhrd.camping.mapper.SearchMapper;
 import com.smhrd.camping.mapper.UserMapper;
@@ -45,9 +46,32 @@ public class SearchController {
 	@Autowired
 	private ComunityService service2;
 	
+	// 링크가져오기
+	@Autowired
+	   private SearchService poiservice;
+	
 	@Autowired
 	private SearchMapper mapper;
 	
+	
+	// 링크 가져오기
+	  @PostMapping("/getlink")
+      public String getLink(@RequestBody Tags story_idx) {
+         
+         int getlink = story_idx.getStory_idx();
+         String linkdata = poiservice.getLink(getlink);
+
+         if(linkdata != null) {
+            System.out.println("링크성공");
+            return linkdata;
+         }
+         else {
+            System.out.println("링크실패");
+            return null;
+         }
+      }
+	  
+	  
 	//검색창 검색기능
 	@PostMapping("/search")
 	public ResponseEntity<List<Comunity>> Search(@RequestBody Comunity story_content) {

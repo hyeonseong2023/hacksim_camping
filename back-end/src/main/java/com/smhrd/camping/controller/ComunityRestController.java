@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -38,6 +39,27 @@ public class ComunityRestController {
 		return array;
 	}
 	
+	
+//	@GetMapping("/api/getTags/{story_idx}")
+//	public JSONObject ComunityListOne(@PathVariable("story_idx")int story_idx) {
+//		System.out.println("controller" + story_idx);
+//		JSONObject obj = service.ComunityListOne(story_idx);		
+//		return obj;
+//	}
+
+	// 게시판 내림차순
+	@GetMapping("/comunity/listDesc/{num}")
+	public JSONArray ComunityListDesc(@PathVariable("num") int page) {
+		System.out.printf("%d페이지\n", page);
+		JSONArray array = service.ComunityListDesc(page);		
+		return array;
+	}
+	
+	// 게시판 내림차순(갯수)
+	@GetMapping("/comunity/listDescCount")
+	public int ComunityListDescCount() {
+		return service.ComunityListDescCount();
+	}
 
 	//상세 게시물 조회
 	@GetMapping("/comunity/{idx}")
@@ -169,7 +191,7 @@ public class ComunityRestController {
 	}
 
 	// 게시글 조좋유 순
-	@GetMapping("/comunity/sort")
+	@GetMapping("/comunity/sort/{idx}")
 	public ResponseEntity<List<Comunity>> sortedComunity(@RequestParam("mode") String mode) {
 		System.out.println("무슨 버튼 눌렀니 : " + mode);
 		List<Comunity> comunity = service.sortedComunity(mode);

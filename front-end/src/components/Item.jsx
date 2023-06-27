@@ -8,7 +8,7 @@ const Item = ({ item, idx }) => {
   const getDetail = () =>{
 
     
-    nav(`/comunity/ContentDeatil/${idx}`);
+    nav(`/comunity/contentDetail/${idx}`);
     
     //  nav(`/comunity/ComunityDetail/${idx}`)
 

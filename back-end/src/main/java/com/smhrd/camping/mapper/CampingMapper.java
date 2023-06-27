@@ -42,6 +42,12 @@ public interface CampingMapper {
 	
 	// CampingMapper.java에 코드 추가
 	public List<Comunity> sortedComunity(String mode);
+	
+	//comunity 전체 정보 불러오기
+		
+		public List<Comunity> ComunityListDesc(int page);
+		public int ComunityListDescCount();
+		public Comunity ComunityListOne(int story_idx);
 
 
 	

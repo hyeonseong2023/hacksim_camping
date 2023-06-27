@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
-
+import '../update.css'
 
 
 // Update 컴포넌트는 사용자의 비밀번호와 닉네임을 수정하는 기능을 제공합니다.
@@ -85,24 +85,28 @@ const Update = () => {
   };
 
   return (
-    <div>
-      {/* 비밀번호 입력 필드 */}
-      <input
-        type="password"
-        placeholder="새 비밀번호 입력"
-        onChange={handlePasswordChange}
-      />
-      {/* 닉네임 입력 필드 */}
-      <input
-        type="text"
-        placeholder="새 닉네임 입력"
-        onChange={handleNickChange}
-      />
-      {/* 수정 버튼 */}
-      <button onClick={handleUpdateSubmit}>정보 수정 완료</button>
-
+    <div id="update-comtainer">
+ 
+      <div id='hs-update'>
+      <div id='hs-text'>내 정보 수정</div>
+      <hr/>
+        {/* 비밀번호 입력 필드 */}
+        <input
+          type="password"
+          placeholder="새 비밀번호 입력"
+          onChange={handlePasswordChange}
+        />
+        {/* 닉네임 입력 필드 */}
+        <input
+          type="text"
+          placeholder="새 닉네임 입력"
+          onChange={handleNickChange}
+        />
+        {/* 수정 버튼 */}
+        <button onClick={handleUpdateSubmit}>정보 수정 완료</button>
+      
       <button onClick={handleDelete}>회원 탈퇴</button>
-
+      </div>
     </div>
   );
 };

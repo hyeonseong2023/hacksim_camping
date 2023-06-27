@@ -19,6 +19,7 @@ const Write = () => {
 	const [story_writer, setStory_writer] = useState('');
 	const [story_content, setStory_content] = useState('');
 	const [story_img, setStory_img] = useState(null);
+	const user_email = (localStorage.getItem('user_email'));
 
 
 	// 클릭한 위치 px좌표
@@ -119,7 +120,7 @@ const Write = () => {
 		// }
 		const formData = new FormData();
 		formData.append("story_title", story_title);
-		formData.append("user_email", "aa@naver.com");
+		formData.append("user_email", user_email);
 		formData.append("story_content", story_content);
 		formData.append("story_category", "기본");
 		formData.append('story_img', story_img);

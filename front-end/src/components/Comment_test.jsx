@@ -102,40 +102,46 @@ const Comment_test = () => {
     
   
     return (
-        <div>
-          {comments && comments.map((item)=>(
-            <div>
-              <p>{item.cmt_idx}</p>
-              <p>{item.cmt_content}</p>
-              <button value={item.cmt_idx} onClick={DeleteComment}>삭제</button>
-            </div>
-          ))}
-          
-          <form onSubmit={handleSubmit} method="post">
-            <div>
-              <label>댓글 작성:</label>
-              <textarea
-                id="comment"
-                value={cmt_content}
-                onChange={(e) => setcmt_Content(e.target.value)}
-                rows={3}
-              />
-            </div>
-            {/* <input
-              type="text"
-              value={user_email}
-              onChange={(e) => setuser_Email(e.target.value)}
-              placeholder="User email"
-            /> */}
-    
-            <button type="submit" >댓글 작성</button>
-          </form>
-          <ul>
-            {comments > 0 && comments.map((comment, i) => (
-              <li key={i}>{comment.comments}</li>
-            ))}
-          </ul>
-        </div>
+      <div className='comment-container'>
+      <div style={{display:"flex"}}>
+         <label style={{flexBasis:"20%", display:"block"}}>작성자</label>
+         <label style={{flexBasis:"150%", display:"block"}}>댓글 내용</label>
+         <label style={{flexBasis:"20%", display:"block" , height : "100%"}}>삭제</label>
+      </div>
+      {comments && comments.map((item) => (
+         <div style={{display:"flex", backgroundColor:"#e3e3e3", alignItems:"center", position:"relative",marginBottom : "1%", marginTop : "1%" ,   padding:"1% 0"}}>
+            <p style={{flexBasis: "20%"}}>{item.user_email}</p>
+            <p style={{flexBasis: "60%"}}>{item.cmt_content}</p>
+            <button style={{display:"block", width: "10%", right:"0px", position:"absolute", height : "90%",}} value={item.cmt_idx} onClick={DeleteComment}>삭제</button>
+         </div>
+      ))}
+      <form style={{display:"flex", marginBottom:"40px"}} onSubmit={handleSubmit} method="post">
+         
+         
+         {/* <label style={{flexBasis:"20%", display:"block"}}>댓글 작성:</label> */}
+         <textarea style={{display:"block", width:"91%"}}
+            id="comment"
+            value={cmt_content}
+            onChange={(e) => setcmt_Content(e.target.value)}
+            rows={3}
+         />
+         {/* <input
+            type="text"
+            value={user_email}
+            onChange={(e) => setuser_Email(e.target.value)}
+            placeholder="User email"
+         /> */}
+
+         <button type="submit" style={{width:"10%"}}>댓글 작성</button>
+      </form>
+
+      <ul>
+         {comments > 0 && comments.map((comment, i) => (
+            <li key={i}>{comment.comments}</li>
+         ))}
+      </ul>
+   </div>
+
       );
     };
 

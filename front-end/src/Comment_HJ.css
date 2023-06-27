@@ -1,6 +1,48 @@
-#hiddenCol1{
-    display: none;
-}
-#hiddenCol2{
-    display: none;
-}
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  * {
+    font-family: 'TheJamsil5Bold';
+  }
+  
+  #commentTable{
+      display: flex;
+  flex-direction: column;
+      justify-content: center;
+    padding : 10%;
+      align-items:center;
+      /* min-height: 3%; */
+      /* width: 100%; */
+      background-color: white;
+  }
+  
+  #hj_comment{
+    height: 10%;
+  font-size: 20px;
+  margin: 5%;
+  }
+  
+  table {
+  
+      width: 100%;
+      border-top: 1px solid #444444;
+      border-collapse: collapse;
+    }
+  
+    th {
+      background-color: #f6f5f0;
+     
+    }
+    th, td {
+      border-bottom: 1px solid #444444;
+      border-left: 1px solid #444444;
+      padding: 10px;
+    }
+    th:first-child, td:first-child {
+      border-left: none;
+  
+    }

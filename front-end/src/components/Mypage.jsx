@@ -6,6 +6,7 @@ const Mypage = () => {
   const nav = useNavigate();
 
   const [myStory, setmyStory] = useState([]);
+  
 
   useEffect(() => {
     if (localStorage.getItem('loginSuccess') === null) {
@@ -38,7 +39,7 @@ const Mypage = () => {
   return (
     <div id='hj_mypage'>
       <div id='hj_user-container'>
-        <Link to='/update' style={{ textDecoration: "none", color: "black" }}>
+        <Link to='/mypage/update' style={{ textDecoration: "none", color: "black" }}>
           <div>내 정보 관리</div>
         </Link>
         <Link to='/mypage/mycomment' style={{ textDecoration: "none", color: "black" }}>
@@ -51,7 +52,7 @@ const Mypage = () => {
         <div id='hj_columns'>
           {myStory.map((item, index) => (
             <figure id='hj_columns figure img' key={index}>
-              <img src={`http://localhost:8088/gocamping/${item.story_img}`} alt={`Image ${index}`} />
+              <img  onClick={()=>{nav(`/comunity/ContentDetail/${item.story_idx}`)}}  src={`http://localhost:8088/gocamping/${item.story_img}`} alt={`Image ${index}`} />
               <figcaption>{item.story_title}</figcaption>
             </figure>
           ))}

@@ -142,7 +142,7 @@ const Join = () => {
                 <div id="login_container">
                     <div id='emailcontainer'>
                         <input type="text" value={user_email} onChange={handleUseremailChange} placeholder="Email" id="id" className="account"></input>
-                        <button className="underline-btn" onClick={handleCheckEmail}>중복확인</button>
+                        <button id="underline-btn" onClick={handleCheckEmail}>중복확인</button>
                         <div>{result}</div>
                     </div>
                     <input type="password" value={user_pw} onChange={handleUserPwChange} placeholder="Password" id="password" className="account" />

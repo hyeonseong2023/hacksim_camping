@@ -99,8 +99,10 @@ const Login = ({ }) => {
             <div className="main">
                 <h1 className="logo">LOGIN</h1>
                 <div id="login_container">
+                    <div id = 'hjinput_container'>
                     <input type="text" value={loginEmail} onChange={handleUseremailChange} placeholder="Email" id="id" className="account" />
                     <input type="password" value={loginPw} onChange={handleUserPwChange} placeholder="Password" id="password" className="account" />
+                    </div>
                     <button onClick={handleLogin} id="login" className="account">login</button>
                     <p id="alert" className="account"> </p>
                     <hr />
