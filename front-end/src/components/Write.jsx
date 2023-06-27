@@ -5,6 +5,7 @@ import point from "../cursor3.png"
 import { TagContext } from '../context/TagContext';
 import TagForm from "./TagForm"
 import displayImg from "../checked.png"
+import { useNavigate } from 'react-router-dom';
 
 const Write = () => {
 
@@ -21,6 +22,7 @@ const Write = () => {
 	const [story_img, setStory_img] = useState(null);
 	const user_email = (localStorage.getItem('user_email'));
 
+	const nav = useNavigate();
 
 	// 클릭한 위치 px좌표
 	const [cPosX, setCPosX] = useState(0);
@@ -112,7 +114,7 @@ const Write = () => {
 
 	// 글 작성하기
 	const handleSubmit = (e) => { // 글올리기 요청
-		e.preventDefault();
+		// e.preventDefault();
 		// const requestData ={
 		//    story_title : story_title,
 		//    story_writer : story_writer,
@@ -147,10 +149,12 @@ const Write = () => {
 		// alert('통신 성공!')
 			console.log(res)
 			alert("글 올리기 성공!")
+			nav('/')
 		})
 		.catch((e) => {
 			alert('통신 실패')
 		})
+		nav('/')
 	}
 
 

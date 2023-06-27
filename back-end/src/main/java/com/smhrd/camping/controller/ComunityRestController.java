@@ -40,13 +40,27 @@ public class ComunityRestController {
 	}
 	
 	
-//	@GetMapping("/api/getTags/{story_idx}")
+//	@GetMapping("/comunity/{story_idx}")
 //	public JSONObject ComunityListOne(@PathVariable("story_idx")int story_idx) {
 //		System.out.println("controller" + story_idx);
 //		JSONObject obj = service.ComunityListOne(story_idx);		
 //		return obj;
 //	}
-
+	
+//상세 게시물 조회
+	@GetMapping("/comunity/{idx}")
+	public ResponseEntity<Comunity> ComunityOne(@PathVariable("idx") int idx) {
+		Comunity comunity = service.ComunityOne(idx);
+		if(comunity != null) {
+			System.out.println("성공");
+			return ResponseEntity.ok(comunity);
+		}
+		else {
+			System.out.println("실패");
+			return ResponseEntity.notFound().build();
+		}
+	}
+	
 	// 게시판 내림차순
 	@GetMapping("/comunity/listDesc/{num}")
 	public JSONArray ComunityListDesc(@PathVariable("num") int page) {
@@ -61,19 +75,7 @@ public class ComunityRestController {
 		return service.ComunityListDescCount();
 	}
 
-	//상세 게시물 조회
-	@GetMapping("/comunity/{idx}")
-	public ResponseEntity<Comunity> ComunityOne(@PathVariable("idx") int idx) {
-		Comunity comunity = service.ComunityOne(idx);
-		if(comunity != null) {
-			System.out.println("성공");
-			return ResponseEntity.ok(comunity);
-		}
-		else {
-			System.out.println("실패");
-			return ResponseEntity.notFound().build();
-		}
-	}
+	
 		
 
 	

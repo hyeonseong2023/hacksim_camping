@@ -13,7 +13,7 @@ const ContentDetail = ({tableMarginTB, contentImgHeight, contentImgWidth, tableW
 	
 	//  링크 가져오기
 	 const story_idx = `${idx}`
-const [link,setLink] = useState('');
+	 const [link,setLink] = useState('');
 	
 
 
@@ -98,11 +98,14 @@ const [link,setLink] = useState('');
 
 					<tr >
 						<th>내용</th>
-						<td >오늘 캠핑 다녀 왔어요~</td>
+						<td >{comunity &&comunity.story_content}</td>
 					</tr>
 					<tr>
 						<td></td>
-						<td>{/* 링크 가져오기 */}
+						<td>
+							{/* {link >0 && link.map((item)=>{
+								return <a target='_black' href={item}>제품 구경하러 가기</a>
+							})} */}
 							<a target='_blank' href={link}>제품 구경하러 가기</a>
 							</td>
 						<td></td>
