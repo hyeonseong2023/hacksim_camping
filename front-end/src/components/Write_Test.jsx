@@ -13,19 +13,20 @@ const BoardCreate = () => {
   const nav = useNavigate();
 
   const handleSubmit = () => {
-    
+
     const formData = new FormData();
     formData.append('story_title', story_title);
     formData.append('story_content', story_content);
     formData.append('story_category', story_category);
     formData.append('user_email', user_email);
-    
+
     for (let i = 0; i < story_img.length; i++) {
       formData.append('story_img', story_img[i]);
     }
 
     axios
       .post('http://172.30.1.43:8088/gocamping/comunity/write', formData)
+      // .post('http://172.30.1.9:8088/gocamping/comunity/write', formData)
       .then((res) => {
         console.log(res.data);
         alert('등록되었습니다.');
@@ -33,15 +34,15 @@ const BoardCreate = () => {
         setStoryB_Content('');
         setStory_img([]);
         setPreviewImages([]);
-		setStory_category('');
-		setUser_email('');
-		
-		
+        setStory_category('');
+        setUser_email('');
+
+
       })
       .catch((error) => {
         console.error(error);
         alert('Error!');
-		console.log(formData);
+        console.log(formData);
       });
   };
 
@@ -77,27 +78,27 @@ const BoardCreate = () => {
           <label>제목 : </label>
           <input
             type="text"
-            
+
             value={story_title}
             onChange={(e) => setStoryB_Title(e.target.value)}
             placeholder="제목을 입력하세요"
           />
         </div>
 
-		<div>
-			<label>작성자 :</label>
-			<input type="text" value={user_email} onChange={(e)=> setUser_email(e.target.value)} />
-		</div>
+        <div>
+          <label>작성자 :</label>
+          <input type="text" value={user_email} onChange={(e) => setUser_email(e.target.value)} />
+        </div>
 
-		<div>
-			<label> 카테고리</label>
-			<input type="text" value={story_category} onChange={(e)=> setStory_category(e.target.value)} />
-		</div>
+        <div>
+          <label> 카테고리</label>
+          <input type="text" value={story_category} onChange={(e) => setStory_category(e.target.value)} />
+        </div>
 
         <div>
           <label>내용 : </label>
           <textarea
-            
+
             value={story_content}
             onChange={(e) => setStoryB_Content(e.target.value)}
             placeholder="내용을 입력하세요"
@@ -108,7 +109,7 @@ const BoardCreate = () => {
           <label htmlFor="b_file">이미지 업로드</label>
           <input
             type="file"
-            
+
             accept="image/*"
             multiple
             onChange={handleImageChange}

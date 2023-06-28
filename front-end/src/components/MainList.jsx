@@ -1,34 +1,47 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Item from './Item';
+import Notice from './Notice';
 
-const MainList = ({comunity, setComunity}) => {
+const MainList = ({ comunity, setComunity }) => {
+ 
+  // const [comunity, setComunity] = useState([]);
 
-    // const [comunity, setComunity] = useState([]);
 
     useEffect(() => {
         axios
-          .get(`http://172.30.1.43:8088/gocamping/comunity`)
+          .get(`http://172.30.1.43:8088/gocamping/comunity`) 
+          // .get(`http://172.30.1.9:8088/gocamping/comunity`)
           .then((res) => {
             console.log('API Response:', res.data);
             setComunity(res.data);
+
+            console.log(typeof comunity);
+
           })
           .catch((error) => {
             console.log('API Error:', error);
           });
       }, []);
+
+
+      
       
       console.log('comunity:', comunity);
+      
   return (
     <div>
-        {comunity.map((item) => {
-
-            return <Item key={item.comunity.story_img} item={item.comunity} idx={item.comunity.story_idx}/>
-        // console.log(comunity.comunity.story_img);    
-        // console.log(comunity.story_title);
-        // return <Item key={comunity.story_img} item={comunity} />;
+      <Notice/>
+    <div id='columns'>
+      {comunity.length > 0 && comunity.map((item) => {
+            console.log('asdf', item.comunity.story_img);
+            return <Item  key={item.comunity.story_idx} item={item.comunity} idx={item.comunity.story_idx}/>
+   
+        })}
         
-})}
+
+
+    </div>
     </div>
   )
 }

@@ -1,0 +1,26 @@
+#update-comtainer{
+    justify-items: center;
+    gap:50px;
+    border: 1px;
+    margin: 10%;
+}
+
+#hs-text{
+font-size: 30px;
+}
+
+hr{
+    width: 100%;
+}
+
+#hs-update {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    gap:10px;
+}
+
+#hs-update button{
+    width: 21%;
+    border-radius: 7px;
+}

@@ -54,12 +54,35 @@
 		</dependency>
 		
 
+
+		<!-- GSON : Java객체 -> JSON문자열로 변환해주는 라이브러리 -->
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.8.5</version>
+		</dependency>
+
+
+		  <!-- <dependency>
+          <groupId>com.googlecode.json-simple</groupId>
+          <artifactId>json-simple</artifactId>
+          <version>1.1.1</version>
+      </dependency> -->
+		
+
+
 		<!--파일 다룰때 사용-->
       <dependency>
           <groupId>commons-io</groupId>
           <artifactId>commons-io</artifactId>
           <version>2.4</version>
       </dependency>
+
+		<dependency>
+          <groupId>commons-fileupload</groupId>
+          <artifactId>commons-fileupload</artifactId>
+		 <version>1.4</version>
+		</dependency>
       
       <!--jstl 사용-->
 		<dependency>
@@ -68,23 +91,15 @@
     <version>1.2</version>
 </dependency>
 
-		
-
-
-	<!--json처리-->
+	 	<!--json처리-->
 		<dependency>
           <groupId>com.googlecode.json-simple</groupId>
           <artifactId>json-simple</artifactId>
           <version>1.1.1</version>
       </dependency>
 
-	<!-- GSON : Java객체 -> JSON문자열로 변환해주는 라이브러리 -->
-		<dependency>
-		    <groupId>com.google.code.gson</groupId>
-		    <artifactId>gson</artifactId>
-		    <version>2.8.5</version>
-		</dependency>
 	</dependencies>
+
 
 	<build>
 		<plugins>

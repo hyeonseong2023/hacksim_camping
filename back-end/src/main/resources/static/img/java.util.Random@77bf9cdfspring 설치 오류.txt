@@ -1,0 +1,14 @@
+An error occurred while collecting items to be installed
+session context was:(profile=epp.package.jee, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+Problems downloading artifact: osgi.bundle,org.bouncycastle.bcprov,1.72.0.v20221013-1810.
+Error reading signed content:C:\Users\smhrd\AppData\Local\Temp\signatureFile17360954420833866573.jar
+An error occurred while processing the signatures for the file: C:\Users\smhrd\AppData\Local\Temp\signatureFile17360954420833866573.jar
+
+
+
+
+An error occurred while collecting items to be installed
+session context was:(profile=epp.package.jee, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+Problems downloading artifact: osgi.bundle,org.bouncycastle.bcprov,1.72.0.v20221013-1810.
+Error reading signed content:C:\Users\          \AppData\Local\Temp\signatureFile11133674121776815823.jar
+An error occurred while processing the signatures for the file:C:\Users\          \AppData\Local\Temp\signatureFile11133674121776815823.jar

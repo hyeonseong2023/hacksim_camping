@@ -1,6 +1,5 @@
 package com.smhrd.camping.service;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -8,35 +7,41 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.Gson;
-import com.smhrd.camping.converter.ImageConverter;
-import com.smhrd.camping.converter.ImageToBase64;
 import com.smhrd.camping.domain.Category;
 import com.smhrd.camping.domain.Comment;
 import com.smhrd.camping.domain.Comunity;
+import com.smhrd.camping.domain.Tags;
 import com.smhrd.camping.mapper.CampingMapper;
 
 
 @Service
 public class ComunityService {
-	
+	//mapper 의존성 주입
 	@Autowired
 	private CampingMapper mapper;
+	
 	
 	@Autowired
 	private ResourceLoader resourceLoader;
 	
+
+//	private static final String UPLOAD_DIRECTORY ="static/img"; 리액트 웹에서 접근 가능한 경로
+	
+	//상품 카테고리 스텝
+
 	private static final String UPLOAD_DIRECTORY ="static/img"; //리액트 웹에서 접근 가능한 경로
 	
+
 	public String CategoryStep() {
 		List<Category> clist = mapper.CategoryStep();
 		
@@ -59,54 +64,18 @@ public class ComunityService {
 		return jsonArr;
 	}
 	
-	public String CommentList() {
-		List<Comment> comment_list = mapper.CommentList();
-		
-		Gson gson = new Gson();
-		
-		String comment_json = gson.toJson(comment_list);
-		
-		return comment_json;
-	}
+
 	
+	//게시판 게시물 목록 조회
+
 	public JSONArray ComunityList() {
 		List<Comunity> list = mapper.ComunityList();
-		
-		//list(Product-> img (파일이름만 가지고 있음, 실제 파일x)
-		//Product -> img(파일이름-dress1.jpeg) -> 실제 파일 가지고 오기(static/img/...)
-		//파일을 응답해줄 떄 (파일의 형태가 중요 : byte형태로 변환 해야함!)
-		//Product 의 img 필드 값을 이미지를 바이트 문자열 형태로 바꾼걸로 수정!
-				
-		//JsonArray 에 JsonObject가 들어있는 형식으로 응답
-		//List -> JsonArray
-		
+
 		JSONArray jsonArray = new JSONArray();
-//		ImageConverter<File, String> converter = new ImageToBase64();
-		//Comunity -> JsonObject
+
 		for(Comunity c: list) {
-			System.out.println(c.getStory_content()+ c.getStory_title());
-			//1. img 필드값 수정( 파일이름 -> 이미지 바이트 문자열 형태)
-			//-1. 변환할 파일 실제 경로 정의
-			
-			
-			
-			
-			
-			
-			
-//			String filepath = "classpath:/static/img"+c.getStory_img();
-//			Resource resource = resourceLoader.getResource(filepath);
-//			String fileStringValue = null;
-//			try {
-//			fileStringValue= converter.convert(resource.getFile());
-//		}catch(IOException e) {
-//				e.printStackTrace();
-//			}
-//			
-//			c.setStory_img(fileStringValue);
-			
-			
-			//2. Comunity -> JsonObject(key:value) 변환
+//			System.out.println(c.getStory_content()+ c.getStory_title());
+
 			JSONObject obj = new JSONObject(); //비어있는 json object 생성
 			obj.put("comunity", c); //비어있는 object에 값을 추가한 것 
 			
@@ -115,28 +84,73 @@ public class ComunityService {
 		return jsonArray;
 	}
 	
-	public JSONObject ComunityOne(int idx) {
-		Comunity comunity = mapper.ComunityOne(idx);
-		JSONObject obj = new JSONObject();
-		ImageConverter<File, String> converter = new ImageToBase64();
-		String filepath = "src/main/resources/" + UPLOAD_DIRECTORY +comunity.getStory_img();
-		Resource resource = resourceLoader.getResource(filepath);
-		String fileStringValue = null;
-		try {
-		fileStringValue= converter.convert(resource.getFile());
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
-		
-		comunity.setStory_img(fileStringValue);
-		//2. Comunity -> JsonObject(key:value)변환
-		obj.put("comunity", comunity);
-		
-		return obj;
-		
-		
+
+	//상세 게시물 조회
+	public Comunity ComunityOne(int idx) {
+		return mapper.ComunityOne(idx);	
 	}
 	
+	public JSONObject ComunityListOne(int story_idx) {
+		Comunity comunity = mapper.ComunityListOne(story_idx);
+//		JSONArray jsonArray = new JSONArray();
+		JSONObject obj = new JSONObject(); //비어있는 json object 생성
+		
+		if(comunity!=null) {
+			obj.put("comunity", comunity);	
+		}
+		return obj;		
+	}
+	
+	
+	// 게시판 내림차순
+	public JSONArray ComunityListDesc(int page) {
+		List<Comunity> list = mapper.ComunityListDesc(page);
+		JSONArray jsonArray = new JSONArray();
+		for(Comunity c: list) {
+//			System.out.println(c.getStory_content()+ c.getStory_title());
+			JSONObject obj = new JSONObject(); //비어있는 json object 생성
+			obj.put("comunity", c); //비어있는 object에 값을 추가한 것 
+			
+			jsonArray.add(obj); 
+		}
+		return jsonArray;		
+	}
+	
+	// 게시판 내림차순 갯수
+	public int ComunityListDescCount() {
+		return mapper.ComunityListDescCount();
+	}
+	
+	//댓글 작성
+
+	// 좋아요 높은 순으로 불러오기
+	public JSONArray LoadCommunityLike() {
+		List<Comunity> list = mapper.LoadCommunityLike();
+		JSONArray jsonArray = new JSONArray();
+		for (Comunity c : list) {
+			JSONObject obj = new JSONObject();
+			obj.put("comunity", c);
+			jsonArray.add(obj);
+		}
+		return jsonArray;		
+	}
+	
+	// 조회수 높은 순으로 불러오기
+	public JSONArray LoadCommunityView() {
+		List<Comunity> list = mapper.LoadCommunityView();
+		JSONArray jsonArray = new JSONArray();
+		for (Comunity c : list) {
+			JSONObject obj = new JSONObject();
+			obj.put("comunity", c);
+			jsonArray.add(obj);
+		}
+		return jsonArray;		
+	}
+	
+	
+	
+	// 글쓰기 
+
 	public Comunity write(String story_title, String story_content, List<MultipartFile> file, String user_email , String story_category) {
 		Comunity comunity = new Comunity();
 		comunity.setStory_title(story_title);
@@ -159,6 +173,11 @@ public class ComunityService {
 		mapper.write(comunity);
 		
 		return comunity;
+	}
+	
+
+	public int addTags(Tags tag) {
+		return mapper.addTags(tag);
 	}
 	
 	//이미지 파일 저장하기
@@ -190,14 +209,20 @@ public class ComunityService {
 //	}
 	
 	
-	
+
+	//파일 저장
+
+	// 불러온 파일을 변환
+
 	public String saveFile(MultipartFile file) {
 		Random rd = new Random();
 		String url = rd.toString();
 		//파일 저장
 		//예시: 원본 파일의 확장자를 유지하여 저장하는 방식
 		String originalFileName = file.getOriginalFilename(); //원본파일 이름
-		String fileName = url.toString() + (originalFileName); //임의의 파일 이름 + 확장자
+
+		String fileName = UUID.randomUUID().toString() + getExtension(originalFileName); //임의의 파일 이름 + 확장자
+
 		String directoryPath = "src/main/resources/static/img"; //파일이 저장될 디렉토리 경로
 //		private static final String UPLOAD_DIRECTORY ="static/img";
 		try {
@@ -231,16 +256,54 @@ public class ComunityService {
 	}
 	
 
-	public int comment(Comment m) {
-		// TODO Auto-generated method stub
-		return mapper.comment(m);
+	//댓글 작성
+	public int comment(int idx, String cmt_content, String user_email) {
+		Comment cmt = new Comment();
+		cmt.setStory_idx(idx);
+		cmt.setCmt_content(cmt_content);
+		cmt.setUser_email(user_email);
+		int result = mapper.comment(cmt);
+		return result;
 	}
 	
-	public List<Comunity> searchComunity(String search){
-		return mapper.searchComunity(search);
+
+	
+	//댓글 목록 조회
+	public List<Comment> CommentList(int idx) {
+		System.out.println("service" +idx);
+		List<Comment> comment_list = mapper.CommentList(idx);
+		System.out.println("service" +comment_list);
+//		Gson gson = new Gson();
+//		
+//		String comment_json = gson.toJson(comment_list);
+		
+		
+		return comment_list;
 	}
 	
+	// 게시물 검색
+	// public List<Comunity> searchComunity(String search){
+	// 	return mapper.searchComunity(search);
+	// }
+
+
+	//댓글 삭제
+	public int CommentDelete(int cmt_idx, String user_email) {
+		System.out.println("serivce"+ user_email);
+		
+		return mapper.CommentDelete(cmt_idx, user_email);
+	}
+
+    public List<Comunity> searchComunity(String query) {
+        return mapper.searchComunity(query);
+    }
+
 	
+ // ComunityService.java에 코드 추가
+    public List<Comunity> sortedComunity(String mode) {
+      return mapper.sortedComunity(mode);
+    }
+
 	
 
 }
